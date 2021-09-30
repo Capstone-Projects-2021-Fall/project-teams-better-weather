@@ -3,8 +3,7 @@ import random
 
 app = Flask(__name__)
 
-@app.route('/current')
-def get_current():
-  return {'current': random.randint(0, 100)}
-
+@app.route('/currently')
+def get_currently():
+  return {'currentTemp': random.randint(0, 100)}
 

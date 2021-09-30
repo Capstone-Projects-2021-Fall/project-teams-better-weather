@@ -5,7 +5,7 @@ function App() {
   const [currentTemp, setCurrentTemp] = useState(0); 
 
   useEffect(() => {
-    fetch('/currently').then(res => res.json()).then(data => {
+    fetch('/api/currently').then(res => res.json()).then(data => {
       setCurrentTemp(data.currentTemp);
     });
   }, []);

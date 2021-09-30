@@ -1,9 +1,13 @@
 # Better Weather
 
 ```
-# Run app in development mode
+cd api 
+python3 -m venv env
+pip install -r requirements.txt
+
+# Start react app
 npm start
 
-# Build app for production
-npm run build
+# Then flask on another terminal
+npm run start-api
 ```

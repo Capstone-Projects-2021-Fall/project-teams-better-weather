@@ -2,7 +2,7 @@
 
 
 
-# ALgorithm 
+# Algorithm 
 The prediction algorithm will be created off of the following attributes:   
 * Temperature (F)
 * Percipitation (mm)
@@ -28,3 +28,7 @@ The weather condition will be the main predicted outcome, but we will be predict
 Philadelphia, San Fransisco, Los Angeles, and Austin : 01/01/2010 - 12/31/2010 - hourly can be found in resources folder. 
 
 *If money were no option, this is the best source of data avbailable: [Metromatics](https://www.meteomatics.com/en/)
+
+# Computational Nueral Network
+
+https://www.sciencedirect.com/science/article/pii/S2666827020300074?via%3Dihub#fig1 

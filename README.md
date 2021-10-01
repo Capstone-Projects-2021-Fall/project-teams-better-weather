@@ -25,4 +25,6 @@ The weather condition will be the main predicted outcome, but we will be predict
 [Philadelphia](https://www.wunderground.com/history/daily/KPHL/date/2016-9-30) : 9/30/2019 - one day hourly   
 [Philadelphia](https://www.wunderground.com/history/daily/KPHL/date/2016-9-30) : 9/30/2020 - one day hourly   
 
+Philadelphia, San Fransisco, Los Angeles, and Austin : 01/01/2010 - 12/31/2010 - hourly can be found in resources folder. 
+
 *If money were no option, this is the best source of data avbailable: [Metromatics](https://www.meteomatics.com/en/)

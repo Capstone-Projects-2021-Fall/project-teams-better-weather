@@ -1,5 +1,5 @@
 import React from 'react';
-import './weather.css';
+import './style/weather.css';
 import { Card } from 'semantic-ui-react' //Semantic UI is a library to design the interface
 
 const CardExampleCard = ({weatherData}) => (  //child component of app.js

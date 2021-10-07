@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import './style/App.css';
+import Weather from './components/weather'
 
 function App() {
   const [currentTemp, setCurrentTemp] = useState(0); 
@@ -15,6 +16,12 @@ function App() {
       <header className="App-header">
         <b>Better Weather</b>
         <p>The current temperature is {currentTemp}</p>
+
+        {(typeof currentTemp != 'undefined') ? (
+        <Weather weatherData={currentTemp}/>
+      ): (
+        <div></div>
+      )}
       </header>
     </div>
   );

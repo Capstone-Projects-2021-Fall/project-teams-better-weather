@@ -1,5 +1,5 @@
 import React, {useState, useEffect } from 'react';
-import './App.css';
+import './style/App.css';
 
 function App() {
   const [currentTemp, setCurrentTemp] = useState(0); 

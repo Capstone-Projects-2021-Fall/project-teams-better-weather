@@ -1,11 +1,16 @@
 import React from 'react';
-//import './style/weather.css';
+import '../style/Weather.css';
 import { Card } from 'semantic-ui-react' //Semantic UI is a library to design the interface
 
-const CardExampleCard = ({weatherData}) => (  //child component of app.js
+//<p className="weather-info">Temperature{weatherData.name}</p>  //needed when implenting with API
+
+const CardExampleCard = ({weatherData, location}) => (  //child component of app.js
   <Card>
     <Card.Content>
-        <Card.Header className="header">{weatherData.name}</Card.Header>
+        <Card.Header className="header">City Name: {location}</Card.Header>
+        <p className="weather-info">Temperature: {weatherData}</p>
+        <p className="weather-info">Wind: </p>
+        <p className="weather-info">Preciptation: </p>
     </Card.Content>
   </Card>
 )

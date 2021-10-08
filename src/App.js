@@ -20,8 +20,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <b>Better Weather</b>
-        <p>The current temperature is {currentTemp}</p>
-
         {(typeof currentTemp != 'undefined') ? (
             <Weather weatherData={currentTemp}/>
           ):(

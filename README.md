@@ -32,3 +32,26 @@ Philadelphia, San Fransisco, Los Angeles, and Austin : 01/01/2010 - 12/31/2010 -
 # Computational Nueral Network
 
 https://www.sciencedirect.com/science/article/pii/S2666827020300074?via%3Dihub#fig1 
+
+
+## Set up environment
+```
+# Create virtual environment
+cd api 
+python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+
+# To deactivate virtual env
+deactivate
+```
+
+## Start development
+```
+# Start react app
+npm start
+
+# Then flask on another terminal
+npm run start-api
+```
+

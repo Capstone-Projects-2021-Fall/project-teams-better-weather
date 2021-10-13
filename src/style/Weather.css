@@ -24,6 +24,12 @@ main {
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.2),
-    rgba(0, 0, 0, 0.75)
+    rgba(0, 0, 0, 0.7)
   );
+  padding: 25px;
+}
+
+.search-box {
+  width: 100%;
+  margin: 0 auto 75px;
 }

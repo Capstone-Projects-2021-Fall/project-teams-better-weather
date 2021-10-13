@@ -2,10 +2,6 @@ import React from 'react';
 
 import Weather from './components/Weather';
 
-const api = {
-    key: "2292aca2fd8419dfc5d684db85f58a36",
-    base: "https://api.openweathermap.org/data/2.5/"
-}
 
 function App() {
   //const [currentTemp, setCurrentTemp] = useState(0);

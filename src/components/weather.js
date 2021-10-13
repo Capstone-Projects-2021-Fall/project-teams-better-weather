@@ -1,5 +1,6 @@
 import React from 'react';
 import '../style/Weather.css';
+import CurrentDate from './CurrentDate';
 //import { Card } from 'semantic-ui-react' //Semantic UI is a library to design the interface
 
 //<p className="weather-info">Temperature{weatherData.name}</p>  //needed when implenting with API
@@ -19,6 +20,12 @@ function currentWeather(){
             className="search-bar"
             placeholder="Search"
           />
+        </div>
+        <div className="location-box">
+          <div className="location">Philadelphia</div>
+          <div className="date">
+            <CurrentDate />
+          </div>
         </div>
       </main>
     </div>

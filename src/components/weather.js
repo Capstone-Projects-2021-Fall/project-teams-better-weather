@@ -27,18 +27,3 @@ function currentWeather(){
 }
 
 export default currentWeather;
-
-/*
-const CardExampleCard = ({weatherData, location}) => (  //child component of app.js
-  <Card>
-    <Card.Content>
-        <Card.Header className="header">City Name: {location}</Card.Header>
-        <p className="weather-info">Temperature: {weatherData}</p>
-        <p className="weather-info">Wind: </p>
-        <p className="weather-info">Preciptation: </p>
-    </Card.Content>
-  </Card>
-)
-
-export default CardExampleCard;
-*/

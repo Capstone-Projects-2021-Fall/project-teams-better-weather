@@ -6,7 +6,7 @@ import './style/Weather.css';  //change into App.css
 
 const api = {
   key: "2292aca2fd8419dfc5d684db85f58a36",
-  base: "https://api.openweathermap.org/data/2.5/"
+  base: "https://api.openweathermap.org/data/2.5/"  //for search
 }
 
 function App() {
@@ -25,8 +25,9 @@ function App() {
   }, []);
   */
 
-  const [query, setQuery] = useState('');
-  const [weather, setWeather] = useState({});
+  //All from Open Weather API
+  const [query, setQuery] = useState('');  //The city name
+  const [weather, setWeather] = useState({});  //Current weather temp info
 
   const search = evt => {
     if (evt.key === "Enter") {
@@ -42,7 +43,6 @@ function App() {
 
   return (
   <div className='App-header'>
-    <h1>Better Weather</h1>
 
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app')
       : 'app'}>
@@ -61,18 +61,24 @@ function App() {
           <div>
             <div className="location-box">
               <div className="location">{weather.name}, {weather.sys.country}</div>
-                  <div className="date">
-                      <CurrentDate />
-                    </div>
+                <div className="date">
+                  <CurrentDate />
+                </div>                
             </div>
-            <div className="weather-box">
+            <div className="weather-box">              
               <div className="temp">
                   {Math.round(weather.main.temp)}°C
+                  <div className="weather">{weather.weather[0].main}</div>                  
               </div>
-              <div className="weather">{weather.weather[0].main}</div>
             </div>
           </div>
         ) : ('')}
+
+        <div className="hourly-temp-box">
+          <div className="time-frame">
+            *Hourly Temps Here*
+          </div>
+        </div>
       </main>
     </div>
   </div>

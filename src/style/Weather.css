@@ -12,7 +12,7 @@ body {
   background-image: url("../img/blue-gradient.jpg");
   background-size: cover;
   background-position: bottom;
-  transition: 0.4 ease-out;
+  transition: all 1.5s ease-in-out;
 }
 
 .app.warm {

@@ -10,14 +10,14 @@ const api = {
 }
 
 function App() {
-  //const [currentTemp, setCurrentTemp] = useState(0);
-  
-  //To be used later
-  /*const [cityName, setCityName] = useState("Philadelphia")
-  const [rain, setRain] = useState(3)
-  const [wind, setWind] = useState(4)*/
-
   /*
+  const [currentTemp, setCurrentTemp] = useState(0);
+  
+  To be used later
+  const [cityName, setCityName] = useState("Philadelphia")
+  const [rain, setRain] = useState(3)
+  const [wind, setWind] = useState(4)
+
   useEffect(() => {
     fetch('/api/currently').then(res => res.json()).then(data => {
       setCurrentTemp(data.currentTemp);
@@ -25,7 +25,7 @@ function App() {
   }, []);
   */
 
-  //All from Open Weather API
+  // All from Open Weather API
   const [query, setQuery] = useState('');  //The city name
   const [weather, setWeather] = useState({});  //Current weather temp info
 
@@ -40,6 +40,7 @@ function App() {
       });
     }
   }
+  //console.log(weather);
 
   return (
   <div className='App-header'>
@@ -47,6 +48,7 @@ function App() {
     <div className={(typeof weather.main != "undefined") ? ((weather.main.temp > 16) ? 'app warm' : 'app')
       : 'app'}>
       <main>
+
         <div className="search-box">
           <input
             type="text"
@@ -57,6 +59,7 @@ function App() {
             onKeyPress={search}
           />
         </div>
+
         {(typeof weather.main != "undefined") ? (
           <div>
             <div className="location-box">
@@ -84,8 +87,10 @@ function App() {
             *Hourly Temps Here*
           </div>
         </div>
+
       </main>
     </div>
+
   </div>
   );
 }

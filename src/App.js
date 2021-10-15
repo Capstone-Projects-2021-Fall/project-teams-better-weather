@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import CurrentDate from './components/CurrentDate';
 import './style/Weather.css';  //change into App.css
-
+import sun from './icons/sun/26.png';  //Make component to change icons based on weather.weather[0]
 
 const api = {
   key: "2292aca2fd8419dfc5d684db85f58a36",
@@ -64,6 +64,11 @@ function App() {
                 <div className="date">
                   <CurrentDate />
                 </div>                
+            </div>
+            <div className="weather-icon-box">
+              <div className="icons">
+                <img src={sun} height={250} width={250} alt='Sun icon'/>
+              </div>
             </div>
             <div className="weather-box">              
               <div className="temp">

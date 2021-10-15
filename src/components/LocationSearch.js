@@ -1,39 +1,30 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 
-class LocationSearch extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      userInput: '', // This might be useful for autocomplete later?
-    }
-    this.handleInputChange= this.handleInputChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+function LocationSearch(props) {
+  const [userInput, setUserInput] = useState("");
 
-  handleInputChange(e) {
-    this.setState({userInput: e.target.value});
+  function handleInputChange(e) {
+    setUserInput(e.target.value);
     console.log("User input: ", e.target.value);
   }
 
-  handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    this.props.onLocationSubmit(this.state.userInput);
+    props.onLocationSubmit(userInput);
+    console.log("Handle submit: ", userInput);
   }
 
-  render() {
-    const userInput = this.state.userInput;
-    return ( 
-      <div>
-        <form onSubmit={this.handleSubmit}> 
-          <input 
-            type="text"
-            value={userInput} 
-            onChange={this.handleInputChange} />
-          <input type="submit"/>
-        </form>
-      </div>
-    );
-  }
+  return ( 
+    <div>
+      <form onSubmit={handleSubmit}> 
+        <input 
+          type="text"
+          value={userInput} 
+          onChange={handleInputChange} />
+        <input type="submit"/>
+      </form>
+    </div>
+  );
 }
 
 export default LocationSearch;

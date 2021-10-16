@@ -10,6 +10,9 @@ pip install -r requirements.txt
 
 # To deactivate virtual env
 deactivate
+
+# Install node modules
+npm install
 ```
 
 ## Start development

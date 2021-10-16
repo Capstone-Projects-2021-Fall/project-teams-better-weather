@@ -11,13 +11,6 @@ const api = {
 
 function App() {
   /*
-  const [currentTemp, setCurrentTemp] = useState(0);
-  
-  To be used later
-  const [cityName, setCityName] = useState("Philadelphia")
-  const [rain, setRain] = useState(3)
-  const [wind, setWind] = useState(4)
-
   useEffect(() => {
     fetch('/api/currently').then(res => res.json()).then(data => {
       setCurrentTemp(data.currentTemp);
@@ -25,9 +18,8 @@ function App() {
   }, []);
   */
 
-  // All from Open Weather API
-  const [query, setQuery] = useState('');  //The city name
-  const [weather, setWeather] = useState({});  //Current weather temp info
+  const [query, setQuery] = useState(''); 
+  const [weather, setWeather] = useState({}); 
 
   const search = evt => {
     if (evt.key === "Enter") {
@@ -40,7 +32,6 @@ function App() {
       });
     }
   }
-  //console.log(weather);
 
   return (
   <div className='App-header'>

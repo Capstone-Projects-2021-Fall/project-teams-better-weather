@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
-import CurrentDate from './CurrentDate.js'
+import React, {useState, setState} from 'react';
+import CurrentDate from './CurrentDate.js';
+import WeatherIcons from './WeatherIcons.js';
+
 import '../style/Weather.css';
 import sun from '../icons/sun/26.png';  //Make component to change icons based on weather.weather[0] (weather type)
 
@@ -25,6 +27,7 @@ function CurrentWeather(){
       .then(result => {
         setWeather(result);
         setQuery('');
+
         console.log(weather);
       });
     }
@@ -54,7 +57,8 @@ function CurrentWeather(){
             </div>
             <div className="weather-icon-box">
               <div className="icons">
-                <img src={sun} height={250} width={250} alt='Sun icon'/>
+                
+                <WeatherIcons icons={weather.weather[0]} />
               </div>
             </div>
             <div className="weather-box">              

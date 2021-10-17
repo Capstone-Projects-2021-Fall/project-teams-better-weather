@@ -1,5 +1,6 @@
-from flask import Flask
 import random
+from flask import Flask
+from s3connect import fetch_data
 
 BUCKET = "bw-preds"
 

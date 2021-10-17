@@ -57,7 +57,6 @@ function CurrentWeather(){
             </div>
             <div className="weather-icon-box">
               <div className="icons">
-                
                 <WeatherIcons icons={weather.weather[0]} />
               </div>
             </div>

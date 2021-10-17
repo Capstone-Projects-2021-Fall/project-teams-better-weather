@@ -1,9 +1,8 @@
-import React, {useState, setState} from 'react';
+import React, {useState} from 'react';
 import CurrentDate from './CurrentDate.js';
 import WeatherIcons from './WeatherIcons.js';
 
 import '../style/Weather.css';
-import sun from '../icons/sun/26.png';  //Make component to change icons based on weather.weather[0] (weather type)
 
 //import { Card } from 'semantic-ui-react' //Semantic UI is a library to design the interface
 

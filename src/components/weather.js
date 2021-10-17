@@ -6,7 +6,6 @@ import React from 'react';
 function currentWeather(props){
   
   return <div>hello</div>
-  
 }
 
 export default currentWeather;

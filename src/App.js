@@ -19,12 +19,24 @@ function App() {
     console.log("Submitted location: ", location);
   }
   
+  /* 
   useEffect(() => {
     fetch(`${api.base}weather?q=${location}&units=metric&APPID=${api.key}`)
       .then(res => res.json())
-      .then(result => {
-        setWeather(result);
+      .then(data => {
+        setWeather(data);
         console.log(weather);
+    });
+  }, [location]);
+  */
+
+  const[hourly, setHourly] = useState({});
+  useEffect(() => {
+    fetch("api/hourly/")
+      .then(res => res.json())
+      .then(data => {
+        setHourly(data);
+        console.log(hourly);
     });
   }, [location]);
 

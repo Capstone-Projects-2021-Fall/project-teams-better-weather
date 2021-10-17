@@ -10,7 +10,8 @@ app = Flask(__name__)
 def get_currently():
   return {'currentTemp': random.randint(0, 100)}
 
-@app.route('/api/hourly')
-def get_hourly(location):
+@app.route('/api/hourly/', methods=['GET'])
+def get_hourly():
+  location = (-74.006, 40.7143)
   hourly = fetch_data(BUCKET, location)
   return hourly

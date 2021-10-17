@@ -1,5 +1,6 @@
 import os
 import json
+import random
 import boto3
 from botocore.exceptions import ClientError
 
@@ -7,11 +8,8 @@ def fetch_data(bucket, location):
   """
   Fetch hourly weather data from S3
   """
-  client = boto3.client('s3',
-    aws_access_key_id=os.environ['AWS_KEY_ID'],
-    aws_secret_access_key=os.environ['AWS_SECRET_KEY']
-  )  
-  key = f"{location}.json"
+  client = boto3.client('s3')  
+  key = f"{location[0]}{location[1]}.json"
   if check_exists(client, bucket, key):
     response = client.get_object(Bucket=bucket, Key=key)
   else:
@@ -31,12 +29,10 @@ def upload_data(bucket, location):
   """
   Upload prediction from model to S3
   """
-  client = boto3.client('s3',
-    aws_access_key_id=os.environ['AWS_KEY_ID'],
-    aws_secret_access_key=os.environ['AWS_SECRET_KEY']
-  )  
+  client = boto3.client('s3')  
+  key = f"{location[0]}{location[1]}.json"
   out = get_prediction(location)
-  client.put_object(Body=out, Bucket=bucket, Key=f"{location}.json")
+  client.put_object(Body=out, Bucket=bucket, Key=key)
 
 def get_prediction(location):
   """

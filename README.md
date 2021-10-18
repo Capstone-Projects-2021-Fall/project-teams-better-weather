@@ -1,5 +1,5 @@
 # Better Weather
-To access our site follow this [link]. (http://18.234.149.24:3000/)
+To access our site follow this [link](http://18.234.149.24:3000/).
 
 ## Set up environment
 ```

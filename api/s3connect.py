@@ -3,16 +3,16 @@ import random
 import boto3
 from botocore.exceptions import ClientError
 
-def fetch_data(bucket, location):
+def fetch_data(bucket, coord):
   """
   Fetch hourly weather data from S3
   """
   client = boto3.client('s3')  
-  key = f"{location[0]}{location[1]}.json"
+  key = f"{coord[0]}{coord[1]}.json"
   if check_exists(client, bucket, key):
     response = client.get_object(Bucket=bucket, Key=key)
   else:
-    upload_data(bucket, location) 
+    upload_data(bucket, coord) 
     response = client.get_object(Bucket=bucket, Key=key)
   ret = response["Body"].read().decode()
   return ret 
@@ -24,22 +24,22 @@ def check_exists(client, bucket, key):
     return int(e.response['Error']['Code']) != 404
   return True
 
-def upload_data(bucket, location):
+def upload_data(bucket, coord):
   """
   Upload prediction from model to S3
   """
   client = boto3.client('s3')  
-  key = f"{location[0]}{location[1]}.json"
-  out = get_prediction(location)
+  key = f"{coord[0]}{coord[1]}.json"
+  out = get_prediction(coord)
   client.put_object(Body=out, Bucket=bucket, Key=key)
 
-def get_prediction(location):
+def get_prediction(coord):
   """
   Randomly generated predictions for now
   """
   data = {}    
-  data["latitude"] = location[0]
-  data["longitude"] = location[1]
+  data["lon"] = coord[0]
+  data["lat"] = coord[1]
   data["hourly"] = {}
   ret = []
   for i in range(12):

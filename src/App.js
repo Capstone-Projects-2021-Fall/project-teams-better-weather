@@ -13,8 +13,8 @@ function App() {
   const [location, setLocation] = useState('New York');   
   const [weather, setWeather] = useState({}); 
   const [coord, setCoord] = useState({
-    "lon": -74.006,
-    "lat": 40.7143 
+    "lon": -74.006
+    "lat": 40.7143,
   })
   const [hourly, setHourly] = useState({});
 

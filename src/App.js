@@ -27,11 +27,10 @@ function App() {
     });
   }, [location]);
 
-  function background() {
-    if (typeof weather.main != "undefined") {
-      if (weather.main.temp > 16) {
-        return 'app warm';
-      }
+  function background() { // this will be a component some day
+    const state = weather.main
+    if (typeof state != "undefined" && state.temp > 16) {
+      return 'app warm';
     }
     return 'app';
   }

@@ -5,7 +5,7 @@ import HourlyWeather from './components/HourlyWeather.js';
 import './style/Weather.css';
 
 const api = {
-  key: "2292aca2fd8419dfc5d684db85f58a36",
+  key: "2292aca2fd8419dfc5d684db85f58a36", // exposed key!
   base: "https://api.openweathermap.org/data/2.5/"
 }
 
@@ -28,11 +28,9 @@ function App() {
   }, [location]);
 
   function background() { // this will be a component some day
-    const state = weather.main
-    if (typeof state != "undefined" && state.temp > 16) {
-      return 'app warm';
-    }
-    return 'app';
+    const x = weather.main
+    const ret = (typeof x != "undefined" && x.temp > 16)
+    return (ret ? 'app warm' : 'app');
   }
 
   return (

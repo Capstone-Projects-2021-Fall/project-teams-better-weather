@@ -19,7 +19,7 @@ body {
   background-image: url("../img/pink-gradient.jpg");
 }
 
-main {
+.main {
   min-height: 100vh;
   background-image: linear-gradient(
     to bottom,
@@ -31,7 +31,7 @@ main {
 
 .search-box {
   width: 100%;
-  margin: 0 auto 70px;
+  margin: 0 auto 40px;
 }
 
 .search-box .search-bar {
@@ -57,6 +57,10 @@ main {
 
 .search-box .search-bar:focus {
   background-color: rgba(255, 255, 255, 0.9);
+}
+
+.location-box {
+  margin-bottom: 40px;
 }
 
 .location-box .location {

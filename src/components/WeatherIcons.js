@@ -14,54 +14,51 @@ import fogN from '../icons/moon/14.png';
 
 
 function WeatherIcons(props){
-    //console.log("props", props);
-    const {icons} = props;
+  //console.log("props", props);
+  const {icons} = props;
 
-    function setWeatherIcon(type){
-        switch(type){
-            case "01d":
-                return sun;
-            case "01n":
-                return clearNight;
-            case "02d":
-                return fewCloudsD;
-            case "02n":
-                return fewCloudsN;
-            case "03d":
-            case "03n":
-            case "04d":
-            case "04n":
-                return cloud;
-            case "09d":
-            case "09n":
-                return showerRain;
-            case "10d":
-                return rainD;
-            case "10n":
-                return rainN;
-            case "11d":
-            case "11n":
-                return thunderstorm;
-            case "13d":
-            case "13n":
-                return snow;
-            case "50d":
-                return fogD;
-            case "50n":
-                return fogN;
-            
-            default:
-                return null;
-        }
+  function setWeatherIcon(type){
+    switch(type){
+      case "01d":
+        return sun;
+      case "01n":
+        return clearNight;
+      case "02d":
+        return fewCloudsD;
+      case "02n":
+        return fewCloudsN;
+      case "03d":
+      case "03n":
+      case "04d":
+      case "04n":
+        return cloud;
+      case "09d":
+      case "09n":
+        return showerRain;
+      case "10d":
+        return rainD;
+      case "10n":
+        return rainN;
+      case "11d":
+      case "11n":
+        return thunderstorm;
+      case "13d":
+      case "13n":
+        return snow;
+      case "50d":
+        return fogD;
+      case "50n":
+        return fogN;
+      default:
+        return null;
     }
-
-   
-    return(
-        <div>
-            <img src={setWeatherIcon(icons.icon)} height={270} width={300} alt=''/>
-        </div>   
-    );
-
+  }
+ 
+  return(
+    <div>
+      <img src={setWeatherIcon(icons.icon)} height={270} width={300} alt=''/>
+    </div>   
+  );
 }
 
 export default WeatherIcons;

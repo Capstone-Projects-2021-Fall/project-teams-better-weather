@@ -3,7 +3,6 @@ env
 venv
 notes
 *.swp
-set_env_keys.sh
 
 # dependencies
 /node_modules

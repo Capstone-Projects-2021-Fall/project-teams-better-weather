@@ -12,29 +12,36 @@ const api = {
 function App() {
   const [location, setLocation] = useState('New York');   
   const [weather, setWeather] = useState({}); 
+  const [coord, setCoord] = useState({
+    "lon": -74.006,
+    "lat": 40.7143 
+  })
+  const [hourly, setHourly] = useState({});
 
-  function handleLocationSubmit(location) {
-    setLocation(location);
-    console.log("Submitted location: ", location);
-  }
-  
   useEffect(() => {
     fetch(`${api.base}weather?q=${location}&units=metric&APPID=${api.key}`)
       .then(res => res.json())
       .then(data => {
         setWeather(data);
+        setCoord(data["coord"]);
+        //console.log("coord", coord);
         console.log(weather);
     });
   }, [location]);
 
-  const[hourly, setHourly] = useState({});
   useEffect(() => {
-    fetch("api/hourly/").then(res => res.json())
+    fetch(`api/hourly/?coord=${coord["lon"]},${coord["lat"]}`)
+      .then(res => res.json())
       .then(data => {
         setHourly(data);
-        console.log(hourly);
+        console.log("hourly from s3", hourly);
     });
-  }, [location]);
+  }, [coord]);
+
+  function handleLocationSubmit(location) {
+    setLocation(location);
+    console.log("Submitted location: ", location);
+  }
 
   function background() { // this will be a component some day
     const x = weather.main

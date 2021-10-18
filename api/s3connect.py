@@ -8,7 +8,7 @@ def fetch_data(bucket, coord):
   Fetch hourly weather data from S3
   """
   client = boto3.client('s3')  
-  key = f"{coord[0]}{coord[1]}.json"
+  key = f"{coord[0]},{coord[1]}.json"
   if check_exists(client, bucket, key):
     response = client.get_object(Bucket=bucket, Key=key)
   else:
@@ -29,7 +29,7 @@ def upload_data(bucket, coord):
   Upload prediction from model to S3
   """
   client = boto3.client('s3')  
-  key = f"{coord[0]}{coord[1]}.json"
+  key = f"{coord[0]},{coord[1]}.json"
   out = get_prediction(coord)
   client.put_object(Body=out, Bucket=bucket, Key=key)
 

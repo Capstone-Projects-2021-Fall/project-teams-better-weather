@@ -10,7 +10,7 @@ function HourlyWeather(props) {
     <div className="hourly-temp-box">
       <div className="time-frame">
         <ul> 
-          {data.map((d) => <Hour key={d} data={d} />)}
+          {data.map((d) => <Hour key={d.temperature} data={d} />)}
         </ul>
       </div>
     </div>

@@ -10,22 +10,21 @@ function LocationSearch(props) {
   }
 
   function handleSubmit(e) {
-    e.preventDefault();
-    props.onLocationSubmit(userInput);
-    console.log("Handle submit: ", userInput);
+    if (e.key === "Enter") {
+      props.onLocationSubmit(userInput);
+      console.log("Handle submit: ", userInput);
+    }
   }
 
   return ( 
     <div className="search-box">
-      <form onSubmit={handleSubmit}> 
         <input 
           type="text"
           className="search-bar"
           placeholder="Search location"
           value={userInput} 
-          onChange={handleInputChange} />
-        <input type="submit"/>
-      </form>
+          onChange={handleInputChange}
+          onKeyPress={handleSubmit} />
     </div>
   );
 }

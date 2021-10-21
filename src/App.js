@@ -15,8 +15,12 @@ function App() {
   const [coord, setCoord] = useState({
     "lon": -74.006,
     "lat": 40.7143
-  })
-  const [hourly, setHourly] = useState({"hourly": {"data": []}});
+  });
+  const [hourly, setHourly] = useState({
+    "hourly": {
+      "data": []
+    }
+  });
 
   useEffect(() => {
     fetch(`${api.base}weather?q=${location}&units=metric&APPID=${api.key}`)
@@ -28,7 +32,7 @@ function App() {
         console.log(weather);
     });
   }, [location]);
-
+  
   useEffect(() => {
     fetch(`api/hourly/?coord=${coord.lon},${coord.lat}`)
       .then(res => res.json())

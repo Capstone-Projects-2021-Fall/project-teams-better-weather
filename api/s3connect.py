@@ -41,11 +41,12 @@ def get_prediction(coord):
   data["lon"] = coord[0]
   data["lat"] = coord[1]
   data["hourly"] = {}
+  summaries = ["cloudy", "mostly cloudy", "partly cloudy", "clear", "rain", "humid"]
   ret = []
   for i in range(12):
     x = {}
     x["time"] = i 
-    x["summary"] = "bro"
+    x["summary"] = summaries[random.randint(0, len(summaries)-1)]
     x["precipIntensity"] = round(random.uniform(0, 1), 2)
     x["precipProbability"] = round(random.uniform(0, 1), 2)
     x["temperature"] = round(random.uniform(0, 100), 2)

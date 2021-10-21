@@ -24,13 +24,13 @@ function App() {
       .then(data => {
         setWeather(data);
         setCoord(data["coord"]);
-        //console.log("coord", coord);
+        console.log("coord", coord.lon, coord.lat);
         console.log(weather);
     });
   }, [location]);
 
   useEffect(() => {
-    fetch(`api/hourly/?coord=${coord["lon"]},${coord["lat"]}`)
+    fetch(`api/hourly/?coord=${coord.lon},${coord.lat}`)
       .then(res => res.json())
       .then(data => {
         setHourly(data);

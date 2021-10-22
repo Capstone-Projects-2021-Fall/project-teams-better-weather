@@ -1,6 +1,8 @@
 __pycache__
 env
+venv
 notes
+*.swp
 
 # dependencies
 /node_modules

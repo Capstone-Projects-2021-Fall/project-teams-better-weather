@@ -42,6 +42,14 @@ function App() {
     });
   }, [coord]);
 
+  useEffect(() => {
+    fetch(`api/currently/?coord=${coord.lon},${coord.lat}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log("currently", data);
+    });
+  }, [coord]);
+
   function handleLocationSubmit(location) {
     setLocation(location);
     console.log("Submitted location: ", location);

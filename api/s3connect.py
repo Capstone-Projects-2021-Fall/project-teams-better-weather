@@ -3,6 +3,7 @@ import random
 import boto3
 from botocore.exceptions import ClientError
 import requests
+import os
 
 def fetch_data(bucket, coord):
   """
@@ -34,12 +35,12 @@ def upload_data(bucket, coord):
   out = get_prediction(coord)
   client.put_object(Body=out, Bucket=bucket, Key=key)
 
-def fetch_openweather(coord):
+def fetch_currently(coord):
   lon, lat = coord[0], coord[1]
-  api_key = os.environ("OWM_API_KEY")
-  response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&appid={api_key}")
-  print(response)
-  print(response.json)
+  api_key = os.environ["OWM_API_KEY"]
+  response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=hourly,minutely,daily,alerts&appid={api_key}")
+  print(json.dumps(response.json(), indent=2))
+  return response.json
 
 def get_prediction(coord):
   """

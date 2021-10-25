@@ -61,7 +61,7 @@ def get_prediction(coord):
     x["temperature"] = round(random.uniform(0, 100), 2)
     x["humidity"] = round(random.uniform(0, 1), 2)
     hours.append(x)
-  data["hourly"]["data"] = ret
+  data["hourly"]["data"] = hours
   return json.dumps(data) 
 
 

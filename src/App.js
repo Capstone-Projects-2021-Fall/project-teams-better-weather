@@ -7,10 +7,7 @@ import './style/Weather.css';
 function App() {
   const [location, setLocation] = useState('New York');   
   const [weather, setWeather] = useState({}); 
-  const [coord, setCoord] = useState({
-    "lon": -74.006,
-    "lat": 40.7143
-  });
+  const [coord, setCoord] = useState({ "lon": -74.006, "lat": 40.7143 });
   const [hourly, setHourly] = useState({
     "hourly": {
       "data": []
@@ -18,7 +15,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch(`api/currently/?location=${location}`)
+    fetch(`http://api.betterweather.xyz/currently/?location=${location}`)
       .then(res => res.json())
       .then(data => {
         setWeather(data);
@@ -27,7 +24,7 @@ function App() {
   }, [location]);
 
   useEffect(() => {
-    fetch(`api/hourly/?coord=${coord.lon},${coord.lat}`)
+    fetch(`http://api.betterweather.xyz/hourly/?coord=${coord.lon},${coord.lat}`)
       .then(res => res.json())
       .then(data => {
         setHourly(data);

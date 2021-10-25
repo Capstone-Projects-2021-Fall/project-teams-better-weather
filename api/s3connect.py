@@ -35,12 +35,13 @@ def upload_data(bucket, coord):
   out = get_prediction(coord)
   client.put_object(Body=out, Bucket=bucket, Key=key)
 
-def fetch_currently(coord):
-  lon, lat = coord[0], coord[1]
+def fetch_currently(location):
   api_key = os.environ["OWM_API_KEY"]
-  response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=hourly,minutely,daily,alerts&appid={api_key}")
+  #lon, lat = coord[0], coord[1]
+  #response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=hourly,minutely,daily,alerts&appid={api_key}")
+  response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={location}&units=metric&appid={api_key}")
   print(json.dumps(response.json(), indent=2))
-  return response.json
+  return response.json()
 
 def get_prediction(coord):
   """

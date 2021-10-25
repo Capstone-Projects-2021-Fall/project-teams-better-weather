@@ -4,11 +4,6 @@ import CurrentWeather from './components/CurrentWeather.js';
 import HourlyWeather from './components/HourlyWeather.js';
 import './style/Weather.css';
 
-const api = {
-  key: "2292aca2fd8419dfc5d684db85f58a36", // exposed key!
-  base: "https://api.openweathermap.org/data/2.5/"
-}
-
 function App() {
   const [location, setLocation] = useState('New York');   
   const [weather, setWeather] = useState({}); 
@@ -23,30 +18,19 @@ function App() {
   });
 
   useEffect(() => {
-    fetch(`${api.base}weather?q=${location}&units=metric&APPID=${api.key}`)
+    fetch(`api/currently/?location=${location}`)
       .then(res => res.json())
       .then(data => {
         setWeather(data);
-        setCoord(data["coord"]);
-        console.log("coord", coord.lon, coord.lat);
-        console.log(weather);
+        setCoord(data.coord);
     });
   }, [location]);
-  
+
   useEffect(() => {
     fetch(`api/hourly/?coord=${coord.lon},${coord.lat}`)
       .then(res => res.json())
       .then(data => {
         setHourly(data);
-        console.log("hourly from s3", hourly);
-    });
-  }, [coord]);
-
-  useEffect(() => {
-    fetch(`api/currently/?coord=${coord.lon},${coord.lat}`)
-      .then(res => res.json())
-      .then(data => {
-        console.log("currently", data);
     });
   }, [coord]);
 

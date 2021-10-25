@@ -4,7 +4,7 @@ import '../style/Weather.css';
 
 function HourlyWeather(props) {
   const data = props.weather["hourly"]["data"];
-  console.log("in the hourly", data);
+  //console.log("in the hourly", data);
 
   return (
     <div className="hourly-temp-box">

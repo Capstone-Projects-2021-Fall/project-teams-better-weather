@@ -1,9 +1,9 @@
+import os
 import json
 import random
+import requests
 import boto3
 from botocore.exceptions import ClientError
-import requests
-import os
 
 def fetch_data(bucket, coord):
   """

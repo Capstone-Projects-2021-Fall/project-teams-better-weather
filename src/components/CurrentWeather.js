@@ -1,13 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import CurrentDate from './CurrentDate.js';
 import WeatherIcons from './WeatherIcons.js';
 import '../style/Weather.css';
 
-//import { Card } from 'semantic-ui-react' //Semantic UI is a library to design the interface
-//<p className="weather-info">Temperature{weatherData.name}</p>  //needed when implenting with API
+//import { Card } from 'semantic-ui-react' 
 
 function CurrentWeather(props) {
-
   return (
     <div>
       {(typeof props.weather.main != "undefined") ? (

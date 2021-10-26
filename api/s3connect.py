@@ -17,7 +17,7 @@ def fetch_data(bucket, coord):
     upload_data(bucket, coord) 
     response = client.get_object(Bucket=bucket, Key=key)
   ret = response["Body"].read().decode()
-  return ret 
+  return json.loads(ret)
 
 def check_exists(client, bucket, key):
   try: 
@@ -40,7 +40,6 @@ def fetch_currently(location):
   #lon, lat = coord[0], coord[1]
   #response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=hourly,minutely,daily,alerts&appid={api_key}")
   response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={location}&units=metric&appid={api_key}")
-  print(json.dumps(response.json(), indent=2))
   return response.json()
 
 def get_prediction(coord):

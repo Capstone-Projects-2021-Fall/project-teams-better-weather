@@ -1,5 +1,5 @@
 import random
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from s3connect import fetch_data, fetch_currently
 
 BUCKET = "bw-preds"
@@ -14,11 +14,13 @@ def home():
 def get_currently():
   #coord = request.args.get("coord").split(",")
   location = request.args.get("location")
-  currently = fetch_currently(location)
-  return currently
+  response = jsonify(fetch_currently(location))
+  response.headers.add("Access-Control-Allow-Origin", "*")
+  return response
 
 @app.route('/hourly/', methods=['GET'])
 def get_hourly():
   coord = request.args.get("coord").split(",")
-  hourly = fetch_data(BUCKET, coord)
-  return hourly
+  response = jsonify(fetch_data(BUCKET, coord))
+  response.headers.add("Access-Control-Allow-Origin", "*")
+  return response

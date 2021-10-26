@@ -15,7 +15,7 @@ function App() {
   });
 
   useEffect(() => {
-    fetch(`http://api.betterweather.xyz/currently/?location=${location}`, {mode: 'cors'})
+    fetch(`http://api.betterweather.xyz/currently/?location=${location}`)
       .then(res => res.json())
       .then(data => {
         setWeather(data);
@@ -24,7 +24,7 @@ function App() {
   }, [location]);
 
   useEffect(() => {
-    fetch(`http://api.betterweather.xyz/hourly/?coord=${coord.lon},${coord.lat}` {mode: 'cors'})
+    fetch(`http://api.betterweather.xyz/hourly/?coord=${coord.lon},${coord.lat}`)
       .then(res => res.json())
       .then(data => {
         setHourly(data);

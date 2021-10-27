@@ -20,6 +20,6 @@ npm install
 # Start react app
 npm start
 
-# Then flask on another terminal
+# Start flask on another terminal
 npm run start-api
 ```

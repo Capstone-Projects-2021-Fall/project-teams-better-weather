@@ -8,7 +8,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-  return "<h1>better weather api</h1>"
+  home = open("index.html", "r").read()
+  return home
 
 @app.route('/currently/', methods=['GET'])
 def get_currently():

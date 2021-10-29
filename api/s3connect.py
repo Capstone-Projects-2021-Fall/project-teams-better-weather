@@ -1,5 +1,7 @@
+import os
 import json
 import random
+import requests
 import boto3
 from botocore.exceptions import ClientError
 
@@ -15,7 +17,7 @@ def fetch_data(bucket, coord):
     upload_data(bucket, coord) 
     response = client.get_object(Bucket=bucket, Key=key)
   ret = response["Body"].read().decode()
-  return ret 
+  return json.loads(ret)
 
 def check_exists(client, bucket, key):
   try: 
@@ -33,16 +35,22 @@ def upload_data(bucket, coord):
   out = get_prediction(coord)
   client.put_object(Body=out, Bucket=bucket, Key=key)
 
+def fetch_currently(location):
+  api_key = os.environ["OWM_API_KEY"]
+  #lon, lat = coord 
+  #response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=hourly,minutely,daily,alerts&appid={api_key}")
+  response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={location}&units=metric&appid={api_key}")
+  return response.json()
+
 def get_prediction(coord):
   """
   Randomly generated predictions for now
   """
   data = {}    
-  data["lon"] = coord[0]
-  data["lat"] = coord[1]
-  data["hourly"] = {}
+  data["lon"], data["lat"] = coord
   summaries = ["cloudy", "mostly cloudy", "partly cloudy", "clear", "rain", "humid"]
-  ret = []
+  data["hourly"] = {}
+  hours = []
   for i in range(12):
     x = {}
     x["time"] = i 
@@ -51,6 +59,8 @@ def get_prediction(coord):
     x["precipProbability"] = round(random.uniform(0, 1), 2)
     x["temperature"] = round(random.uniform(0, 100), 2)
     x["humidity"] = round(random.uniform(0, 1), 2)
-    ret.append(x)
-  data["hourly"]["data"] = ret
+    hours.append(x)
+  data["hourly"]["data"] = hours
   return json.dumps(data) 
+
+

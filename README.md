@@ -17,8 +17,8 @@ The icon and background of the landing page are responsive and change in relatio
 ```
 # Create virtual environment
 cd api 
-python3 -m venv env
-source env/bin/activate
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 
 # To deactivate virtual env
@@ -33,7 +33,7 @@ npm install
 # Start react app
 npm start
 
-# Then flask on another terminal
+# Start flask on another terminal
 npm run start-api
 ```
 

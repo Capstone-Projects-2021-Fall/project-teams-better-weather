@@ -56,7 +56,7 @@ function WeatherIcons(props){
  
   return(
     <div>
-      <img src={setWeatherIcon(icons.icon)} height={270} width={300} alt=''/>
+      <img src={setWeatherIcon(icons.icon)} height={281} width={300} alt=''/>
     </div>   
   );
 }

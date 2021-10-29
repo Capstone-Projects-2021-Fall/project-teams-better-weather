@@ -19,7 +19,9 @@ function App() {
       .then(res => res.json())
       .then(data => {
         setWeather(data);
+        console.log(weather);
         setCoord(data.coord);
+        console.log(coord);
     });
   }, [location]);
 

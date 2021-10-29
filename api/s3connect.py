@@ -45,18 +45,50 @@ def geocode(location):
   r = requests.get(url, params=params)
   results = r.json()["results"][0]
   coord = results["geometry"]["location"]
-  return coord["lon"], coord["lat"]
+  address = results["formatted_address"]
+  return coord["lng"], coord["lat"], address
+
+def fetch_oldcurrently(location):
+  """
+  Fetch current weather data from Open Weather API 
+  """
+  lon, lat, address = geocode(location) 
+  url = "https://api.openweathermap.org/data/2.5/weather"
+  api_key = os.environ["OWM_API_KEY"]
+  params = {"q": f"{location}", "appid": f"{api_key}"}
+  r = requests.get(url, params=params)
+  return r.json()
 
 def fetch_currently(location):
   """
   Fetch current weather data from Open Weather API 
   """
+  lon, lat, address = geocode(location) 
+  url = "https://api.openweathermap.org/data/2.5/onecall"
+  api_key = os.environ["OWM_API_KEY"]
+  params = {"lat": f"{lat}", "lon": f"{lon}", "exclude": "hourly,minutely,daily,alerts", "appid": f"{api_key}"}
+  r = requests.get(url, params=params)
+  
+  # theres gotta be a better way
+  ret = {}
+  ret["currently"] = r.json()
+  ret["currently"]["address"] = address  
+  print(ret)
+  return ret
+
+def fetch_forecast(bucket, location):
   lon, lat = geocode(location) 
   url = "https://api.openweathermap.org/data/2.5/onecall"
   api_key = os.environ["OWM_API_KEY"]
   params = {"lat": f"{lat}", "lon": f"{lon}", "exclude": "hourly,minutely,daily,alerts", "appid": f"{api_key}"}
   r = requests.get(url, params=params)
-  return r.json()
+  
+  data = fetch_data(bucket, (lon, lat))
+  data["currently"] = r.json()["current"]
+  data["hourly"] = data.pop("hourly")
+  print(data)
+  #print(r.json()["current"])
+  return data
 
 def get_prediction(coord):
   """

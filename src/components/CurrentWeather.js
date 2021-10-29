@@ -23,6 +23,7 @@ function CurrentWeather(props) {
           </div>
           <div className="weather-box">              
             <div className="temp">
+                {console.log(props.weather.main.temp)}
                 {Math.round((props.weather.main.temp) * (9/5) + 32) }°F
                 <div className="weather">{props.weather.weather[0].main}</div>                  
             </div>

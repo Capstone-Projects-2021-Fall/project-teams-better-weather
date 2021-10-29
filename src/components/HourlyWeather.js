@@ -9,9 +9,9 @@ function HourlyWeather(props) {
   return (
     <div className="hourly-temp-box">
       <div className="time-frame">
-        <ul> 
+        <div>
           {data.map((d) => <Hour key={d.temperature} data={d} />)}
-        </ul>
+        </div> 
       </div>
     </div>
   );

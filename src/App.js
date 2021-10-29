@@ -4,6 +4,8 @@ import CurrentWeather from './components/CurrentWeather.js';
 import HourlyWeather from './components/HourlyWeather.js';
 import './style/Weather.css';
 import * as ReactBootStrap from "react-bootstrap";
+import Contact from './contact';
+import {Route, Link} from 'react-router-dom';
 
 const api = {
   key: "2292aca2fd8419dfc5d684db85f58a36", // exposed key!
@@ -55,7 +57,9 @@ function App() {
   }
 
   return (
+
     <div>
+    
     <ReactBootStrap.Navbar bg="light" expand="lg">
   <ReactBootStrap.Container>
     <ReactBootStrap.Navbar.Brand href="#home">Better Weather</ReactBootStrap.Navbar.Brand>
@@ -63,7 +67,8 @@ function App() {
     <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
       <ReactBootStrap.Nav className="me-auto">
         <ReactBootStrap.Nav.Link href="#home">Home</ReactBootStrap.Nav.Link>
-        <ReactBootStrap.Nav.Link href="#link">Link</ReactBootStrap.Nav.Link>
+        <ReactBootStrap.Nav.Link as={Link} to="/contact" >Contact</ReactBootStrap.Nav.Link>
+        
         <ReactBootStrap.NavDropdown title="Dropdown" id="basic-nav-dropdown">
           <ReactBootStrap.NavDropdown.Item href="#action/3.1">Action</ReactBootStrap.NavDropdown.Item>
           <ReactBootStrap.NavDropdown.Item href="#action/3.2">Another action</ReactBootStrap.NavDropdown.Item>

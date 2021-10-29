@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './style/index.css';
 import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {BrowserRouter} from 'react-router-dom'
 
 
 <style>
@@ -10,9 +11,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 </style>
 
 ReactDOM.render(
+  <BrowserRouter>
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
+  </BrowserRouter>,
   document.getElementById('root')
 );
 

@@ -35,12 +35,28 @@ def upload_data(bucket, coord):
   out = get_prediction(coord)
   client.put_object(Body=out, Bucket=bucket, Key=key)
 
+def geocode(location):
+  """
+  Convert user location search into geographic coordinates
+  """
+  url = "https://maps.googleapis.com/maps/api/geocode/json"
+  api_key = os.environ["GOOGLE_API_KEY"]
+  params = {"address": f"{location}", "key": f"{api_key}"}
+  r = requests.get(url, params=params)
+  results = r.json()["results"][0]
+  coord = results["geometry"]["location"]
+  return coord["lon"], coord["lat"]
+
 def fetch_currently(location):
+  """
+  Fetch current weather data from Open Weather API 
+  """
+  lon, lat = geocode(location) 
+  url = "https://api.openweathermap.org/data/2.5/onecall"
   api_key = os.environ["OWM_API_KEY"]
-  #lon, lat = coord 
-  #response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=hourly,minutely,daily,alerts&appid={api_key}")
-  response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={location}&units=metric&appid={api_key}")
-  return response.json()
+  params = {"lat": f"{lat}", "lon": f"{lon}", "exclude": "hourly,minutely,daily,alerts", "appid": f"{api_key}"}
+  r = requests.get(url, params=params)
+  return r.json()
 
 def get_prediction(coord):
   """

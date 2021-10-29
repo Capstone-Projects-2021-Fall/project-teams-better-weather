@@ -37,7 +37,7 @@ def upload_data(bucket, coord):
 
 def fetch_currently(location):
   api_key = os.environ["OWM_API_KEY"]
-  #lon, lat = coord[0], coord[1]
+  #lon, lat = coord 
   #response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=hourly,minutely,daily,alerts&appid={api_key}")
   response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={location}&units=metric&appid={api_key}")
   return response.json()
@@ -47,7 +47,7 @@ def get_prediction(coord):
   Randomly generated predictions for now
   """
   data = {}    
-  data["lon"], data["lat"] = coord[0], coord[1]
+  data["lon"], data["lat"] = coord
   summaries = ["cloudy", "mostly cloudy", "partly cloudy", "clear", "rain", "humid"]
   data["hourly"] = {}
   hours = []

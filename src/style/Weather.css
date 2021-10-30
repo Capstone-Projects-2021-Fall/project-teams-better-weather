@@ -115,28 +115,38 @@ body {
 }
 
 .hourly-temp-box {
+  /*Delete later since no outer container */
   /*The outer container of hour*/
-  text-align: center;
-  margin-top: 40px;
+  /*text-align: center;
+  margin-top: 40px;*/
 }
 
 .hourly-temp-box .time-frame {
+  /*Delete later since no outer container*/
   /*The outer container of hour (styling from HourlyWeather.js)*/
-  position: relative;
+  /*position: relative;
   display: inline-block;
   margin: 10px auto;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 40px;
 
-  padding: 15px 20px;
+  padding: 15px 2px;
 
   color: white;
-  /*font-size: 44px;
-  font-weight: 900;*/
 
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
   text-align: center;
-  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);*/
+}
+
+.scrollHours {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.scrollHours::-webkit-scrollbar {
+  display: none;
 }
 
 .weather-box-hourly {
@@ -146,16 +156,14 @@ body {
 
 .weather-box-hourly .tempHours {
   /*Each of the hour temp boxes*/
-  position: relative;
-  display: inline-block;
-  margin: 10px auto;
+  margin: 10px auto; /*Original: 10px*/
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
 
-  padding: 25px 30px;
+  padding: 15px 15px;
 
   color: white;
-  font-size: 46px;
+  font-size: 43px;
   font-weight: 900;
 
   text-shadow: 2px 3px rgba(50, 50, 70, 0.5);
@@ -167,18 +175,14 @@ body {
   /*The numHours and weather deets*/
   text-align: center;
   color: white;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
 }
 
-.scrollHours {
-  margin: 5px;
-  /*padding: 80px;*/
-}
-
 .carousel-scroll {
-  /*width: 50%; Good for full sized screen (PCs)*/
+  /*The outer box of the HourlyWeather*/
+  width: 100%;
   /*width: 100%; Good for mobile devices*/
   margin: 10px auto;
   background-color: rgba(255, 255, 255, 0.2);

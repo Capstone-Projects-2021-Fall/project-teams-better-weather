@@ -3,8 +3,6 @@ import LocationSearch from './components/LocationSearch';
 import CurrentWeather from './components/CurrentWeather.js';
 import HourlyWeather from './components/HourlyWeather.js';
 import Carousel from './components/Carousel';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
 
 import './style/Weather.css';
 
@@ -56,7 +54,6 @@ function App() {
             weather={weather} />
           <HourlyWeather 
             weather={hourly} />
-          <Carousel />
       </div>
     </div>
   );

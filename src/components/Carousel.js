@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
-function Carousel(){
+function Carousel(props){
 
   const [hourTemp, setHourTemp] = useState(0)
 
@@ -11,10 +11,9 @@ function Carousel(){
       <div className="carousel-scroll">
         <CarouselProvider
           naturalSlideWidth={8}
-          naturalSlideHeight={3}
+          naturalSlideHeight={3.5}
           totalSlides={4}
         >
-          
             <Slider className="scrollHours">
               <Slide index={0} className="bg1">I am the first Slide.</Slide>
               <Slide index={1} className="bg2">I am the second Slide.</Slide>

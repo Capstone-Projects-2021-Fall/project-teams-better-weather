@@ -139,7 +139,12 @@ body {
   box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-.weather-box .tempHours {
+.weather-box-hourly {
+  display: inline-block;
+  margin: 5px;
+}
+
+.weather-box-hourly .tempHours {
   /*Each of the hour temp boxes*/
   position: relative;
   display: inline-block;
@@ -168,11 +173,13 @@ body {
 }
 
 .scrollHours {
-  margin: 20px;
-  padding: 30px;
+  margin: 5px;
+  /*padding: 80px;*/
 }
 
 .carousel-scroll {
+  /*width: 50%; Good for full sized screen (PCs)*/
+  /*width: 100%; Good for mobile devices*/
   margin: 10px auto;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 40px;

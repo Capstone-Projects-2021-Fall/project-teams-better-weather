@@ -4,7 +4,7 @@ import '../style/Weather.css';
 function Hour(props) {
   
   return (
-    <div className="weather-box" >              
+    <div className="weather-box-hourly" >              
       <div className="tempHours" >
         <div className="weatherHours">
           {props.data.time+1} hour later

@@ -114,31 +114,6 @@ body {
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }
 
-.hourly-temp-box {
-  /*Delete later since no outer container */
-  /*The outer container of hour*/
-  /*text-align: center;
-  margin-top: 40px;*/
-}
-
-.hourly-temp-box .time-frame {
-  /*Delete later since no outer container*/
-  /*The outer container of hour (styling from HourlyWeather.js)*/
-  /*position: relative;
-  display: inline-block;
-  margin: 10px auto;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 40px;
-
-  padding: 15px 2px;
-
-  color: white;
-
-  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
-  text-align: center;
-  box-shadow: 3px 6px rgba(0, 0, 0, 0.2);*/
-}
-
 .scrollHours {
   overflow-x: scroll;
   overflow-y: hidden;
@@ -156,15 +131,15 @@ body {
 
 .weather-box-hourly .tempHours {
   /*Each of the hour temp boxes*/
-  margin: 10px auto; /*Original: 10px*/
+  margin: 10px auto;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
 
-  padding: 15px 15px;
+  padding: 15px 10px;
 
   color: white;
-  font-size: 43px;
-  font-weight: 900;
+  font-size: 33px;
+  font-weight: 90;
 
   text-shadow: 2px 3px rgba(50, 50, 70, 0.5);
   text-align: center;
@@ -175,40 +150,38 @@ body {
   /*The numHours and weather deets*/
   text-align: center;
   color: white;
-  font-size: 16px;
-  font-weight: 700;
-  text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
+  font-size: 15px;
+  font-weight: 70;
+  text-shadow: 1.5px 1.5px rgba(50, 50, 70, 0.8);
 }
 
 .carousel-scroll {
   /*The outer box of the HourlyWeather*/
-  width: 100%;
-  /*width: 100%; Good for mobile devices*/
   margin: 10px auto;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 40px;
 
-  padding: 15px 20px;
-
-  color: white;
+  padding: 10px 15px;
 
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
   text-align: center;
   box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-.bg1 {
-  background-color: red;
+/* For mobile phones: */
+.carousel-scroll {
+  width: 100%;
 }
 
-.bg2 {
-  background-color: pink;
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .carousel-scroll {
+    width: 88%;
+  }
 }
-
-.bg3 {
-  background-color: purple;
-}
-
-.bg4 {
-  background-color: blue;
+@media only screen and (min-width: 909px) {
+  /* For desktop: */
+  .carousel-scroll {
+    width: 60%;
+  }
 }

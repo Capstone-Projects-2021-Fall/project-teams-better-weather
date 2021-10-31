@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import LocationSearch from './components/LocationSearch';
 import CurrentWeather from './components/CurrentWeather.js';
 import HourlyWeather from './components/HourlyWeather.js';
-import Carousel from './components/Carousel';
 
 import './style/Weather.css';
 

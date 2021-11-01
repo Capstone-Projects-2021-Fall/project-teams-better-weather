@@ -12,10 +12,17 @@ function Hour(props) {
         {Math.round(props.data.temperature)}°F
         <div className="weatherHours">
           {props.data.summary}
-        </div>                  
+        </div>                 
       </div>
     </div>
   );
 }
 
 export default Hour;
+
+
+/* to be implemented later
+<div className="hourlyIcons">
+  <WeatherIcons icons={props.data.summary} />
+</div> 
+ */

@@ -7,13 +7,12 @@ function HourlyWeather(props) {
   //console.log("in the hourly", data);
 
   return (
-    <div className="hourly-temp-box">
-      <div className="time-frame">
-        <ul> 
-          {data.map((d) => <Hour key={d.temperature} data={d} />)}
-        </ul>
+    <div className="carousel-scroll">
+      <div className="scrollHours">
+        {data.map((d) => <Hour key={d.temperature} data={d} />)}
       </div>
     </div>
+      
   );
 }
 

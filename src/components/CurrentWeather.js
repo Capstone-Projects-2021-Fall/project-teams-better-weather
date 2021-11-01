@@ -10,22 +10,19 @@ function CurrentWeather(props) {
     <div>
       {(typeof props.weather.current != "undefined") ? (
         <div>
-          <div className="location-box">
-            <div className="location">{props.weather.address}</div>
-              <div className="date">
-                <CurrentDate />
-              </div>                
+          <div className="date">
+            <CurrentDate />
+          </div> 
+          <div className="currTemp">
+            {Math.round((props.weather.current.temp) * (9/5) + 32) }°F
           </div>
           <div className="weather-icon-box">
             <div className="icons">
               <WeatherIcons icons={props.weather.current?.weather[0]} />
             </div>
           </div>
-          <div className="weather-box">              
-            <div className="temp">
-                {Math.round((props.weather.current.temp) * (9/5) + 32) }°F
-                <div className="weather">{props.weather.current?.weather[0].main}</div>
-            </div>
+          <div className="location-box">
+            <div className="location">{props.weather.address}</div>
           </div>
         </div>
       ) : ('')}
@@ -34,3 +31,11 @@ function CurrentWeather(props) {
 }
 
 export default CurrentWeather;
+
+/*
+<div className="weather-box">              
+  <div className="temp">
+    <div className="weather">{props.weather.current?.weather[0].main}</div>
+  </div>
+</div>
+*/

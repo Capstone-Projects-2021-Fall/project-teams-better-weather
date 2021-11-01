@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import LocationSearch from './components/LocationSearch';
 import CurrentWeather from './components/CurrentWeather.js';
 import HourlyWeather from './components/HourlyWeather.js';
+
 import './style/Weather.css';
 
 function App() {

@@ -35,12 +35,54 @@ def upload_data(bucket, coord):
   out = get_prediction(coord)
   client.put_object(Body=out, Bucket=bucket, Key=key)
 
+def geocode(location):
+  """
+  Convert user location search into geographic coordinates
+  """
+  url = "https://maps.googleapis.com/maps/api/geocode/json"
+  api_key = os.environ["GOOGLE_API_KEY"]
+  params = {"address": f"{location}", "key": f"{api_key}"}
+  r = requests.get(url, params=params)
+  if (len(r.json()["results"]) != 0):
+    results = r.json()["results"][0]
+    coord = results["geometry"]["location"]
+    address = results["formatted_address"]
+    return coord["lng"], coord["lat"], address
+  return None, None, None
+
 def fetch_currently(location):
+  """
+  Fetch current weather data from Open Weather API 
+  """
+  lon, lat, address = geocode(location) 
+  url = "https://api.openweathermap.org/data/2.5/onecall"
   api_key = os.environ["OWM_API_KEY"]
-  #lon, lat = coord 
-  #response = requests.get(f"https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=hourly,minutely,daily,alerts&appid={api_key}")
-  response = requests.get(f"https://api.openweathermap.org/data/2.5/weather?q={location}&units=metric&appid={api_key}")
-  return response.json()
+  params = {"lat": f"{lat}", "lon": f"{lon}", "exclude": "hourly,minutely,daily,alerts", "units": "metric", "appid": f"{api_key}"}
+  r = requests.get(url, params=params)
+  
+  # theres gotta be a better way
+  ret = {}
+  ret["currently"] = r.json()
+  ret["currently"]["address"] = address  
+  print(ret)
+  return ret
+
+def fetch_forecast(bucket, location):
+  """
+  In progress..
+  """
+  lon, lat = geocode(location) 
+  url = "https://api.openweathermap.org/data/2.5/onecall"
+  api_key = os.environ["OWM_API_KEY"]
+  params = {"lat": f"{lat}", "lon": f"{lon}", "exclude": "hourly,minutely,daily,alerts", "appid": f"{api_key}"}
+  r = requests.get(url, params=params)
+  
+  data = fetch_data(bucket, (lon, lat))
+  data["currently"] = r.json()["current"]
+  data["hourly"] = data.pop("hourly")
+  print(data)
+  #print(r.json()["current"])
+  return data
 
 def get_prediction(coord):
   """

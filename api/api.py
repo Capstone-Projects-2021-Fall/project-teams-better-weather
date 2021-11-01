@@ -1,6 +1,6 @@
 import random
 from flask import Flask, request, jsonify
-from s3connect import fetch_data, fetch_currently, fetch_forecast, fetch_oldcurrently
+from s3connect import fetch_data, fetch_currently, fetch_forecast
 
 BUCKET = "bw-preds"
 

@@ -19,11 +19,13 @@ function App() {
       .then(res => res.json())
       .then(data => {
         console.log(data.currently);
-        if (data.currently) {
+        if (data.currently.address) {
           const d = data.currently;
           setWeather(d);
           const coord = {"lon": d.lon, "lat": d.lat};
           setCoord(coord);
+        } else {
+          window.alert("Invalid location. Please try again.");
         }
     });
   }, [location]);

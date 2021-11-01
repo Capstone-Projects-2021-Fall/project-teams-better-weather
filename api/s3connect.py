@@ -43,21 +43,12 @@ def geocode(location):
   api_key = os.environ["GOOGLE_API_KEY"]
   params = {"address": f"{location}", "key": f"{api_key}"}
   r = requests.get(url, params=params)
-  results = r.json()["results"][0]
-  coord = results["geometry"]["location"]
-  address = results["formatted_address"]
-  return coord["lng"], coord["lat"], address
-
-def fetch_oldcurrently(location):
-  """
-  Fetch current weather data from Open Weather API 
-  """
-  lon, lat, address = geocode(location) 
-  url = "https://api.openweathermap.org/data/2.5/weather"
-  api_key = os.environ["OWM_API_KEY"]
-  params = {"q": f"{location}", "appid": f"{api_key}"}
-  r = requests.get(url, params=params)
-  return r.json()
+  if (len(r.json()["results"]) != 0):
+    results = r.json()["results"][0]
+    coord = results["geometry"]["location"]
+    address = results["formatted_address"]
+    return coord["lng"], coord["lat"], address
+  return None, None, None
 
 def fetch_currently(location):
   """
@@ -77,6 +68,9 @@ def fetch_currently(location):
   return ret
 
 def fetch_forecast(bucket, location):
+  """
+  In progress..
+  """
   lon, lat = geocode(location) 
   url = "https://api.openweathermap.org/data/2.5/onecall"
   api_key = os.environ["OWM_API_KEY"]

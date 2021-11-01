@@ -1,11 +1,16 @@
 # Milestone 2 
-* Added Navbar
+## Release Notes
 * Improved UI
-* Added domain name: http://betterweather.xyz/
-* Decoupled React and Flask
-* Better Weather API at: http://api.betterweather.xyz/
-* Added automatic location services
+* Added Navbar
+* Added domain name: https://betterweather.xyz/
+* Decoupled React and Flask (on separate servers)
+* Better Weather API at: https://api.betterweather.xyz/
+* Added geocoding with Google Geocoding API
 * Bug fix where misspelled or non-city location search crashes website
+* User login and logout with Firebase
+
+## Testing Guide
+* 
 
 # Milestone 1
 ## Release Notes

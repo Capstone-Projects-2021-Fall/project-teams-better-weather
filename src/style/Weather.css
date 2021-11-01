@@ -34,7 +34,7 @@ body {
 
 .search-box {
   width: 100%;
-  margin: 0 auto 40px;
+  margin: 0 auto 25px;
 }
 
 .search-box .search-bar {
@@ -62,19 +62,7 @@ body {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-.location-box {
-  margin-bottom: 40px;
-}
-
-.location-box .location {
-  color: white;
-  font-size: 45px;
-  font-weight: 500;
-  text-align: center;
-  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
-}
-
-.location-box .date {
+.date {
   color: white;
   font-size: 23px;
   font-weight: 300;
@@ -83,10 +71,26 @@ body {
   text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
 }
 
-.weather-icon-box {
+.currTemp {
   text-align: center;
+  font-size: 200px;
+  font-weight: 900;
+  /*color: white;*/
+  background: linear-gradient(
+    #ffffff,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.01)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
 
+/* Save just in case if need to use later***
 .weather-box {
   text-align: center;
 }
@@ -114,6 +118,26 @@ body {
   color: white;
   font-size: 30px;
   font-weight: 700;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}*/
+
+.weather-icon-box {
+  text-align: center;
+  margin-top: -85px;
+}
+
+.icon-image {
+}
+
+.location-box {
+  margin-bottom: 40px;
+}
+
+.location-box .location {
+  color: white;
+  font-size: 45px;
+  font-weight: 500;
+  text-align: center;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }
 

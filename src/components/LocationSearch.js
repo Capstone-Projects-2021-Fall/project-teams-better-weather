@@ -6,7 +6,6 @@ function LocationSearch(props) {
 
   function handleInputChange(e) {
     setUserInput(e.target.value);
-    console.log("User input: ", e.target.value);
   }
 
   function handleSubmit(e) {

@@ -19,8 +19,7 @@ function App() {
     fetch(`https://api.betterweather.xyz/currently/?location=${location}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data.currently);
-        if (data.currently.address) {
+        if (data.currently.address) { // this could be better
           const d = data.currently;
           setWeather(d);
           const coord = {"lon": d.lon, "lat": d.lat};

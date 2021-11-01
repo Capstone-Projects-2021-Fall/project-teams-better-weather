@@ -18,10 +18,13 @@ function App() {
     fetch(`https://api.betterweather.xyz/currently/?location=${location}`)
       .then(res => res.json())
       .then(data => {
-        setWeather(data);
-        console.log(weather);
-        setCoord(data.coord);
-        console.log(coord);
+        console.log(data.currently);
+        if (data.currently) {
+          const d = data.currently;
+          setWeather(d);
+          const coord = {"lon": d.lon, "lat": d.lat};
+          setCoord(coord);
+        }
     });
   }, [location]);
 
@@ -39,7 +42,7 @@ function App() {
   }
 
   function background() { // this will be a component some day
-    const x = weather.main
+    const x = weather.current
     const ret = (typeof x != "undefined" && x.temp > 16)
     return (ret ? 'app warm' : 'app');
   }

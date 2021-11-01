@@ -22,7 +22,7 @@ def get_forecast():
 @app.route('/currently/', methods=['GET'])
 def get_currently():
   location = request.args.get("location")
-  response = jsonify(fetch_oldcurrently(location))
+  response = jsonify(fetch_currently(location))
   response.headers.add("Access-Control-Allow-Origin", "*")
   return response
 

@@ -66,7 +66,7 @@ def fetch_currently(location):
   lon, lat, address = geocode(location) 
   url = "https://api.openweathermap.org/data/2.5/onecall"
   api_key = os.environ["OWM_API_KEY"]
-  params = {"lat": f"{lat}", "lon": f"{lon}", "exclude": "hourly,minutely,daily,alerts", "appid": f"{api_key}"}
+  params = {"lat": f"{lat}", "lon": f"{lon}", "exclude": "hourly,minutely,daily,alerts", "units": "metric", "appid": f"{api_key}"}
   r = requests.get(url, params=params)
   
   # theres gotta be a better way

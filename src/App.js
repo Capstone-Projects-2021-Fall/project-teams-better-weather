@@ -49,6 +49,9 @@ function App() {
     return (ret ? 'app warm' : 'app');
   }
 
+  const str = new Date().toLocaleTimeString('en-US', { timeZone: weather.timezone });
+  console.log("Local time", str);
+
   return (
     <div className={background()}>
       <div className="main">

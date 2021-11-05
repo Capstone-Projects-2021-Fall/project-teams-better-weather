@@ -203,7 +203,7 @@ body {
     width: 88%;
   }
 }
-@media only screen and (min-width: 909px) {
+@media only screen and (min-width: 768px) {
   /* For desktop: */
   .carousel-scroll {
     width: 60%;

@@ -2,23 +2,19 @@ import React, {useState, useEffect} from 'react';
 import LocationSearch from './components/LocationSearch';
 import CurrentWeather from './components/CurrentWeather.js';
 import HourlyWeather from './components/HourlyWeather.js';
+
 import './style/Weather.css';
 import * as ReactBootStrap from "react-bootstrap";
 import Contact from './contact';
 import {Route, Link} from 'react-router-dom';
 
-const api = {
-  key: "2292aca2fd8419dfc5d684db85f58a36", // exposed key!
-  base: "https://api.openweathermap.org/data/2.5/"
-}
+
+import './style/Weather.css';
 
 function App() {
   const [location, setLocation] = useState('New York');   
   const [weather, setWeather] = useState({}); 
-  const [coord, setCoord] = useState({
-    "lon": -74.006,
-    "lat": 40.7143
-  });
+  const [coord, setCoord] = useState({ "lon": -74.006, "lat": 40.7143 });
   const [hourly, setHourly] = useState({
     "hourly": {
       "data": []
@@ -26,22 +22,25 @@ function App() {
   });
 
   useEffect(() => {
-    fetch(`${api.base}weather?q=${location}&units=metric&APPID=${api.key}`)
+    fetch(`https://api.betterweather.xyz/currently/?location=${location}`)
       .then(res => res.json())
       .then(data => {
-        setWeather(data);
-        setCoord(data["coord"]);
-        console.log("coord", coord.lon, coord.lat);
-        console.log(weather);
+        if (data.currently.address) { // this could be better
+          const d = data.currently;
+          setWeather(d);
+          const coord = {"lon": d.lon, "lat": d.lat};
+          setCoord(coord);
+        } else {
+          window.alert("Invalid location. Please try again.");
+        }
     });
   }, [location]);
-  
+
   useEffect(() => {
-    fetch(`api/hourly/?coord=${coord.lon},${coord.lat}`)
+    fetch(`https://api.betterweather.xyz/hourly/?coord=${coord.lon},${coord.lat}`)
       .then(res => res.json())
       .then(data => {
         setHourly(data);
-        console.log("hourly from s3", hourly);
     });
   }, [coord]);
 
@@ -51,7 +50,7 @@ function App() {
   }
 
   function background() { // this will be a component some day
-    const x = weather.main
+    const x = weather.current
     const ret = (typeof x != "undefined" && x.temp > 16)
     return (ret ? 'app warm' : 'app');
   }
@@ -66,6 +65,15 @@ function App() {
     <ReactBootStrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
     <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
       <ReactBootStrap.Nav className="me-auto">
+
+        <ReactBootStrap.Nav.Item>
+        <LocationSearch 
+            location={location}
+            onLocationSubmit={handleLocationSubmit} />
+          </ReactBootStrap.Nav.Item>
+
+      
+            
         <ReactBootStrap.Nav.Link href="#home">Home</ReactBootStrap.Nav.Link>
         <ReactBootStrap.Nav.Link as={Link} to="/contact" >Contact</ReactBootStrap.Nav.Link>
         
@@ -76,6 +84,8 @@ function App() {
           <ReactBootStrap.NavDropdown.Divider />
           <ReactBootStrap.NavDropdown.Item href="#action/3.4">Separated link</ReactBootStrap.NavDropdown.Item>
         </ReactBootStrap.NavDropdown>
+        
+
       </ReactBootStrap.Nav>
     </ReactBootStrap.Navbar.Collapse>
   </ReactBootStrap.Container>
@@ -83,9 +93,7 @@ function App() {
 
     <div className={background()}>
       <div className="main">
-          <LocationSearch 
-            location={location}
-            onLocationSubmit={handleLocationSubmit} />
+          
           <CurrentWeather 
             weather={weather} />
           <HourlyWeather 

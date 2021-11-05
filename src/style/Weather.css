@@ -9,14 +9,17 @@ body {
 }
 
 .app {
-  background-image: url("../img/blue-gradient.jpg");
+  /*background-image: url("../img/blue-gradient.jpg");*/
+  /*background-image: linear-gradient(#051960, #591da9);*/
+  background-image: linear-gradient(#3c21b7, #8b63da, #cb98ed, #cfcbd2);
   background-size: cover;
   background-position: bottom;
   transition: all 1.5s ease-in-out;
 }
 
 .app.warm {
-  background-image: url("../img/pink-gradient.jpg");
+  /*background-image: url("../img/pink-gradient.jpg");*/
+  background-image: linear-gradient(#78a3eb, #fbc2eb);
 }
 
 .main {
@@ -31,13 +34,21 @@ body {
 
 .search-box {
   width: 100%;
-  margin: 0 auto 40px;
+  margin: 0 auto 25px;
 }
 
 .search-box .search-bar {
   display: block;
-  width: 100%;
-  padding: 15px;
+  width: 650px;
+  
+  padding-left: 15px;
+  padding-right: 15px;
+  
+  
+  margin-top: 25px;
+  margin-bottom: 0px;
+  margin-left: 100px;
+  margin-right: 200px;
 
   appearance: none;
   background: none;
@@ -55,23 +66,12 @@ body {
   transition: 0.4s ease;
 }
 
+
 .search-box .search-bar:focus {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
-.location-box {
-  margin-bottom: 40px;
-}
-
-.location-box .location {
-  color: white;
-  font-size: 45px;
-  font-weight: 500;
-  text-align: center;
-  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
-}
-
-.location-box .date {
+.date {
   color: white;
   font-size: 23px;
   font-weight: 300;
@@ -80,10 +80,27 @@ body {
   text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
 }
 
-.weather-icon-box {
+.currTemp {
   text-align: center;
+  font-size: 200px;
+  font-weight: 900;
+  /*color: white;*/
+  background: linear-gradient(
+    #ffffff,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.01)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
 
+
+/* Save just in case if need to use later***
 .weather-box {
   text-align: center;
 }
@@ -109,30 +126,96 @@ body {
 .weather {
   text-align: center;
   color: white;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 700;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}*/
+
+.weather-icon-box {
+  text-align: center;
+  margin-top: -85px;
+}
+
+.location-box {
+  margin-bottom: 40px;
+}
+
+.location-box .location {
+  color: white;
+  font-size: 45px;
+  font-weight: 500;
+  text-align: center;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }
 
-.hourly-temp-box {
-  text-align: center;
-  margin-top: 25px;
+.scrollHours {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
-.hourly-temp-box .time-frame {
-  position: relative;
+.scrollHours::-webkit-scrollbar {
+  display: none;
+}
+
+.weather-box-hourly {
   display: inline-block;
+  margin: 5px;
+}
+
+.weather-box-hourly .tempHours {
+  /*Each of the hour temp boxes*/
   margin: 10px auto;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
 
-  padding: 15px 20px;
+  padding: 15px 10px;
 
   color: white;
-  font-size: 24px;
-  font-weight: 900;
+  font-size: 33px;
+  font-weight: 90;
+
+  text-shadow: 2px 3px rgba(50, 50, 70, 0.5);
+  text-align: center;
+  box-shadow: 3px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tempHours .weatherHours {
+  /*The numHours and weather deets*/
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  font-weight: 70;
+  text-shadow: 1.5px 1.5px rgba(50, 50, 70, 0.8);
+}
+
+.carousel-scroll {
+  /*The outer box of the HourlyWeather*/
+  margin: 10px auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+
+  padding: 10px 15px;
 
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
   text-align: center;
   box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* For mobile phones: */
+.carousel-scroll {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .carousel-scroll {
+    width: 88%;
+  }
+}
+@media only screen and (min-width: 909px) {
+  /* For desktop: */
+  .carousel-scroll {
+    width: 60%;
+  }
 }

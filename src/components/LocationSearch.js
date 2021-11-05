@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react';
+import React, {useState} from 'react';
 import '../style/Weather.css';  //change into App.css
 
 function LocationSearch(props) {
@@ -6,7 +6,6 @@ function LocationSearch(props) {
 
   function handleInputChange(e) {
     setUserInput(e.target.value);
-    console.log("User input: ", e.target.value);
   }
 
   function handleSubmit(e) {

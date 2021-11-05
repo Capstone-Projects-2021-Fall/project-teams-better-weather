@@ -14,7 +14,6 @@ import fogN from '../icons/moon/14.png';
 
 
 function WeatherIcons(props){
-  //console.log("props", props);
   const {icons} = props;
 
   function setWeatherIcon(type){
@@ -56,7 +55,7 @@ function WeatherIcons(props){
  
   return(
     <div>
-      <img src={setWeatherIcon(icons.icon)} height={270} width={300} alt=''/>
+      <img src={setWeatherIcon(icons.icon)} height={281} width={300} alt=''/>
     </div>   
   );
 }

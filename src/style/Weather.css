@@ -8,26 +8,40 @@ body {
   font-family: "Roboto Mono", monospace;
 }
 
-.app {
-  /*background-image: url("../img/blue-gradient.jpg");*/
-  /*background-image: linear-gradient(#051960, #591da9);*/
-  background-image: linear-gradient(#3c21b7, #8b63da, #cb98ed, #cfcbd2);
-  background-size: cover;
-  background-position: bottom;
-  transition: all 1.5s ease-in-out;
-}
-
-.app.warm {
-  /*background-image: url("../img/pink-gradient.jpg");*/
+.early-morning {
   background-image: linear-gradient(#78a3eb, #fbc2eb);
 }
+
+.mid-day {
+  background-image: linear-gradient(#78a3eb, #acd1d1);
+}
+
+.evening {
+  background-image: linear-gradient(#3c21b7, #8b63da, #cb98ed, #cfcbd2);
+}
+
+.night {
+  background-image: linear-gradient(#051960, #3c21b7, #8b63da);
+}
+
+/*.app {
+  background-image: url("../img/blue-gradient.jpg");*/
+/*background-image: linear-gradient(#051960, #591da9);
+  background-image: linear-gradient(#051960, #3c21b7, #8b63da);
+  transition: all 1.5s ease-in-out;
+}*/
+
+/*.app.warm {
+  background-image: url("../img/pink-gradient.jpg");
+  background-image: linear-gradient(#78a3eb, #fbc2eb);
+}*/
 
 .main {
   min-height: 100vh;
   background-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0.05),
-    rgba(0, 0, 0, 0.25)
+    rgba(0, 0, 0, 0.15)
   );
   padding: 25px;
 }

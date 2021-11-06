@@ -44,13 +44,28 @@ function App() {
   }
 
   function background() { // this will be a component some day
-    const x = weather.current
-    const ret = (typeof x != "undefined" && x.temp > 16)
-    return (ret ? 'app warm' : 'app');
+    const str = new Date().toLocaleTimeString('en-GB', { timeZone: weather.timezone });
+    if(str >= "05:00:00" && str < "08:00:00"){
+      //console.log("early morning");
+      return 'early-morning';
+    }
+    else if(str >= "08:00:00" && str < "16:00:00"){
+      //console.log("midday");
+      return 'mid-day';
+    }
+    else if(str >= "16:00:00" && str < "19:00:00"){
+      //console.log("evening");
+      return 'evening';
+    }
+    else{
+      //console.log("night");
+      return 'night';
+    }
+    
+    //const x = weather.current  //keep just in case?
+    //const ret = (typeof x != "undefined" && x.temp > 16)
+    //return (ret ? 'app warm' : 'app');
   }
-
-  const str = new Date().toLocaleTimeString('en-US', { timeZone: weather.timezone });
-  console.log("Local time", str);
 
   return (
     <div className={background()}>

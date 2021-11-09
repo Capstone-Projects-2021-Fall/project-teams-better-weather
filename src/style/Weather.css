@@ -39,8 +39,16 @@ body {
 
 .search-box .search-bar {
   display: block;
-  width: 100%;
-  padding: 15px;
+  width: 650px;
+  
+  padding-left: 15px;
+  padding-right: 15px;
+  
+  
+  margin-top: 25px;
+  margin-bottom: 0px;
+  margin-left: 100px;
+  margin-right: 200px;
 
   appearance: none;
   background: none;
@@ -57,6 +65,7 @@ body {
 
   transition: 0.4s ease;
 }
+
 
 .search-box .search-bar:focus {
   background-color: rgba(255, 255, 255, 0.9);
@@ -89,6 +98,7 @@ body {
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 }
+
 
 /* Save just in case if need to use later***
 .weather-box {

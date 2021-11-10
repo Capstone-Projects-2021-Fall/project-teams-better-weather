@@ -17,9 +17,7 @@ function CurrentWeather(props) {
             {Math.round((props.weather.current.temp) * (9/5) + 32) }°F
           </div>
           <div className="weather-icon-box">
-            <div className="icons">
-              <WeatherIcons icons={props.weather.current?.weather[0]} />
-            </div>
+            <WeatherIcons icons={props.weather.current?.weather[0]} />
           </div>
           <div className="location-box">
             <div className="location">{props.weather.address}</div>

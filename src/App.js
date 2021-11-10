@@ -7,12 +7,8 @@ import Login from "./components/Login"
 import PrivateRoute from "./components/PrivateRoute.js"
 import ForgotPassword from './components/ForgotPassword.js'
 
-import './style/Weather.css';
-
 function App() {
-
   return (
- 
       <div>
         <Router> 
           <AuthProvider>
@@ -25,8 +21,7 @@ function App() {
           </AuthProvider>
         </Router>
       </div>
-  
-  )
+  );
 }
 
 export default App;

@@ -53,8 +53,15 @@ body {
 
 .search-box .search-bar {
   display: block;
-  width: 100%;
-  padding: 15px;
+  width: 650px;
+
+  padding-left: 15px;
+  padding-right: 15px;
+
+  margin-top: 25px;
+  margin-bottom: 0px;
+  margin-left: 100px;
+  margin-right: 200px;
 
   appearance: none;
   background: none;
@@ -87,7 +94,7 @@ body {
 
 .currTemp {
   text-align: center;
-  font-size: 200px;
+  font-size: 130px;
   font-weight: 900;
   /*color: white;*/
   background: linear-gradient(
@@ -135,9 +142,14 @@ body {
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
 }*/
 
-.weather-icon-box {
+div.weather-icon-box {
   text-align: center;
   margin-top: -85px;
+}
+
+img.icons {
+  display: block;
+  margin: 0 auto;
 }
 
 .location-box {

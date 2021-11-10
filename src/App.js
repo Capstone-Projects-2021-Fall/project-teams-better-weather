@@ -1,15 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import LocationSearch from './components/LocationSearch';
 import CurrentWeather from './components/CurrentWeather.js';
 import HourlyWeather from './components/HourlyWeather.js';
-
+import Contact from './components/Contact.js';
 import './style/Weather.css';
-import * as ReactBootStrap from "react-bootstrap";
-import Contact from './contact';
+
+import LocationSearch from './components/LocationSearch.js';
+import {Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import {Route, Link} from 'react-router-dom';
-
-
-import './style/Weather.css';
 
 function App() {
   const [location, setLocation] = useState('New York');   
@@ -74,50 +71,34 @@ function App() {
   }
 
   return (
-
     <div>
-    
-    <ReactBootStrap.Navbar bg="light" expand="lg">
-  <ReactBootStrap.Container>
-    <ReactBootStrap.Navbar.Brand href="#home">Better Weather</ReactBootStrap.Navbar.Brand>
-    <ReactBootStrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
-      <ReactBootStrap.Nav className="me-auto">
-
-        <ReactBootStrap.Nav.Item>
-        <LocationSearch 
-            location={location}
-            onLocationSubmit={handleLocationSubmit} />
-          </ReactBootStrap.Nav.Item>
-
-      
-            
-        <ReactBootStrap.Nav.Link href="#home">Home</ReactBootStrap.Nav.Link>
-        <ReactBootStrap.Nav.Link as={Link} to="/contact" >Contact</ReactBootStrap.Nav.Link>
-        
-        <ReactBootStrap.NavDropdown title="Dropdown" id="basic-nav-dropdown">
-          <ReactBootStrap.NavDropdown.Item href="#action/3.1">Action</ReactBootStrap.NavDropdown.Item>
-          <ReactBootStrap.NavDropdown.Item href="#action/3.2">Another action</ReactBootStrap.NavDropdown.Item>
-          <ReactBootStrap.NavDropdown.Item href="#action/3.3">Something</ReactBootStrap.NavDropdown.Item>
-          <ReactBootStrap.NavDropdown.Divider />
-          <ReactBootStrap.NavDropdown.Item href="#action/3.4">Separated link</ReactBootStrap.NavDropdown.Item>
-        </ReactBootStrap.NavDropdown>
-        
-
-      </ReactBootStrap.Nav>
-    </ReactBootStrap.Navbar.Collapse>
-  </ReactBootStrap.Container>
-</ReactBootStrap.Navbar>
-
-    <div className={background()}>
-      <div className="main">
-          
+      <div className={background()}>
+        <Navbar bg="light" expand="lg">
+          <Container>
+            <Navbar.Brand href="#home">Better Weather</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto">
+                <Nav.Item>
+                  <LocationSearch 
+                    location={location}
+                    onLocationSubmit={handleLocationSubmit} />
+                </Nav.Item>
+                <Nav.Link as={Link} to="/contact" >Contact</Nav.Link>
+                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="#action/3.1">Something</NavDropdown.Item>
+                </NavDropdown>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+        <div className="main">
           <CurrentWeather 
             weather={weather} />
           <HourlyWeather 
             weather={hourly} />
+        </div>
       </div>
-    </div>
     </div>
   );
 }

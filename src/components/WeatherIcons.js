@@ -1,16 +1,17 @@
 import React from 'react';
-import sun from '../icons/sun/26.png';
-import clearNight from '../icons/moon/10.png';
-import fewCloudsD from '../icons/sun/27.png';
-import fewCloudsN from '../icons/moon/15.png';
-import cloud from '../icons/cloud/35.png';
-import showerRain from '../icons/cloud/7.png';
-import rainD from '../icons/sun/8.png';
-import rainN from '../icons/moon/1.png';
-import thunderstorm from '../icons/cloud/12.png';
-import snow from '../icons/cloud/23.png';
-import fogD from '../icons/sun/4.png';
-import fogN from '../icons/moon/14.png';
+import sun from '../compressedIcons/26.png';
+
+import clearNight from '../compressedIcons/10.png';
+import fewCloudsD from '../compressedIcons/27.png';
+import fewCloudsN from '../compressedIcons/15.png';
+import cloud from '../compressedIcons/35.png';
+import showerRain from '../compressedIcons/7.png';
+import rainD from '../compressedIcons/8.png';
+import rainN from '../compressedIcons/1.png';
+import thunderstorm from '../compressedIcons/12.png';
+import snow from '../compressedIcons/23.png';
+import fogD from '../compressedIcons/4.png';
+import fogN from '../compressedIcons/14.png';
 
 
 function WeatherIcons(props){
@@ -54,7 +55,9 @@ function WeatherIcons(props){
   }
  
   return(
-    <img className="icons" src={setWeatherIcon(icons.icon)} height={181} width={200} alt=''/>  
+    <div>
+      <img src={setWeatherIcon(icons.icon)} height={281} width={330} alt=''/>
+    </div>   
   );
 }
 

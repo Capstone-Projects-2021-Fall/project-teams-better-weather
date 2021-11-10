@@ -2,7 +2,7 @@
 from s3connect import * 
 
 # crontab -e
-# 03 * * * * ./hourly_forecast
+# 03 * * * * ./hourly_forecast.py
 
 client = boto3.resource("s3")
 bucket = s3.Bucket("bw-preds")

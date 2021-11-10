@@ -4,7 +4,7 @@ from s3connect import *
 # crontab -e
 # 03 * * * * ./hourly_forecast.py
 
-client = boto3.resource("s3")
+s3 = boto3.resource("s3")
 bucket = s3.Bucket("bw-preds")
 for obj in bucket.objects.all():
   coord = obj.key.replace(".json", "").split(",")

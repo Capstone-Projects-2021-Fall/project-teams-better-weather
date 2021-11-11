@@ -25,4 +25,4 @@ export default Hour;
 <div className="hourlyIcons">
   <WeatherIcons icons={props.data.summary} />
 </div> 
- */
+*/

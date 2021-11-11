@@ -1,6 +1,6 @@
 import React from 'react'
 import * as ReactBootStrap from "react-bootstrap";
-import {Route, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 function Contact(){
     return(

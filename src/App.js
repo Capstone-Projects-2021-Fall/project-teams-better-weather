@@ -5,8 +5,8 @@ import HourlyWeather from './components/HourlyWeather.js';
 
 import './style/Weather.css';
 import * as ReactBootStrap from "react-bootstrap";
-import Contact from './contact';
-import {Route, Link} from 'react-router-dom';
+//import Contact from './contact';
+import {Link} from 'react-router-dom';
 
 
 import './style/Weather.css';

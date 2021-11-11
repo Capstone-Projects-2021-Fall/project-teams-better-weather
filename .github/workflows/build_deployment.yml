@@ -15,7 +15,7 @@ jobs:
       - name: Build React 
         run: | 
           npm install
-          npm build
+          npm run build
       - name: deploy-via-scp 
         uses: horochx/deploy-via-scp@1.1.0
         with:

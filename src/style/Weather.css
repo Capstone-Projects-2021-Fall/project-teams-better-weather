@@ -47,21 +47,15 @@ body {
 }
 
 .search-box {
-  width: 100%;
-  margin: 0 auto 25px;
+  width: 60%;
+  margin: 0 auto;
 }
 
 .search-box .search-bar {
-  display: block;
-  width: 650px;
+  width: 100%;
+  margin: 0 auto;
 
-  padding-left: 15px;
-  padding-right: 15px;
-
-  margin-top: 25px;
-  margin-bottom: 0px;
-  margin-left: 100px;
-  margin-right: 200px;
+  padding: 0 15px;
 
   appearance: none;
   background: none;

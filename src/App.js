@@ -111,7 +111,9 @@ function App() {
 
     <div className={background()}>
       <div className="main">
-          
+          <LocationSearch 
+            location={location}
+            onLocationSubmit={handleLocationSubmit} />
           <CurrentWeather 
             weather={weather} />
           <HourlyWeather 

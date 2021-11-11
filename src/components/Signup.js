@@ -4,9 +4,8 @@ import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory} from "react-router-dom"
 
 //Database
-import { getDatabase, ref, set, push, child } from "firebase/database"
+import { ref, set, push, child } from "firebase/database"
 import {db} from './Firebase'
-import firebase from "firebase/compat/app"
 
 export default function Signup() {
     const emailRef = useRef()

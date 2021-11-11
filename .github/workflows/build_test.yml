@@ -1,0 +1,16 @@
+name: build test 
+
+on: 
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs: 
+  build: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build React 
+        run: | 
+          yarn install
+          yarn build

@@ -2,10 +2,9 @@ import React, {useState, useEffect} from 'react';
 import LocationSearch from './LocationSearch';
 import CurrentWeather from './CurrentWeather.js';
 import HourlyWeather from './HourlyWeather.js';
-import Contact from './Contact';
 import '../style/Weather.css';
 import {Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
-import {Route, Link, useHistory} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {useAuth} from '../contexts/AuthContext.js';
 import firebase from "firebase/compat/app"; 
 
@@ -89,6 +88,9 @@ export default function MainPage() {
   // Logout function
   async function handleLogout() {
     setError('')
+    // for now
+    console.log(error);
+    console.log(currentUser);
     try {
         await logout()
         history.push("/")

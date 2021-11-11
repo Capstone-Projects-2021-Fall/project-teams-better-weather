@@ -17,13 +17,13 @@ function LocationSearch(props) {
 
   return ( 
     <div className="search-box">
-        <input 
-          type="text"
-          className="search-bar"
-          placeholder="Search location"
-          value={userInput} 
-          onChange={handleInputChange}
-          onKeyPress={handleSubmit} />
+      <input 
+        type="text"
+        className="search-bar"
+        placeholder="Search location"
+        value={userInput} 
+        onChange={handleInputChange}
+        onKeyPress={handleSubmit} />
     </div>
   );
 }

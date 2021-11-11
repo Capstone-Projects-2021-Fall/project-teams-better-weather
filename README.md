@@ -13,15 +13,15 @@ pip install -r requirements.txt
 deactivate
 
 # Install node modules
-npm install
+yarn install
 ```
 
 ## Start development
 ```
 # Start react app
-npm start
+yarn start
 
 # Start flask on another terminal
-npm run start-api
+yarn run start-api
 ```
 

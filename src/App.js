@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Signup from "./components/Signup";
 import { AuthProvider } from "./contexts/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import MainPage from "./components/MainPage"
 import Login from "./components/Login"
-import PrivateRoute from "./components/PrivateRoute.js"
 import ForgotPassword from './components/ForgotPassword.js'
 
 function App() {

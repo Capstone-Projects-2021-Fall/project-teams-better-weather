@@ -9,7 +9,8 @@ x_train = x_train.astype("float32")/255
 y_train = keras.utils.to_categorical(y_train, 10)
 
 model = keras.models.load_model("testnet")
-samp = np.random.randint(0, x_train.shape[0], size=1)
-x = x_train[samp]
-out = model.call(x)
-print(np.argmax(out.numpy()), np.argmax(y_train[samp]))
+for i in range(64):
+  samp = np.random.randint(0, x_train.shape[0], size=1)
+  x = x_train[samp]
+  out = model.call(x)
+  print(np.argmax(out.numpy()), np.argmax(y_train[samp]))

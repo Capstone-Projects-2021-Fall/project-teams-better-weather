@@ -15,7 +15,7 @@ def upload_data(bucket, coord):
   client = boto3.client('s3')  
   lon, lat = coord
   key = f"{lon},{lat}.json"
-  out = makmakee_prediction(coord)
+  out = make_prediction(coord)
   client.put_object(Body=out, Bucket=bucket, Key=key)
   return (success=True)
 

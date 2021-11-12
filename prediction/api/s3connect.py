@@ -3,9 +3,9 @@ import json
 import requests
 import boto3
 from botocore.exceptions import ClientError
-from model import Model
+from tensorflow import keras
 
-model = Model()
+model = keras.models.load_model("test/testnet")
 
 def fetch_data(bucket, coord):
   """
@@ -17,6 +17,7 @@ def fetch_data(bucket, coord):
   if check_exists(client, bucket, key):
     response = client.get_object(Bucket=bucket, Key=key)
   else:
+    # r = requests.get(url, params=params)
     upload_data(bucket, coord) 
     response = client.get_object(Bucket=bucket, Key=key)
   ret = response["Body"].read().decode()

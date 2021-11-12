@@ -3,6 +3,7 @@ import json
 import requests
 import boto3
 from botocore.exceptions import ClientError
+from random import randint, uniform
 from tensorflow import keras
 
 model = keras.models.load_model("test/testnet")
@@ -38,16 +39,17 @@ def fake_model(coord):
   data = {}
   data["lon"], data["lat"] = coord
   sums = ["cloudy", "mostly cloudy", "partly cloudy", "clear", "rain", "humid"]
-  data["hourly"] = {}
   hours = []
   for i in range(12):
-    x["time"] = i
-    x["summary"] = sums[random.randint(0, len(sums)-1)]
-    x["precipIntensity"] = round(random.uniform(0, 1), 2)
-    x["precipProbability"] = round(random.uniform(0, 1), 2)
-    x["temperature"] = round(random.uniform(0, 100), 2)
-    x["humidity"] = round(random.uniform(0, 1), 2)
+    x = {
+      "time": i,
+      "summary": sums[randint(0, len(sums)-1)],
+      "precipIntensity": round(uniform(0, 1), 2),
+      "temperature": round(uniform(0, 100), 2),
+      "humidity": round(uniform(0, 1), 2)
+    }
     hours.append(x)
+  data["hourly"] = {}
   data["hourly"]["data"] = hours
   return json.dumps(data)
 

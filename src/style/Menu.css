@@ -1,14 +1,21 @@
 /*Whole section where hamburger menu is at*/
 .navbar {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
+  margin-top: 2.5px;
 }
 
 /*Hamburger menu*/
 .menu-bars {
-  margin-right: 2rem;
+  margin-right: 1rem;
   font-size: 2rem;
+
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 /*The pull out menu*/

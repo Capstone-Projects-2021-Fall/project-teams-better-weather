@@ -30,7 +30,7 @@ def make_prediction(coord):
   # load relevant data into numpy array
   # ...
   out = model(x)
-  return out
+  return fake_model(coord)
 
 def fake_model(coord):
   """

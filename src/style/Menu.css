@@ -1,6 +1,5 @@
 /*Whole section where hamburger menu is at*/
 .navbar {
-  height: 80px;
   display: flex;
   justify-content: start;
   align-items: center;
@@ -8,9 +7,8 @@
 
 /*Hamburger menu*/
 .menu-bars {
-  margin-left: 2rem;
+  margin-right: 2rem;
   font-size: 2rem;
-  background: none;
 }
 
 /*The pull out menu*/
@@ -18,22 +16,30 @@
   background-color: #ffffff10;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  box-shadow: 3px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: -2px 2px rgba(0, 0, 0, 0.1);
 
-  border-radius: 0 20px 20px 0;
+  border-radius: 20px 0 0 20px;
   width: 250px;
   height: 100vh;
   display: flex;
   justify-content: center;
   position: fixed;
   top: 0;
-  left: -100%;
+  right: -100%;
   transition: 850ms;
 }
 
 .nav-menu.active {
-  left: 0;
+  right: 0;
   transition: 350ms;
+}
+
+@media only screen and (min-width: 769px) {
+  /* For desktop: */
+  .menu-bars,
+  .nav-menu {
+    display: none;
+  }
 }
 
 .nav-text {
@@ -62,6 +68,41 @@
   color: whitesmoke;
 }
 
+.sign-in-btn {
+  justify-content: flex;
+  justify-content: start;
+  align-items: center;
+  list-style: none;
+  height: 40px;
+  margin-right: 45px;
+}
+
+.sign-in-btn a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 43px;
+}
+
+.sign-in-btn {
+  background-color: #256ce1;
+  border-radius: 20px;
+}
+
+.sign-in-btn a:hover {
+  color: black;
+}
+
+.sign-in-btn:hover {
+  color: black;
+  background-color: azure;
+  transition: all 300ms ease-in-out;
+}
+
 .nav-menu-items {
   width: 100%;
 }
@@ -77,4 +118,9 @@
 
 span {
   margin-left: 16px;
+}
+
+/*Settings page*/
+.pages-bkg {
+  background-color: #ada1d2;
 }

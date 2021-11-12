@@ -4,12 +4,12 @@ import CurrentWeather from './components/CurrentWeather.js';
 import HourlyWeather from './components/HourlyWeather.js';
 
 import './style/Weather.css';
-import * as ReactBootStrap from "react-bootstrap";
-import Contact from './contact';
-import {Route, Link} from 'react-router-dom';
+import Menu from "./components/Menu.js"
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-
-import './style/Weather.css';
+//import * as ReactBootStrap from "react-bootstrap";
+//import Contact from './contact';
+//import {Route, Link} from 'react-router-dom';
 
 function App() {
   const [location, setLocation] = useState('New York');   
@@ -74,10 +74,33 @@ function App() {
   }
 
   return (
-
     <div>
-    
-    <ReactBootStrap.Navbar bg="light" expand="lg">
+      <div className={background()}>
+        <div className="main">
+          <Router>
+            <Menu />
+            <Switch>
+              <Route path='/' />
+            </Switch>
+          </Router>  
+          
+          <LocationSearch 
+            location={location}
+            onLocationSubmit={handleLocationSubmit} />
+          <CurrentWeather 
+            weather={weather} />
+          <HourlyWeather 
+            weather={hourly} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+/*
+<ReactBootStrap.Navbar bg="light" expand="lg">
   <ReactBootStrap.Container>
     <ReactBootStrap.Navbar.Brand href="#home">Better Weather</ReactBootStrap.Navbar.Brand>
     <ReactBootStrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -108,20 +131,4 @@ function App() {
     </ReactBootStrap.Navbar.Collapse>
   </ReactBootStrap.Container>
 </ReactBootStrap.Navbar>
-
-    <div className={background()}>
-      <div className="main">
-          <LocationSearch 
-            location={location}
-            onLocationSubmit={handleLocationSubmit} />
-          <CurrentWeather 
-            weather={weather} />
-          <HourlyWeather 
-            weather={hourly} />
-      </div>
-    </div>
-    </div>
-  );
-}
-
-export default App;
+*/

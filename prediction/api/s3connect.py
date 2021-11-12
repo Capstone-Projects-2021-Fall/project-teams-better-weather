@@ -45,6 +45,7 @@ def fake_model(coord):
       "time": i,
       "summary": sums[randint(0, len(sums)-1)],
       "precipIntensity": round(uniform(0, 1), 2),
+      "precipProbability": round(uniform(0, 1), 2),
       "temperature": round(uniform(0, 100), 2),
       "humidity": round(uniform(0, 1), 2)
     }

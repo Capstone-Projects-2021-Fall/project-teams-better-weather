@@ -229,3 +229,14 @@ img.icons {
     width: 60%;
   }
 }
+
+/*Menu.js stuff*/
+.home,
+.reports,
+.products {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}

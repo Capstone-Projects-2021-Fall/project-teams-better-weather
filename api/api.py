@@ -1,6 +1,6 @@
 import random
 from flask import Flask, request, jsonify
-from s3connect import fetch_data, fetch_currently, fetch_forecast
+from s3connect import fetch_hourly, fetch_currently, fetch_forecast
 
 BUCKET = "bw-preds"
 
@@ -29,6 +29,6 @@ def get_currently():
 @app.route('/hourly/', methods=['GET'])
 def get_hourly():
   coord = request.args.get("coord").split(",")
-  response = jsonify(fetch_data(BUCKET, coord))
+  response = jsonify(fetch_hourly(BUCKET, coord))
   response.headers.add("Access-Control-Allow-Origin", "*")
   return response

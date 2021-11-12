@@ -7,32 +7,6 @@ from tensorflow import keras
 
 model = keras.models.load_model("test/testnet")
 
-def fetch_data(bucket, coord):
-  """
-  Fetch hourly weather data from S3
-  """
-  client = boto3.client('s3')  
-  lon, lat = coord
-  key = f"{lon},{lat}.json"
-  if check_exists(client, bucket, key):
-    response = client.get_object(Bucket=bucket, Key=key)
-  else:
-    # r = requests.get(url, params=params)
-    upload_data(bucket, coord) 
-    response = client.get_object(Bucket=bucket, Key=key)
-  ret = response["Body"].read().decode()
-  return json.loads(ret)
-
-def check_exists(client, bucket, key):
-  """
-  Checks if key is in bucket
-  """
-  try: 
-    client.head_object(Bucket=bucket, Key=key)
-  except ClientError as e:
-    return int(e.response['Error']['Code']) != 404
-  return True
-
 def upload_data(bucket, coord):
   """
   Upload prediction from model to S3
@@ -40,10 +14,11 @@ def upload_data(bucket, coord):
   client = boto3.client('s3')  
   lon, lat = coord
   key = f"{lon},{lat}.json"
-  out = get_prediction(coord)
+  out = makmakee_prediction(coord)
   client.put_object(Body=out, Bucket=bucket, Key=key)
+  return (success=True)
 
-def get_prediction(coord):
+def make_prediction(coord):
   lon, lat = coord
   url = "https://api.openweathermap.org/data/2.5/onecall"
   api_key = os.environ["OWM_API_KEY"]
@@ -55,4 +30,24 @@ def get_prediction(coord):
   # ...
   out = model(x)
   return out
+
+def fake_model(coord):
+  """
+  Randomly generated predictions for now
+  """
+  data = {}
+  data["lon"], data["lat"] = coord
+  sums = ["cloudy", "mostly cloudy", "partly cloudy", "clear", "rain", "humid"]
+  data["hourly"] = {}
+  hours = []
+  for i in range(12):
+    x["time"] = i
+    x["summary"] = sums[random.randint(0, len(sums)-1)]
+    x["precipIntensity"] = round(random.uniform(0, 1), 2)
+    x["precipProbability"] = round(random.uniform(0, 1), 2)
+    x["temperature"] = round(random.uniform(0, 100), 2)
+    x["humidity"] = round(random.uniform(0, 1), 2)
+    hours.append(x)
+  data["hourly"]["data"] = hours
+  return json.dumps(data)
 

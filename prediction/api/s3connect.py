@@ -5,6 +5,8 @@ import boto3
 from botocore.exceptions import ClientError
 from random import randint, uniform
 from tensorflow import keras
+from dotenv import load_dotenv 
+load_dotenv()
 
 model = keras.models.load_model("test/testnet")
 

@@ -3,6 +3,8 @@ import json
 import requests
 import boto3
 from botocore.exceptions import ClientError
+from dotenv import load_dotenv
+load_dotenv()
 
 def fetch_hourly(bucket, coord):
   """

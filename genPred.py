@@ -4,9 +4,11 @@
 # In[58]:
 
 
+import json
 import pandas as pd
 from pandas import json_normalize
-import time 
+import time
+import requests 
 from sklearn import preprocessing
 import numpy as np
 
@@ -108,8 +110,7 @@ genPred = genPred[: 24, 0]
 genPred = np.reshape(genPred, (1, genPred.shape[0], 1))
 model.predict(genPred)
 pred = [(genPred * temp_std) + temp_avg]
-return pred
-
+print(pred)
 
 # In[60]:
 

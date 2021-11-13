@@ -17,7 +17,7 @@ def upload_data(bucket, coord):
   key = f"{lon},{lat}.json"
   out = make_prediction(coord)
   client.put_object(Body=out, Bucket=bucket, Key=key)
-  return (success=True)
+  return json.dumps({"success": True}), 200
 
 def make_prediction(coord):
   lon, lat = coord

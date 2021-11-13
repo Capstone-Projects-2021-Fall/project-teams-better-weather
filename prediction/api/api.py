@@ -6,7 +6,7 @@ BUCKET = "bw-preds"
 app = Flask(__name__)
 
 @app.route('/')
-def get_hourly():
+def home():
   return "<h1>whats up</h1>"
 
 @app.route('/preds/', methods=['GET'])

@@ -1,5 +1,5 @@
 import React from 'react'
-import Menu from "../../components/Menu.js";
+import Menu from "../components/Menu";
 import {
   Nav,
   NavLink,

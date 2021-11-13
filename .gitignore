@@ -3,6 +3,7 @@ env
 venv
 notes
 *.swp
+*.swo
 .env
 
 # dependencies

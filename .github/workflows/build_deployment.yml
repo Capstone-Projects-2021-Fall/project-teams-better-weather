@@ -1,0 +1,24 @@
+name: build deployment
+
+on: 
+  push: 
+    branches: [main]
+  workflow_dispatch:
+
+jobs: 
+  build: 
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build React 
+        run: | 
+          yarn install
+          yarn build
+      - name: deploy-via-scp 
+        uses: horochx/deploy-via-scp@1.1.0
+        with:
+          local: build/*
+          remote: /var/www/bw
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.USER }} 
+          key: ${{ secrets.KEY }}

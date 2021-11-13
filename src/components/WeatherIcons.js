@@ -1,17 +1,16 @@
 import React from 'react';
-import sun from '../compressedIcons/26.png';
-
-import clearNight from '../compressedIcons/10.png';
-import fewCloudsD from '../compressedIcons/27.png';
-import fewCloudsN from '../compressedIcons/15.png';
-import cloud from '../compressedIcons/35.png';
-import showerRain from '../compressedIcons/7.png';
-import rainD from '../compressedIcons/8.png';
-import rainN from '../compressedIcons/1.png';
-import thunderstorm from '../compressedIcons/12.png';
-import snow from '../compressedIcons/23.png';
-import fogD from '../compressedIcons/4.png';
-import fogN from '../compressedIcons/14.png';
+import sun from '../icons/26.png';
+import clearNight from '../icons/10.png';
+import fewCloudsD from '../icons/27.png';
+import fewCloudsN from '../icons/15.png';
+import cloud from '../icons/35.png';
+import showerRain from '../icons/7.png';
+import rainD from '../icons/8.png';
+import rainN from '../icons/1.png';
+import thunderstorm from '../icons/12.png';
+import snow from '../icons/23.png';
+import fogD from '../icons/4.png';
+import fogN from '../icons/14.png';
 
 
 function WeatherIcons(props){

@@ -209,3 +209,8 @@ img.icons {
   justify-content: center;
   font-size: 3rem;
 }
+
+.LoginLinks{
+  display:flex;
+}
+

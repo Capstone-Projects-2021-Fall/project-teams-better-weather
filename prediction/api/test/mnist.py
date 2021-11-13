@@ -7,8 +7,7 @@ x_test = x_test.astype("float32")/255
 y_test = keras.utils.to_categorical(y_test, 10)
 
 model = keras.models.load_model("testnet")
-for i in range(64):
-  samp = np.random.randint(0, x_test.shape[0], size=1)
-  x = x_test[samp]
-  out = model.call(x)
-  print(np.argmax(out.numpy()), np.argmax(y_test[samp]))
+samp = np.random.randint(0, x_test.shape[0], size=64)
+x = x_test[samp]
+out = model.call(x).numpy()
+print((out.argmax(axis=1) == y_test[samp].argmax(axis=1)).mean())

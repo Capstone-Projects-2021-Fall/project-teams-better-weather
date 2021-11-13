@@ -29,8 +29,9 @@ def make_prediction(coord):
   x = r.json() 
   # load relevant data into numpy array
   # ...
-  out = model(x)
-  return fake_model(coord)
+  #out = model(x)
+  out = fake_model(coord)
+  return out
 
 def fake_model(coord):
   """

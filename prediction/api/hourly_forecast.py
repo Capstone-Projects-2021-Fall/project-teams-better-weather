@@ -8,5 +8,6 @@ s3 = boto3.resource("s3")
 bucket = s3.Bucket("bw-preds")
 for obj in bucket.objects.all():
   coord = obj.key.replace(".json", "").split(",")
-  upload_data("bw-preds", coord)
+  if len(coord) == 2:
+    upload_data("bw-preds", coord)
   

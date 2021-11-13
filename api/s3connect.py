@@ -34,8 +34,8 @@ def call_prediction(coord):
   Call model to make a prediction
   """
   lon, lat = coord
-  url = "https://pred.betterweather.xyz/preds"
-  params = {"hourly": f"{lon},{lat}"} 
+  url = "https://pred.betterweather.xyz/"
+  params = {"preds": f"{lon},{lat}"} 
   r = requests.get(url, params=params)
   return r.json()
 

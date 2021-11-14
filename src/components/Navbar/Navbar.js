@@ -20,7 +20,7 @@ const Navbar = (props) => {
     </div>
   } else {
     LoginLinks = <div className="LoginLinks">
-      <NavLink to="/sign-up">
+      <NavLink to="/sign-up" activeStyle>
         Sign up
       </NavLink>
       <NavBtnLink to="/sign-in">

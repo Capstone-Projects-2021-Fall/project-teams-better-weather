@@ -1,15 +1,15 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/Navbar';
 
 function About(){
-    return (
-        <>
-            <div className="pages-bkg">
-                <Navbar />
-            </div>
-            <h1>About</h1>
-        </>
-    )
+  return (
+    <>
+      <div className="pages-bkg">
+        <Navbar />
+      </div>
+      <h1>About</h1>
+    </>
+  )
 }
 
 export default About;

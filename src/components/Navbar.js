@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
-import Menu from "../Menu";
+import Menu from "./Menu";
 
 export const Nav = styled.nav`
   background: none;

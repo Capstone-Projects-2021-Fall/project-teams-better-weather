@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { Form, Button, Card, Alert } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory} from "react-router-dom"
+import Navbar from './Navbar';
 
 //Database
 import { ref, set, push, child } from "firebase/database"
@@ -44,6 +45,9 @@ export default function Signup() {
 
     return (
         <>
+            <div className="pages-bkg">
+                <Navbar />
+            </div>
             <Card className="d-flex align-items-center justify-content-center">
                 <Card.Body> 
                     <h2 className="text-center mb-4">Sign Up</h2>

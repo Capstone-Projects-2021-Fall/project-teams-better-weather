@@ -4,6 +4,7 @@ import time
 import requests
 import numpy as np 
 from sklearn.preprocessing import MinMaxScaler
+from tensorflow import keras
 
 def get_historical(coord, time):
   lon, lat = coord
@@ -12,6 +13,7 @@ def get_historical(coord, time):
   params = {"lat": f"{lat}", "lon": f"{lon}", "dt": f"{time}", "units": "imperial", "appid": f"{api_key}"}
   r = requests.get(url, params=params)
   data = r.json() 
+  print(data)
   return data
 
 def process(data):
@@ -33,4 +35,8 @@ time = str(int(time.time())-86400)
 coord = ["-75", "40"]
 data = get_historical(coord, time)
 x, temp_avg, temp_std = process(data)
-print(x)
+
+model = keras.models.load_model("../weather.model")
+out = model.predict(x)
+out = (out*temp_std) + temp_avg
+print(out)

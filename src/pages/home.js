@@ -1,16 +1,14 @@
 import React, {useState, useEffect} from 'react';
+import {Link, useHistory} from 'react-router-dom';
+import {useAuth} from '../contexts/AuthContext.js';
+import firebase from "firebase/compat/app"; 
 import LocationSearch from '../components/LocationSearch';
 import CurrentWeather from '../components/CurrentWeather.js';
 import HourlyWeather from '../components/HourlyWeather';
 import Navbar from '../components/Navbar';
-import {Link, useHistory} from 'react-router-dom';
-import {useAuth} from '../contexts/AuthContext.js';
-import firebase from "firebase/compat/app"; 
 import '../style/Weather.css';
 
-export default function MainPage() {
-
-  // Weather
+function Home() {
   const [location, setLocation] = useState('New York');   
   const [weather, setWeather] = useState({}); 
   const [coord, setCoord] = useState({ "lon": -74.006, "lat": 40.7143 });
@@ -20,13 +18,12 @@ export default function MainPage() {
     }
   });
 
-  // Login
   const [error, setError] = useState()
   const { currentUser, logout } = useAuth()
   const history = useHistory()
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
-  firebase.auth().onAuthStateChanged((user)=>{
-    if(user){
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
       setIsUserSignedIn(true);
     } else {
       setIsUserSignedIn(false);
@@ -61,80 +58,55 @@ export default function MainPage() {
     console.log("Submitted location: ", location);
   }
 
+  function handleIsUserSignedIn(user) {
+    setIsUserSignedIn(user);
+  }
+
   function background() { // this will be a component some day
     const str = new Date().toLocaleTimeString('en-GB', { timeZone: weather.timezone });
-    if (str >= "05:00:00" && str < "08:00:00") { // Early morning
+    if (str >= "05:00:00" && str < "08:00:00") { 
       return 'early-morning';
     }
-    else if (str >= "08:00:00" && str < "16:00:00") { // Mid-day
+    else if (str >= "08:00:00" && str < "16:00:00") { 
       return 'mid-day';
     }
-    else if (str >= "16:00:00" && str < "19:00:00") { // Evening
+    else if (str >= "16:00:00" && str < "19:00:00") { 
       return 'evening';
     }
-    else { // Night
+    else { 
       return 'night';
     }
   }
   
-  // Logout function
   async function handleLogout() {
     setError('')
-    // for now
-    console.log(error);
-    console.log(currentUser);
+    console.log(error, currentUser); // for now
     try {
-        await logout()
-        history.push("/")
-    } catch{
-        setError('Failed to log out')
+      await logout()
+      history.push("/")
+    } catch {
+      setError('Failed to log out')
     }
   }
 
-  /*
-  var LoginLinks = <div className="LoginLinks"></div>
-    if(isUserSignedIn){
-        LoginLinks = <div className="LoginLinks">
-            <Nav.Link as={Link} to="/" onClick={handleLogout}>
-                Signout
-            </Nav.Link>
-        </div>
-    } else {
-        LoginLinks = <div className="LoginLinks">
-            <Nav.Link as={Link} to="/Login">
-                Login
-            </Nav.Link>
-            <Nav.Link as={Link} to="/Signup">
-                Signup
-            </Nav.Link>
-        </div>
-  }
-  */
-
   return (
-
     <>
       <div className={background()}>
-          <div className="main">
-              <Navbar />
-              {/*
-              <Router>
-                  <Switch>
-                      <Route path='/' />
-                  </Switch>
-              </Router>  
-              */}
-              <LocationSearch 
-                  location={location}
-                  onLocationSubmit={handleLocationSubmit} />
-              <CurrentWeather 
-                  weather={weather} />
-              <HourlyWeather 
-                  weather={hourly} />
-          </div>
+        <div className="main">
+          <Navbar 
+            user={isUserSignedIn}
+            onLogout={handleLogout} />
+          <LocationSearch 
+            location={location}
+            onLocationSubmit={handleLocationSubmit} />
+          <CurrentWeather 
+            weather={weather} />
+          <HourlyWeather 
+            weather={hourly} />
+        </div>
       </div>
     </>
-
   );
-
 }
+
+export default Home;

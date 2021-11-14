@@ -1,5 +1,5 @@
 import React from 'react'
-import Menu from "../Menu";
+import Menu from "../Menu.js";
 import {
   Nav,
   NavLink,
@@ -7,7 +7,28 @@ import {
   NavBtnLink
 } from './NavbarElements';
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const user = props.user;
+  const onLogout = props.onLogout;
+
+  var LoginLinks = <div className="LoginLinks"></div>
+  if (user) {
+    LoginLinks = <div className="LoginLinks">
+      <NavBtnLink to="/" onClick={onLogout}>
+        Sign out
+      </NavBtnLink>
+    </div>
+  } else {
+    LoginLinks = <div className="LoginLinks">
+      <NavLink to="/sign-up">
+        Sign up
+      </NavLink>
+      <NavBtnLink to="/sign-in">
+        Sign in
+      </NavBtnLink>
+    </div>
+  }
+    
   return (
     <>
       <Nav>
@@ -22,10 +43,7 @@ const Navbar = () => {
           <NavLink to='/settings' activeStyle>
             Settings
           </NavLink>
-          <NavLink to='/sign-up' activeStyle>
-            Sign Up
-          </NavLink>
-          <NavBtnLink to='/sign-in'>Sign In</NavBtnLink>
+          {LoginLinks}
         </NavMenu>
       </Nav>
     </>

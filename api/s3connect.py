@@ -17,7 +17,7 @@ def fetch_hourly(bucket, coord):
   else:
     resp = call_prediction(coord)
     if resp.status_code != 200: 
-      ret = None
+      return None # there should be error msg 
     response = client.get_object(Bucket=bucket, Key=key)
   ret = response["Body"].read().decode()
   return json.loads(ret)
@@ -34,10 +34,9 @@ def call_prediction(coord):
   Call model to make a prediction
   """
   lon, lat = coord
-  url = "https://pred.betterweather.xyz/"
-  params = {"preds": f"{lon},{lat}"} 
-  r = requests.get(url, params=params)
-  return r.json()
+  url = f"https://pred.betterweather.xyz/preds/?coord={lon},{lat}"
+  r = requests.get(url)
+  return r
 
 def upload_data(bucket, coord):
   """

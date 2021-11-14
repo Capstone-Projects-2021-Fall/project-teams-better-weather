@@ -5,6 +5,8 @@ import boto3
 from botocore.exceptions import ClientError
 from random import randint, uniform
 from tensorflow import keras
+from dotenv import load_dotenv 
+load_dotenv()
 
 model = keras.models.load_model("test/testnet")
 
@@ -17,7 +19,7 @@ def upload_data(bucket, coord):
   key = f"{lon},{lat}.json"
   out = make_prediction(coord)
   client.put_object(Body=out, Bucket=bucket, Key=key)
-  return json.dumps({"success": True}), 200
+  return json.dumps({"success": True}), 200, {'ContentType':'application/json'}
 
 def make_prediction(coord):
   lon, lat = coord

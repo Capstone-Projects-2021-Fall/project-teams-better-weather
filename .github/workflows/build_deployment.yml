@@ -18,7 +18,7 @@ jobs:
         uses: horochx/deploy-via-scp@1.1.0
         with:
           local: build/*
-          remote: /var/www/bw
+          remote: /var/www/bw/build
           host: ${{ secrets.HOST }}
           user: ${{ secrets.USER }} 
           key: ${{ secrets.KEY }}

@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Better Weather",
+  "name": "Better Weather provides weather forecasting and visualization.",
   "icons": [
     {
       "src": "favicon.ico",

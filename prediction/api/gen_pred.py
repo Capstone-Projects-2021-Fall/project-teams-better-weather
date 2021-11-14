@@ -21,17 +21,16 @@ def process(data):
     for ex in exclude:
       h.pop(ex, None)
   #print(json.dumps(hourly, indent=4))
-  ret = np.array([list(x.values()) for x in hourly])
-  return ret
+  x = np.array([list(h.values()) for h in hourly])
+  temp_avg = np.mean(x[:,0]) 
+  temp_std = np.std(x[:,0])
+  scaler = MinMaxScaler()
+  x = scaler.fit_transform(x)
+  x = np.expand_dims(x[:24,0], axis=(0, 2)) # just temp
+  return x, temp_avg, temp_std
 
 time = str(int(time.time())-86400)
 coord = ["-75", "40"]
 data = get_historical(coord, time)
-x = process(data)
-temp_avg = np.mean(x[:,0]) 
-temp_std = np.std(x[:,0])
-
-scaler = MinMaxScaler()
-x = scaler.fit_transform(x)
-x = np.expand_dims(x[:24,0], axis=(0, 2)) # just temp
-print(x.shape)
+x, temp_avg, temp_std = process(data)
+print(x)

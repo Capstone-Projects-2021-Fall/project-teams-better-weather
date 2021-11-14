@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AuthProvider } from "./contexts/AuthContext";
-import Home from './pages/home';
+import Home from './pages/';
 import Settings from './pages/settings';
 import About from './pages/about';
 import Login from "./components/Login"

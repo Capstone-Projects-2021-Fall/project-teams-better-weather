@@ -58,10 +58,6 @@ function Home() {
     console.log("Submitted location: ", location);
   }
 
-  function handleIsUserSignedIn(user) {
-    setIsUserSignedIn(user);
-  }
-
   function background() { // this will be a component some day
     const str = new Date().toLocaleTimeString('en-GB', { timeZone: weather.timezone });
     if (str >= "05:00:00" && str < "08:00:00") { 

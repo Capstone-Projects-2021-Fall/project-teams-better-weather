@@ -29,11 +29,3 @@ function CurrentWeather(props) {
 }
 
 export default CurrentWeather;
-
-/*
-<div className="weather-box">              
-  <div className="temp">
-    <div className="weather">{props.weather.current?.weather[0].main}</div>
-  </div>
-</div>
-*/

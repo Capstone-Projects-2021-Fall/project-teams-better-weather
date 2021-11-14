@@ -54,7 +54,7 @@ def generate_json(preds):
       "summary": sums[randint(0, len(sums)-1)],
       "precipIntensity": round(uniform(0, 1), 2),
       "precipProbability": round(uniform(0, 1), 2),
-      "temperature": preds,
+      "temperature": pred,
       "humidity": round(uniform(0, 1), 2)
     }
     hours.append(x)

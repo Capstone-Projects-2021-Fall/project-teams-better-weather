@@ -8,7 +8,7 @@ from tensorflow import keras
 from dotenv import load_dotenv 
 load_dotenv()
 
-model = keras.models.load_model("test/testnet")
+model = keras.models.load_model("../weather.model")
 
 def upload_data(bucket, coord):
   """
@@ -31,7 +31,8 @@ def make_prediction(coord):
   x = r.json() 
   # load relevant data into numpy array
   # ...
-  #out = model(x)
+  out = model.predict(x)
+
   out = fake_model(coord)
   return out
 

@@ -1,9 +1,4 @@
 #!/usr/bin/env python
-# coding: utf-8
-
-# In[58]:
-
-
 import json
 import pandas as pd
 from pandas import json_normalize
@@ -11,7 +6,6 @@ import time
 import requests 
 from sklearn import preprocessing
 import numpy as np
-
 import tensorflow as tf
 
 def getWeather(lat, long, dt):
@@ -60,21 +54,11 @@ def generateReport(coords):
    #print(result)
    format(result)
     
-    
-
-   
-
-
-# In[51]:
-
 
 LAT = "-75"
 LON = "40"
 coords = [LON, LAT]
 generateReport(coords)
-
-
-# In[56]:
 
 
 temp = pd.read_csv("data.csv")
@@ -87,17 +71,8 @@ temp.index =  temp['dt']
 temp.drop('dt', inplace=True, axis=1)
 temp_avg = temp["temp"].mean()
 temp_std = temp['temp'].std()
-temp
-
-
-# In[53]:
-
 
 model = tf.keras.models.load_model("weather.model")
-
-
-# In[59]:
-
 
 norm = temp
 #norm.drop('DATE', inplace=True, axis=1)
@@ -111,15 +86,4 @@ genPred = np.reshape(genPred, (1, genPred.shape[0], 1))
 model.predict(genPred)
 pred = [(genPred * temp_std) + temp_avg]
 print(pred)
-
-# In[60]:
-
-
-
-
-
-# In[ ]:
-
-
-
 

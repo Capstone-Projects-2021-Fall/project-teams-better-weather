@@ -13,7 +13,6 @@ def get_historical(coord, time):
   params = {"lat": f"{lat}", "lon": f"{lon}", "dt": f"{time}", "units": "imperial", "appid": f"{api_key}"}
   r = requests.get(url, params=params)
   data = r.json() 
-  print(data)
   return data
 
 def process(data):
@@ -37,6 +36,6 @@ data = get_historical(coord, time)
 x, temp_avg, temp_std = process(data)
 
 model = keras.models.load_model("../weather.model")
-out = model.predict(x)
+out = model.predict(x).squeeze()
 out = (out*temp_std) + temp_avg
 print(out)

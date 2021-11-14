@@ -5,7 +5,7 @@ import firebase from "firebase/compat/app";
 import LocationSearch from '../components/LocationSearch';
 import CurrentWeather from '../components/CurrentWeather.js';
 import HourlyWeather from '../components/HourlyWeather';
-import Navbar from '../components/Navbar/Navbar';
+import Navbar from '../components/Navbar';
 import '../style/Weather.css';
 
 function Home() {

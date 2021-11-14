@@ -3,8 +3,6 @@ import CurrentDate from './CurrentDate.js';
 import WeatherIcons from './WeatherIcons.js';
 import '../style/Weather.css';
 
-//import { Card } from 'semantic-ui-react' 
-
 function CurrentWeather(props) {
   return (
     <div>

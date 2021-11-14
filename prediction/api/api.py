@@ -14,5 +14,6 @@ def get_predictions():
   coord = request.args.get("coord").split(",")
   response = jsonify(upload_data(BUCKET, coord))
   response.headers.add("Access-Control-Allow-Origin", "*")
+  print(response.status_code)
   return response
 

@@ -20,7 +20,12 @@
 
 /*The pull out menu*/
 .nav-menu {
-  background-color: #ffffff10;
+  /*background-color: #ffffff10;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: -2px 2px rgba(0, 0, 0, 0.1);*/
+
+  background-color: #09196150;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: -2px 2px rgba(0, 0, 0, 0.1);

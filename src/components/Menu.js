@@ -26,7 +26,7 @@ function Menu(props) {
       </NavBtnLink>
     </div>
   } else {
-    LoginLinks = <div className="LoginLinks">
+    LoginLinks = <div className="LoginLinks login-sidemenu">
       <NavLink className="sign-up" to="/sign-up" activeStyle>
         Sign up
       </NavLink>

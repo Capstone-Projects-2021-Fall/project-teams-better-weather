@@ -30,6 +30,7 @@ def process(data):
   x = np.expand_dims(x[:,0], axis=(0, 2)) # just temp
   return x, temp_avg, temp_std
 
+"""
 time = str(int(time.time())-86400)
 coord = ["-75", "40"]
 data = get_historical(coord, time)
@@ -39,3 +40,4 @@ model = keras.models.load_model("../weather.model")
 out = model.predict(x).squeeze()
 out = (out*temp_std) + temp_avg
 print(out)
+"""

@@ -19,6 +19,7 @@ idna==3.3
 itsdangerous==2.0.1
 Jinja2==3.0.1
 jmespath==0.10.0
+joblib==1.1.0
 keras==2.7.0
 Keras-Preprocessing==1.1.2
 libclang==12.0.0
@@ -36,6 +37,8 @@ requests==2.26.0
 requests-oauthlib==1.3.0
 rsa==4.7.2
 s3transfer==0.5.0
+scikit-learn==1.0.1
+scipy==1.7.2
 six==1.16.0
 tensorboard==2.7.0
 tensorboard-data-server==0.6.1
@@ -44,6 +47,7 @@ tensorflow==2.7.0
 tensorflow-estimator==2.7.0
 tensorflow-io-gcs-filesystem==0.21.0
 termcolor==1.1.0
+threadpoolctl==3.0.0
 typing-extensions==3.10.0.2
 urllib3==1.26.7
 Werkzeug==2.0.1

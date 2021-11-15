@@ -2,6 +2,7 @@ import os
 import json
 import requests
 import boto3
+import time
 from botocore.exceptions import ClientError
 from random import randint, uniform
 from tensorflow import keras
@@ -24,22 +25,17 @@ def upload_data(bucket, coord):
 
 def make_prediction(coord):
   """
-  lon, lat = coord
-  url = "https://api.openweathermap.org/data/2.5/onecall"
-  api_key = os.environ["OWM_API_KEY"]
-  params = {"lat": f"{lat}", "lon": f"{lon}", "exclude": "current,minutely,daily,alerts", "appid": f"{api_key}"}
-  r = requests.get(url, params=params)
-  x = r.json() 
   """
-  time = str(int(time.time())-86400)
-  data = get_historical(coord, time)
+  dt = str(int(time.time())-86400)
+  data = get_historical(coord, dt)
   x, temp_avg, temp_std = process(data)
   out = model.predict(x).squeeze()
   out = (out*temp_std) + temp_avg
-  ret = generate_json(out)
+  ret = generate_json(coord, out)
+  print(ret)
   return ret
 
-def generate_json(preds):
+def generate_json(coord, preds):
   """
   Randomly generated predictions but the temperature is real
   """
@@ -54,7 +50,7 @@ def generate_json(preds):
       "summary": sums[randint(0, len(sums)-1)],
       "precipIntensity": round(uniform(0, 1), 2),
       "precipProbability": round(uniform(0, 1), 2),
-      "temperature": pred,
+      "temperature": int(pred),
       "humidity": round(uniform(0, 1), 2)
     }
     hours.append(x)

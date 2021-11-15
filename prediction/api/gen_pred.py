@@ -17,7 +17,7 @@ def get_historical(coord, time):
 
 def process(data):
   hourly = data["hourly"]
-  exclude = ["dt", "feels_like", "pressure", "dew_point", "uvi", "clouds", "visibility", "wind_deg", "weather", "wind_gust", "rain"]
+  exclude = ["dt", "feels_like", "pressure", "dew_point", "uvi", "clouds", "visibility", "wind_deg", "weather", "wind_gust", "rain", "snow"]
   for h in hourly:
     for ex in exclude:
       h.pop(ex, None)
@@ -32,7 +32,8 @@ def process(data):
 
 """
 time = str(int(time.time())-86400)
-coord = ["-75", "40"]
+coord = ['-80.3127', '43.3601']
+#coord = ["-75", "40"]
 data = get_historical(coord, time)
 x, temp_avg, temp_std = process(data)
 

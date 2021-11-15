@@ -10,4 +10,3 @@ for obj in bucket.objects.all():
   coord = obj.key.replace(".json", "").split(",")
   if len(coord) == 2:
     upload_data("bw-preds", coord)
-  

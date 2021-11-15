@@ -11,6 +11,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 model = keras.models.load_model("../weather.model")
+print("**** MODEL LOADED ****")
 
 def upload_data(bucket, coord):
   """
@@ -30,8 +31,12 @@ def get_hourly_sums(coord):
   params = {"lat": f"{lat}", "lon": f"{lon}", "exclude": "current,minutely,daily,alerts", "appid": f"{api_key}"}
   r = requests.get(url, params=params)
   x = r.json() 
-  print(x)
-  return x
+  hourly = x["hourly"][:12]
+  sums = []
+  for h in hourly:
+    s = h["weather"][0]["description"]
+    sums.append(s)
+  return sums
 
 def make_prediction(coord):
   """
@@ -44,23 +49,22 @@ def make_prediction(coord):
   
   sums = get_hourly_sums(coord)
 
-  ret = generate_json(coord, out)
+  ret = generate_json(coord, out, sums)
   print(ret)
   return ret
 
-def generate_json(coord, preds):
+def generate_json(coord, preds, sums):
   """
-  Randomly generated predictions but the temperature is real
+  Randomly generated predictions but the temperature and summary is real 
   """
   data = {}
   data["lon"], data["lat"] = coord
-  sums = ["cloudy", "mostly cloudy", "partly cloudy", "clear", "rain", "humid"]
   hours = []
   ts = [*range(12)]
-  for t, pred in zip(ts, preds):
+  for t, pred, s in zip(ts, preds, sums):
     x = {
       "time": t,
-      "summary": sums[randint(0, len(sums)-1)],
+      "summary": s,
       "precipIntensity": round(uniform(0, 1), 2),
       "precipProbability": round(uniform(0, 1), 2),
       "temperature": int(pred),

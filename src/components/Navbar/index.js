@@ -9,6 +9,7 @@ import {
   Nav,
   NavLink,
   NavMenu,
+  NavBtnLink
 } from './NavbarElements';
 
 const Navbar = (props) => {
@@ -40,9 +41,9 @@ const Navbar = (props) => {
       <NavLink className="sign-up" to="/sign-up" activeStyle>
         Sign up
       </NavLink>
-      <NavLink to="/sign-in">
+      <NavBtnLink to="/sign-in">
         Sign in
-      </NavLink>
+      </NavBtnLink>
     </div>
   }
 

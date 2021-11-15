@@ -7,7 +7,6 @@ import { set, ref } from 'firebase/database'
 function LocationSearch(props) {
   const [userInput, setUserInput] = useState("");
   const [isUserSignedIn, setIsUserSignedIn] = useState(false)
-  const addLocRef = useRef()
 
   firebase.auth().onAuthStateChanged((user)=>{
     if(user){

@@ -14,8 +14,11 @@ export const SideBarData = [
         path: '/settings',
         icon: <IoIcons.IoMdSettings/>,
         cName: 'nav-text'
-    },
-    {
+    }
+]
+
+/**
+ * {
         title: 'Sign Up',
         path: '/sign-up',
         icon: <IoIcons.IoMdPersonAdd />,
@@ -26,4 +29,4 @@ export const SideBarData = [
         path: '/sign-in',
         cName: 'sign-in-btn'
     }
-]
+ */

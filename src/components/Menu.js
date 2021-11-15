@@ -6,9 +6,35 @@ import { IconContext } from 'react-icons';
 import { SideBarData } from './SidebarData'
 import '../style/Menu.css';
 
-function Menu() {
+import {
+  NavLink,
+  NavBtnLink
+} from './Navbar/NavbarElements.js';
+
+function Menu(props) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
+
+  const user = props.user;
+  const onLogout = props.onLogout;
+
+  var LoginLinks = <div className="LoginLinks"></div>
+  if (user) {
+    LoginLinks = <div className="LoginLinks">
+      <NavBtnLink to="/" onClick={onLogout}>
+        Sign out
+      </NavBtnLink>
+    </div>
+  } else {
+    LoginLinks = <div className="LoginLinks login-sidemenu">
+      <NavLink className="sign-up" to="/sign-up" activeStyle>
+        Sign up
+      </NavLink>
+      <NavBtnLink to="/sign-in">
+        Sign in
+      </NavBtnLink>
+    </div>
+  }
 
   return (
     <>
@@ -35,6 +61,7 @@ function Menu() {
                 </li>
               )
             })}
+            {LoginLinks}
           </ul>
         </nav>
       </IconContext.Provider>

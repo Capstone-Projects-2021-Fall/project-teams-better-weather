@@ -7,6 +7,8 @@ import CurrentWeather from '../components/CurrentWeather.js';
 import HourlyWeather from '../components/HourlyWeather';
 import Navbar from '../components/Navbar';
 import '../style/Weather.css';
+import {db} from '../components/Firebase.js'
+import {ref, onValue} from 'firebase/database'
 
 function Home() {
   const [location, setLocation] = useState('New York');   
@@ -23,8 +25,9 @@ function Home() {
   const history = useHistory()
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
   firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
+    if(user) {
       setIsUserSignedIn(true);
+      getLastLocation();
     } else {
       setIsUserSignedIn(false);
     }
@@ -84,6 +87,17 @@ function Home() {
       setError('Failed to log out')
     }
   }
+
+    //get last location
+    function getLastLocation(){
+      var user = firebase.auth().currentUser
+      var uid = user.uid
+      return onValue(ref(db, '/users/' + uid), (snapshot) => {
+        setLocation(snapshot.val().LastLocation)
+      }, {
+        onlyOnce: true
+      });
+    }
 
   return (
     <>

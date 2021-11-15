@@ -3,9 +3,10 @@ import { Form, Button, Card, Alert } from 'react-bootstrap'
 import { useAuth } from '../contexts/AuthContext'
 import { Link, useHistory} from "react-router-dom"
 import Navbar from './Navbar';
+import firebase from 'firebase/compat/app'
 
 //Database
-import { ref, set, push, child } from "firebase/database"
+import { ref, set } from "firebase/database"
 import {db} from './Firebase'
 
 export default function Signup() {
@@ -19,10 +20,11 @@ export default function Signup() {
 
     //Adds user to location database (realtime Firebase)
     function addUserDB(email, password) {
-        const newKey = push(child(ref(db), 'users')).key;
-        set(ref(db, '/users/' + newKey), {
+        var user = firebase.auth().currentUser
+        set(ref(db, '/users/' + user.uid), {
           Email: email,
           Password: password,
+          LastLocation: 'New York'
         });
     }
 

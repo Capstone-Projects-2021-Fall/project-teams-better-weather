@@ -9,7 +9,6 @@ import {
   Nav,
   NavLink,
   NavMenu,
-  NavBtnLink
 } from './NavbarElements';
 
 const Navbar = (props) => {
@@ -32,18 +31,18 @@ const Navbar = (props) => {
   var LoginLinks = <div className="LoginLinks"></div>
   if (user) {
     LoginLinks = <div className="LoginLinks">
-      <NavBtnLink to="/" onClick={onLogout}>
+      <NavLink to="/" onClick={onLogout}>
         Sign out
-      </NavBtnLink>
+      </NavLink>
     </div>
   } else {
     LoginLinks = <div className="LoginLinks">
       <NavLink className="sign-up" to="/sign-up" activeStyle>
         Sign up
       </NavLink>
-      <NavBtnLink to="/sign-in">
+      <NavLink to="/sign-in">
         Sign in
-      </NavBtnLink>
+      </NavLink>
     </div>
   }
 

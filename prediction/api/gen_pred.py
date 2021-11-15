@@ -27,7 +27,7 @@ def process(data):
   temp_std = np.std(x[:,0])
   scaler = MinMaxScaler()
   x = scaler.fit_transform(x)
-  x = np.expand_dims(x[:24,0], axis=(0, 2)) # just temp
+  x = np.expand_dims(x[:,0], axis=(0, 2)) # just temp
   return x, temp_avg, temp_std
 
 time = str(int(time.time())-86400)

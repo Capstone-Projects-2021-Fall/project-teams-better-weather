@@ -6,7 +6,7 @@ function HourlyWeather(props) {
   const data = props.weather["hourly"]["data"];
   return (
     <div className="carousel-scroll">
-      <p> Hourly Forecast </p>
+      <h6> Hourly Forecast </h6>
       <div className="scrollHours">
         {data.map((d) => 
           <Hour key={d.time} data={d} 

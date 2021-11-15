@@ -65,7 +65,7 @@ After=network.target
 [Service]
 User=ubuntu
 WorkingDirectory=/home/ubuntu/bw/api
-ExecStart=/home/ubuntu/bw/api/venv/bin/gunicorn -b 127.0.0.0:5000 api:app
+ExecStart=/home/ubuntu/bw/api/venv/bin/gunicorn -b 127.0.0.1:5000 api:app
 Restart=always
 
 [Install]

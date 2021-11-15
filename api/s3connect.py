@@ -1,11 +1,12 @@
 import os
 import json
-import random
 import requests
 import boto3
 from botocore.exceptions import ClientError
+from dotenv import load_dotenv
+load_dotenv()
 
-def fetch_data(bucket, coord):
+def fetch_hourly(bucket, coord):
   """
   Fetch hourly weather data from S3
   """
@@ -14,7 +15,9 @@ def fetch_data(bucket, coord):
   if check_exists(client, bucket, key):
     response = client.get_object(Bucket=bucket, Key=key)
   else:
-    upload_data(bucket, coord) 
+    resp = call_prediction(coord)
+    if resp.status_code != 200: 
+      return None # there should be error msg 
     response = client.get_object(Bucket=bucket, Key=key)
   ret = response["Body"].read().decode()
   return json.loads(ret)
@@ -25,6 +28,15 @@ def check_exists(client, bucket, key):
   except ClientError as e:
     return int(e.response['Error']['Code']) != 404
   return True
+
+def call_prediction(coord):
+  """
+  Call model to make a prediction
+  """
+  lon, lat = coord
+  url = f"https://pred.betterweather.xyz/preds/?coord={lon},{lat}"
+  r = requests.get(url)
+  return r
 
 def upload_data(bucket, coord):
   """
@@ -83,26 +95,4 @@ def fetch_forecast(bucket, location):
   print(data)
   #print(r.json()["current"])
   return data
-
-def get_prediction(coord):
-  """
-  Randomly generated predictions for now
-  """
-  data = {}    
-  data["lon"], data["lat"] = coord
-  summaries = ["cloudy", "mostly cloudy", "partly cloudy", "clear", "rain", "humid"]
-  data["hourly"] = {}
-  hours = []
-  for i in range(12):
-    x = {}
-    x["time"] = i 
-    x["summary"] = summaries[random.randint(0, len(summaries)-1)]
-    x["precipIntensity"] = round(random.uniform(0, 1), 2)
-    x["precipProbability"] = round(random.uniform(0, 1), 2)
-    x["temperature"] = round(random.uniform(0, 100), 2)
-    x["humidity"] = round(random.uniform(0, 1), 2)
-    hours.append(x)
-  data["hourly"]["data"] = hours
-  return json.dumps(data) 
-
 

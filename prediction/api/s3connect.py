@@ -23,6 +23,16 @@ def upload_data(bucket, coord):
   client.put_object(Body=out, Bucket=bucket, Key=key)
   return json.dumps({"success": True}), 200, {'ContentType':'application/json'}
 
+def get_hourly_sums(coord):
+  lon, lat = coord
+  url = "https://api.openweathermap.org/data/2.5/onecall"
+  api_key = os.environ["OWM_API_KEY"]
+  params = {"lat": f"{lat}", "lon": f"{lon}", "exclude": "current,minutely,daily,alerts", "appid": f"{api_key}"}
+  r = requests.get(url, params=params)
+  x = r.json() 
+  print(x)
+  return x
+
 def make_prediction(coord):
   """
   """
@@ -31,6 +41,9 @@ def make_prediction(coord):
   x, temp_avg, temp_std = process(data)
   out = model.predict(x).squeeze()
   out = (out*temp_std) + temp_avg
+  
+  sums = get_hourly_sums(coord)
+
   ret = generate_json(coord, out)
   print(ret)
   return ret

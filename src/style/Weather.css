@@ -5,6 +5,7 @@
 }
 
 body {
+  overflow: overlay;
   font-family: "Roboto Mono", monospace;
 }
 
@@ -49,6 +50,7 @@ body {
 .search-box {
   width: 60%;
   margin: 0 auto;
+  padding: 10px;
 }
 
 .search-box .search-bar {
@@ -134,7 +136,18 @@ img.icons {
 }
 
 .scrollHours::-webkit-scrollbar {
-  display: none;
+  width: 8px;
+}
+
+.scrollHours::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+.scrollHours::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.0);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .weather-box-hourly {
@@ -176,6 +189,7 @@ img.icons {
 
   padding: 10px 15px;
 
+  color: white;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
   text-align: center;
   box-shadow: 3px 6px rgba(0, 0, 0, 0.2);

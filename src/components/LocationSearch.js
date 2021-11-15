@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import '../style/Weather.css';  //change into App.css
 import firebase from "firebase/compat/app"
 import {db} from './Firebase.js'

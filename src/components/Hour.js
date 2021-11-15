@@ -2,7 +2,6 @@ import React from 'react';
 import '../style/Weather.css';
 
 function Hour(props) {
-  
   return (
     <div className="weather-box-hourly" >              
       <div className="tempHours" >

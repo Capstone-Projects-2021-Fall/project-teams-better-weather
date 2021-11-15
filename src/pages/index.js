@@ -88,17 +88,16 @@ function Home() {
     }
   }
 
-    //get last location
-    function getLastLocation(){
-      var user = firebase.auth().currentUser
-      var uid = user.uid
-      return onValue(ref(db, '/users/' + uid), (snapshot) => {
-        setLocation(snapshot.val().LastLocation)
-      }, {
-        onlyOnce: true
-      });
-    }
-
+  function getLastLocation(){
+    var user = firebase.auth().currentUser
+    var uid = user.uid
+    return onValue(ref(db, '/users/' + uid), (snapshot) => {
+      setLocation(snapshot.val().LastLocation)
+    }, {
+      onlyOnce: true
+    });
+  }
+  
   return (
     <>
       <div className={background()}>

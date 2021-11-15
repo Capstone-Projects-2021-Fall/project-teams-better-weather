@@ -1,20 +1,25 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AuthProvider } from "./contexts/AuthContext";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import MainPage from "./components/MainPage"
-import Signup from "./components/Signup";
+import Home from './pages/';
+import Settings from './pages/settings';
+import About from './pages/about';
 import Login from "./components/Login"
-import ForgotPassword from './components/ForgotPassword.js'
+import Signup from "./components/Signup";
+import ForgotPassword from './components/ForgotPassword'
+import './style/Weather.css';
 
 function App() {
   return (
     <div>
-      <Router> 
+      <Router>
         <AuthProvider>
           <Switch>
-            <Route exact path="/" component={MainPage} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/login" component={Login} />
+            <Route path="/" exact component={Home} />
+            <Route path="/about" exact component={About} />
+            <Route path="/settings" exact component={Settings} />
+            <Route path="/sign-up" exact component={Signup} />
+            <Route path="/sign-in" exact component={Login} />
             <Route path="/forgot-password" component={ForgotPassword} />
           </Switch>
         </AuthProvider>

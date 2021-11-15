@@ -1,0 +1,133 @@
+/*Whole section where hamburger menu is at*/
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5px;
+}
+
+/*Hamburger menu*/
+.menu-bars {
+  margin-right: 1rem;
+  font-size: 2rem;
+
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/*The pull out menu*/
+.nav-menu {
+  background-color: #ffffff10;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: -2px 2px rgba(0, 0, 0, 0.1);
+
+  border-radius: 20px 0 0 20px;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  transition: 850ms;
+}
+
+.nav-menu.active {
+  right: 0;
+  transition: 350ms;
+}
+
+@media only screen and (min-width: 769px) {
+  /* For desktop: */
+  .menu-bars,
+  .nav-menu {
+    display: none;
+  }
+}
+
+.nav-text {
+  justify-content: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+
+.nav-text a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.nav-text a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: whitesmoke;
+}
+
+.sign-in-btn {
+  justify-content: flex;
+  justify-content: start;
+  align-items: center;
+  list-style: none;
+  height: 40px;
+  margin-right: 45px;
+}
+
+.sign-in-btn a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 43px;
+}
+
+.sign-in-btn {
+  background-color: #256ce1;
+  border-radius: 20px;
+}
+
+.sign-in-btn a:hover {
+  color: black;
+}
+
+.sign-in-btn:hover {
+  color: black;
+  background-color: azure;
+  transition: all 300ms ease-in-out;
+}
+
+.nav-menu-items {
+  width: 100%;
+}
+
+.navbar-toggle {
+  background-color: none;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+span {
+  margin-left: 16px;
+}
+
+/*Pages*/
+.pages-bkg {
+  background-color: #ada1d2;
+}

@@ -5,10 +5,11 @@ function Hour(props) {
   return (
     <div className="weather-box-hourly" >              
       <div className="weatherHours">
-        <span className="hour-num">Hour {props.data.time+1}</span>
-        <span className="temp-num">{Math.round(props.data.temperature)}°F</span>
-        <span className="weather-sum">{props.data.summary}</span>
-      </div>                
+        <div className="hour-num">Hour {props.data.time+1}</div>
+        <div className="temp-num">{Math.round(props.data.temperature)}°F</div>
+        <div className="weather-sum">{props.data.summary}</div>
+      </div>  
+      <hr />              
     </div>
   );
 }

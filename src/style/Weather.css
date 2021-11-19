@@ -120,7 +120,7 @@ div.weather-icon-box {
 
 .location-box .location {
   color: white;
-  font-size: 35px;
+  font-size: 20px; /*size on mobile device*/
   font-weight: 500;
   text-align: center;
   text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
@@ -166,11 +166,15 @@ div.weather-icon-box {
 .weather-box-hourly .weatherHours .hour-num,
 .weather-box-hourly .weatherHours .temp-num,
 .weather-box-hourly .weatherHours .weather-sum {
-  margin-bottom: 24px;
+  margin-bottom: 15px;
 }
 
 @media only screen and (min-width: 600px) {
   /* For tablets: */
+  .location-box .location {
+    font-size: 25px;
+  }
+
   .carousel-scroll {
     width: 75%;
   }
@@ -184,12 +188,16 @@ div.weather-icon-box {
   .weather-box-hourly .weatherHours .hour-num,
   .weather-box-hourly .weatherHours .temp-num,
   .weather-box-hourly .weatherHours .weather-sum {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 }
 
 @media only screen and (min-width: 768px) {
   /* For desktop: */
+  .location-box .location {
+    font-size: 27px;
+  }
+
   .carousel-scroll {
     width: 60%;
   }
@@ -203,13 +211,8 @@ div.weather-icon-box {
   .weather-box-hourly .weatherHours .hour-num,
   .weather-box-hourly .weatherHours .temp-num,
   .weather-box-hourly .weatherHours .weather-sum {
-    margin-bottom: 35px;
+    margin-bottom: 25px;
   }
-}
-
-hr {
-  text-align: center;
-  margin: 0 auto;
 }
 
 /*Menu.js stuff*/

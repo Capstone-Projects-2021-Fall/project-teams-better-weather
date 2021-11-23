@@ -1,24 +1,18 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useAuth } from '../../contexts/AuthContext.js';
-import firebase from "firebase/compat/app"; 
-
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext.js";
+import firebase from "firebase/compat/app";
 
 import Menu from "../Menu";
-import {
-  Nav,
-  NavLink,
-  NavMenu,
-  NavBtnLink
-} from './NavbarElements';
+import { Nav, NavLink, NavMenu, NavBtnLink } from "./NavbarElements";
 
 const Navbar = (props) => {
   const user = props.user;
   const onLogout = props.onLogout;
 
-  const [error, setError] = useState()
-  const { currentUser, logout } = useAuth()
-  const history = useHistory()
+  const [error, setError] = useState();
+  const { currentUser, logout } = useAuth();
+  const history = useHistory();
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -26,52 +20,52 @@ const Navbar = (props) => {
     } else {
       setIsUserSignedIn(false);
     }
-  })
+  });
 
-
-  var LoginLinks = <div className="LoginLinks"></div>
+  var LoginLinks = <div className="LoginLinks"></div>;
   if (user) {
-    LoginLinks = <div className="LoginLinks">
-      <NavLink to="/" onClick={onLogout}>
-        Sign out
-      </NavLink>
-    </div>
+    LoginLinks = (
+      <div className="LoginLinks">
+        <NavLink to="/" onClick={onLogout}>
+          Sign out
+        </NavLink>
+      </div>
+    );
   } else {
-    LoginLinks = <div className="LoginLinks">
-      <NavLink className="sign-up" to="/sign-up" activeStyle>
-        Sign up
-      </NavLink>
-      <NavBtnLink to="/sign-in">
-        Sign in
-      </NavBtnLink>
-    </div>
+    LoginLinks = (
+      <div className="LoginLinks">
+        <NavLink className="sign-up" to="/sign-up" activeStyle>
+          Sign up
+        </NavLink>
+        <NavBtnLink to="/sign-in">Sign in</NavBtnLink>
+      </div>
+    );
   }
 
   //TESTING
   async function handleLogout() {
-    setError('')
+    setError("");
     console.log(error, currentUser); // for now
     try {
-      await logout()
-      history.push("/")
+      await logout();
+      history.push("/");
     } catch {
-      setError('Failed to log out')
+      setError("Failed to log out");
     }
   }
-    
+
   return (
     <>
       <Nav>
-        <NavLink to='/'>
+        <NavLink to="/">
           <h1>Better Weather</h1>
         </NavLink>
-        <Menu user={isUserSignedIn}
-            onLogout={handleLogout}/>
+        <Menu user={isUserSignedIn} onLogout={handleLogout} />
         <NavMenu>
-          <NavLink to='/about' activeStyle>
+          <NavLink to="/about" activeStyle>
             About
           </NavLink>
-          <NavLink to='/settings' activeStyle>
+          <NavLink to="/settings" activeStyle>
             Settings
           </NavLink>
           {LoginLinks}
@@ -80,6 +74,5 @@ const Navbar = (props) => {
     </>
   );
 };
-
 
 export default Navbar;

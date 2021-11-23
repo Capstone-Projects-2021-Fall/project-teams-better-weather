@@ -1,18 +1,18 @@
-import React from 'react';
-import CurrentDate from './CurrentDate.js';
-import WeatherIcons from './WeatherIcons.js';
-import '../style/Weather.css';
+import React from "react";
+import CurrentDate from "./CurrentDate.js";
+import WeatherIcons from "./WeatherIcons.js";
+import "../style/Weather.css";
 
 function CurrentWeather(props) {
   return (
     <div>
-      {(typeof props.weather.current != "undefined") ? (
+      {typeof props.weather.current != "undefined" ? (
         <div>
           <div className="date">
             <CurrentDate />
-          </div> 
+          </div>
           <div className="currTemp">
-            {Math.round((props.weather.current.temp) * (9/5) + 32) }°F
+            {Math.round(props.weather.current.temp * (9 / 5) + 32)}°F
           </div>
           <div className="weather-icon-box">
             <WeatherIcons icons={props.weather.current?.weather[0]} />
@@ -21,7 +21,9 @@ function CurrentWeather(props) {
             <div className="location">{props.weather.address}</div>
           </div>
         </div>
-      ) : ('')}
+      ) : (
+        ""
+      )}
     </div>
   );
 }

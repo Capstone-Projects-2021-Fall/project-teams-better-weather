@@ -1,7 +1,7 @@
-import React from 'react';
-import Navbar from '../components/Navbar';
+import React from "react";
+import Navbar from "../components/Navbar";
 
-function Signin(){
+function Signin() {
   return (
     <>
       <div className="pages-bkg">
@@ -9,7 +9,7 @@ function Signin(){
       </div>
       <h1>Sign In</h1>
     </>
-  )
+  );
 }
 
 export default Signin;

@@ -1,13 +1,13 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
-import Home from './pages/';
-import Settings from './pages/settings';
-import About from './pages/about';
-import Login from "./components/Login"
+import Home from "./pages/";
+import Settings from "./pages/settings";
+import About from "./pages/about";
+import Login from "./components/Login";
 import Signup from "./components/Signup";
-import ForgotPassword from './components/ForgotPassword'
-import './style/Weather.css';
+import ForgotPassword from "./components/ForgotPassword";
+import "./style/Weather.css";
 
 function App() {
   return (

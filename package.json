@@ -43,5 +43,8 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:6000"
+  "proxy": "http://localhost:6000",
+  "devDependencies": {
+    "prettier": "2.4.1"
+  }
 }

@@ -1,7 +1,7 @@
 import { NavLink, NavBtnLink } from "./Navbar/NavbarElements";
 
 export default function LoginLinks(props) {
-  const { user, onLogout} = props;
+  const { user, onLogout } = props;
 
   var LoginLinks = <div className="LoginLinks"></div>;
   if (user) {

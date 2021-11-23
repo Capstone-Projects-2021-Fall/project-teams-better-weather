@@ -8,7 +8,8 @@
   },
   "plugins": [
       "plugins/markdown",
-      "better-docs/component"
+      "better-docs/component",
+      "node_modules/@ckeditor/jsdoc-plugins/lib/export-fixer/export-fixer"
   ],
   "opts": {
       "encoding": "utf8",

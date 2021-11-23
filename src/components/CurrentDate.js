@@ -1,4 +1,4 @@
-function CurrentDate(time) {
+export default function CurrentDate(time) {
   var currDate = new Date();
   var days = [
     "Sunday",
@@ -35,5 +35,3 @@ function CurrentDate(time) {
 
   return <div>{newCurrDate}</div>;
 }
-
-export default CurrentDate;

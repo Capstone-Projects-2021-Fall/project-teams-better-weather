@@ -4,7 +4,7 @@ import * as AiIcons from "react-icons/ai";
 import * as FaIcons from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { SideBarData } from "./SidebarData";
-import { NavLink, NavBtnLink } from "./Navbar/NavbarElements";
+import LoginLinks from "./LoginLinks";
 import "../style/Menu.css";
 
 
@@ -15,31 +15,9 @@ import "../style/Menu.css";
  * @returns {JSX.Element} JSX render of Menu
  */
 export default function Menu(props) {
+  const { user, onLogout } = props;
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
-
-  const user = props.user;
-  const onLogout = props.onLogout;
-
-  var LoginLinks = <div className="LoginLinks"></div>;
-  if (user) {
-    LoginLinks = (
-      <div className="LoginLinks">
-        <NavBtnLink to="/" onClick={onLogout}>
-          Sign out
-        </NavBtnLink>
-      </div>
-    );
-  } else {
-    LoginLinks = (
-      <div className="LoginLinks login-sidemenu">
-        <NavLink className="sign-up" to="/sign-up" activeStyle>
-          Sign up
-        </NavLink>
-        <NavBtnLink to="/sign-in">Sign in</NavBtnLink>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -66,6 +44,10 @@ export default function Menu(props) {
                 </li>
               );
             })}
+            <LoginLinks
+              user={user} 
+              onLogout={onLogout}
+            />
             {LoginLinks}
           </ul>
         </nav>

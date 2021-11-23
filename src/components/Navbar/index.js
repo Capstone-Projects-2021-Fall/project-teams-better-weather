@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext.js";
 import firebase from "firebase/compat/app";
-
 import Menu from "../Menu";
-import { Nav, NavLink, NavMenu, NavBtnLink } from "./NavbarElements";
+import LoginLinks from "../LoginLinks";
+import { Nav, NavLink, NavMenu } from "./NavbarElements";
 
 const Navbar = (props) => {
-  const user = props.user;
-  const onLogout = props.onLogout;
+  const { user, onLogout } = props;
 
   const [error, setError] = useState();
   const { currentUser, logout } = useAuth();
@@ -21,26 +20,6 @@ const Navbar = (props) => {
       setIsUserSignedIn(false);
     }
   });
-
-  var LoginLinks = <div className="LoginLinks"></div>;
-  if (user) {
-    LoginLinks = (
-      <div className="LoginLinks">
-        <NavLink to="/" onClick={onLogout}>
-          Sign out
-        </NavLink>
-      </div>
-    );
-  } else {
-    LoginLinks = (
-      <div className="LoginLinks">
-        <NavLink className="sign-up" to="/sign-up" activeStyle>
-          Sign up
-        </NavLink>
-        <NavBtnLink to="/sign-in">Sign in</NavBtnLink>
-      </div>
-    );
-  }
 
   // TESTING
   async function handleLogout() {
@@ -68,7 +47,10 @@ const Navbar = (props) => {
           <NavLink to="/settings" activeStyle>
             Settings
           </NavLink>
-          {LoginLinks}
+          <LoginLinks
+            user={user}
+            onLogout={onLogout}
+          />
         </NavMenu>
       </Nav>
     </>

@@ -15,11 +15,13 @@
       "encoding": "utf8",
       "destination": "docs/",
       "recurse": true,
-      "verbose": true,
-      "template": "./node_modules/better-docs"
+      "verbose": true
   },
   "templates": {
         "cleverLinks": false,
-        "monospaceLinks": false
+        "monospaceLinks": false,
+        "default": {
+            "outputSourceFiles": false
+        }
   }
 }

@@ -7,7 +7,6 @@ import Navbar from "./Navbar";
 /**
  * Function that renders login page
  * @component
- * @params props
  * @returns {JSX.Element} JSX render of Login page
  */
 export default function Login() {

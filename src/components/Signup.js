@@ -4,8 +4,6 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import Navbar from "./Navbar";
 import firebase from "firebase/compat/app";
-
-// Database
 import { ref, set } from "firebase/database";
 import { db } from "./Firebase";
 

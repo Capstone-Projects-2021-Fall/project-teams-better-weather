@@ -4,7 +4,7 @@ import "../style/Weather.css";
 /**
  * Function for displaying weather information at a particular hour
  * @component
- * params props
+ * @params props
  * @returns {JSX.Element} JSX render of Hour
  */
 export default function Hour(props) {

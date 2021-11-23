@@ -48,7 +48,6 @@ export default function Menu(props) {
               user={user} 
               onLogout={onLogout}
             />
-            {LoginLinks}
           </ul>
         </nav>
       </IconContext.Provider>

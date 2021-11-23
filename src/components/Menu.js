@@ -8,7 +8,7 @@ import "../style/Menu.css";
 
 import { NavLink, NavBtnLink } from "./Navbar/NavbarElements.js";
 
-function Menu(props) {
+export default function Menu(props) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 
@@ -67,5 +67,3 @@ function Menu(props) {
     </>
   );
 }
-
-export default Menu;

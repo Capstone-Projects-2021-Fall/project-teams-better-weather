@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function Contact() {
+export default function Contact() {
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -38,5 +38,3 @@ function Contact() {
     </div>
   );
 }
-
-export default Contact;

@@ -4,7 +4,7 @@ import { useAuth } from "../contexts/AuthContext.js";
 import firebase from "firebase/compat/app";
 import Navbar from "../components/Navbar";
 
-function About() {
+export default function About() {
   const [error, setError] = useState();
   const { currentUser, logout } = useAuth();
   const history = useHistory();
@@ -36,5 +36,3 @@ function About() {
     </>
   );
 }
-
-export default About;

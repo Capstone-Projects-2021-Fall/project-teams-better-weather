@@ -12,7 +12,7 @@ import snow from "../icons/23.png";
 import fogD from "../icons/4.png";
 import fogN from "../icons/14.png";
 
-function WeatherIcons(props) {
+export default function WeatherIcons(props) {
   const { icons } = props;
 
   function setWeatherIcon(type) {
@@ -58,5 +58,3 @@ function WeatherIcons(props) {
     </div>
   );
 }
-
-export default WeatherIcons;

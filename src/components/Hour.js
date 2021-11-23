@@ -1,7 +1,7 @@
 import React from "react";
 import "../style/Weather.css";
 
-function Hour(props) {
+export default function Hour(props) {
   return (
     <div className="weather-box-hourly">
       <div className="tempHours">
@@ -12,8 +12,6 @@ function Hour(props) {
     </div>
   );
 }
-
-export default Hour;
 
 /* to be implemented later
 <div className="hourlyIcons">

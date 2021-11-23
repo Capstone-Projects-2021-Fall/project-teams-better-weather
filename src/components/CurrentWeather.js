@@ -3,7 +3,7 @@ import CurrentDate from "./CurrentDate.js";
 import WeatherIcons from "./WeatherIcons.js";
 import "../style/Weather.css";
 
-function CurrentWeather(props) {
+export default function CurrentWeather(props) {
   return (
     <div>
       {typeof props.weather.current != "undefined" ? (
@@ -27,5 +27,3 @@ function CurrentWeather(props) {
     </div>
   );
 }
-
-export default CurrentWeather;

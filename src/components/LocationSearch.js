@@ -4,7 +4,7 @@ import firebase from "firebase/compat/app";
 import { db } from "./Firebase.js";
 import { set, ref } from "firebase/database";
 
-function LocationSearch(props) {
+export default function LocationSearch(props) {
   const [userInput, setUserInput] = useState("");
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
 
@@ -50,5 +50,3 @@ function LocationSearch(props) {
     </div>
   );
 }
-
-export default LocationSearch;

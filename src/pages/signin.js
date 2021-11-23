@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
-function Signin() {
+export default function Signin() {
   return (
     <>
       <div className="pages-bkg">
@@ -11,5 +11,3 @@ function Signin() {
     </>
   );
 }
-
-export default Signin;

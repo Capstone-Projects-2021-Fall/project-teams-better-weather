@@ -9,7 +9,7 @@ import Signup from "./components/Signup";
 import ForgotPassword from "./components/ForgotPassword";
 import "./style/Weather.css";
 
-function App() {
+export default function App() {
   return (
     <div>
       <Router>
@@ -27,5 +27,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

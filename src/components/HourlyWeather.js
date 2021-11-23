@@ -2,7 +2,7 @@ import React from "react";
 import Hour from "./Hour.js";
 import "../style/Weather.css";
 
-function HourlyWeather(props) {
+export default function HourlyWeather(props) {
   const data = props.weather["hourly"]["data"];
   return (
     <div className="carousel-scroll">
@@ -15,5 +15,3 @@ function HourlyWeather(props) {
     </div>
   );
 }
-
-export default HourlyWeather;

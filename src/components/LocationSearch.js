@@ -23,16 +23,31 @@ export default function LocationSearch({ location, onLocationSubmit }) {
     }
   });
 
+  /**
+   * Helper function to save last location searched by user
+   * @function
+   * @param {string} location
+   */
   async function lastLocation(location) {
     var user = firebase.auth().currentUser;
     const locRef = ref(db, "/users/" + user.uid + "/LastLocation");
     await set(locRef, location);
   }
-
+  
+  /**
+   * Helper function to set user's searched location 
+   * @function
+   * @param {event} e
+   */
   function handleInputChange(e) {
     setUserInput(e.target.value);
   }
 
+  /**
+   * Helper function to handle user submit
+   * @function
+   * @param {event} e
+   */
   function handleSubmit(e) {
     if (e.key === "Enter") {
       onLocationSubmit(userInput);

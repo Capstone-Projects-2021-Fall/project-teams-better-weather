@@ -19,6 +19,11 @@ import fogN from "../icons/14.png";
  * @returns {JSX.Element} JSX render of weather icon image
  */
 export default function WeatherIcons({ icon }) {
+  /**
+   * Helper function to set icon image
+   * @function
+   * @param {string} type - Name of icon
+   */
   function setWeatherIcon(type) {
     switch (type) {
       case "01d":

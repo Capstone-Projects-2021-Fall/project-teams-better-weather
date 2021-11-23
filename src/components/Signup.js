@@ -30,6 +30,11 @@ export default function Signup() {
     });
   }
 
+  /**
+   * Helper function to handle user submit on signup
+   * @function
+   * @param {event} e
+   */
   async function handleSubmit(e) {
     e.preventDefault();
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {

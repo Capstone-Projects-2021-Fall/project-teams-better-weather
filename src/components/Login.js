@@ -16,6 +16,11 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
+  /**
+   * Helper function to handle user submit on login
+   * @function
+   * @param {event} e
+   */
   async function handleSubmit(e) {
     e.preventDefault();
     try {

@@ -15,9 +15,13 @@ export default function ForgotPassword() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
+  /**
+   * Helper function to handle user submit
+   * @function
+   * @param {event} e
+   */
   async function handleSubmit(e) {
     e.preventDefault();
-
     try {
       setMessage("");
       setError("");

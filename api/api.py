@@ -16,8 +16,8 @@ def get_forecast():
   Get weather forecast (current and hourly) of particular location
   :param location: name of location
   :type location: string
-  :return A Flask response object containing JSON of current and hourly weather data (temperature, summary, etc)
-  :rtype flask.Response() object
+  :return A response object containing JSON of current and hourly weather data (temperature, summary, etc)
+  :rtype flask.wrappers.Response
   """
   location = request.args.get("location")
   response = jsonify(fetch_forecast(BUCKET, location))
@@ -31,8 +31,8 @@ def get_currently():
   Get current weather forecast of particular location
   :param location: name of location
   :type location: string
-  :return A Flask response object containing JSON of current weather data (temperature, summary, etc)
-  :rtype flask.Response() object
+  :return A response object containing JSON of current weather data (temperature, summary, etc)
+  :rtype flask.wrappers.Response, ex. <Response 438 bytes [200 OK]>
   """
   location = request.args.get("location")
   response = jsonify(fetch_currently(location))
@@ -46,11 +46,13 @@ def get_hourly():
   """
   Get hourly weather forecast of particular location
   :param coord: longitude and latitude coordinates of location
-  :type location: tuple (lon, lat)
-  :return A Flask response object containing JSON of hourly weather data (temperature, summary, etc)
-  :rtype flask.Response() object
+  :type coord: string 
+  :return A response object containing JSON of hourly weather data (temperature, summary, etc)
+  :rtype flask.wrappers.Response, ex. <Response 1489 bytes [200 OK]>
   """
   coord = request.args.get("coord").split(",")
   response = jsonify(fetch_hourly(BUCKET, coord))
   response.headers.add("Access-Control-Allow-Origin", "*")
+  print("hourly", response)
+  print(type(response))
   return response

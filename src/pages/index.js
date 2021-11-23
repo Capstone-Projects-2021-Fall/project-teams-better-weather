@@ -10,6 +10,11 @@ import "../style/Weather.css";
 import { db } from "../components/Firebase";
 import { ref, onValue } from "firebase/database";
 
+/**
+ * Function that renders the home page. This contains the navigation bar, location search bar, current and hourly weather components.
+ * @component
+ * @returns {JSX.Element} JSX render of Home page
+ */
 export default function Home() {
   const [location, setLocation] = useState("New York");
   const [weather, setWeather] = useState({});

@@ -4,6 +4,11 @@ import { useAuth } from "../contexts/AuthContext";
 import firebase from "firebase/compat/app";
 import Navbar from "../components/Navbar";
 
+/**
+ * Function that renders the about page
+ * @component
+ * @returns {JSX.Element} JSX render of About page
+ */
 export default function About() {
   const [error, setError] = useState();
   const { currentUser, logout } = useAuth();

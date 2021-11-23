@@ -5,6 +5,7 @@ notes
 *.swo
 .env
 /docs
+.cache
 
 # dependencies
 /node_modules

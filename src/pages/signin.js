@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import Login from "../components/Login";
 
 export default function Signin() {
   return (
@@ -7,7 +8,7 @@ export default function Signin() {
       <div className="pages-bkg">
         <Navbar />
       </div>
-      <h1>Sign In</h1>
+      <Login />
     </>
   );
 }

@@ -4,8 +4,8 @@ import { AuthProvider } from "./contexts/AuthContext";
 import Home from "./pages/";
 import Settings from "./pages/settings";
 import About from "./pages/about";
-import Login from "./components/Login";
-import Signup from "./components/Signup";
+import Login from "./pages/signin";
+import Signup from "./pages/signup";
 import ForgotPassword from "./components/ForgotPassword";
 import "./style/Weather.css";
 

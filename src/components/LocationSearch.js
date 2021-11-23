@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../style/Weather.css"; //change into App.css
+import "../style/Weather.css"; 
 import firebase from "firebase/compat/app";
 import { db } from "./Firebase.js";
 import { set, ref } from "firebase/database";
@@ -16,7 +16,7 @@ function LocationSearch(props) {
     }
   });
 
-  //Function to save last location
+  // Function to save last location
   async function lastLocation(location) {
     var user = firebase.auth().currentUser;
     const locRef = ref(db, "/users/" + user.uid + "/LastLocation");

@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import Navbar from "./Navbar";
 import firebase from "firebase/compat/app";
 
-//Database
+// Database
 import { ref, set } from "firebase/database";
 import { db } from "./Firebase";
 
@@ -18,7 +18,7 @@ export default function Signup() {
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
-  //Adds user to location database (realtime Firebase)
+  // Adds user to location database (realtime Firebase)
   function addUserDB(email, password) {
     var user = firebase.auth().currentUser;
     set(ref(db, "/users/" + user.uid), {

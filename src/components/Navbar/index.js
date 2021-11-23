@@ -42,7 +42,7 @@ const Navbar = (props) => {
     );
   }
 
-  //TESTING
+  // TESTING
   async function handleLogout() {
     setError("");
     console.log(error, currentUser); // for now

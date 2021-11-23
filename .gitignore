@@ -4,6 +4,7 @@ notes
 *.swp
 *.swo
 .env
+/docs
 
 # dependencies
 /node_modules

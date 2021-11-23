@@ -13,11 +13,17 @@ def home():
 @app.route('/forecast/', methods=['GET'])
 def get_forecast():
   """
-  Get weather forecast (current and hourly) of particular location
-  :param location: name of location
-  :type location: string
-  :return A response object containing JSON of current and hourly weather data (temperature, summary, etc)
-  :rtype flask.wrappers.Response
+  Return weather forecast (current and hourly) of location
+  
+  Parameters
+  ----------
+  location : string
+    The name of location
+
+  Returns 
+  ----------
+  response : flask.wrappers.Response
+    A response object containing JSON of current and hourly weather data (temperature, summary, etc)
   """
   location = request.args.get("location")
   response = jsonify(fetch_forecast(BUCKET, location))
@@ -28,11 +34,18 @@ def get_forecast():
 @app.route('/currently/', methods=['GET'])
 def get_currently():
   """
-  Get current weather forecast of particular location
-  :param location: name of location
-  :type location: string
-  :return A response object containing JSON of current weather data (temperature, summary, etc)
-  :rtype flask.wrappers.Response, ex. <Response 438 bytes [200 OK]>
+  Return current weather forecast of location
+  
+  Parameters
+  ----------
+  location : string
+    The name of location
+
+  Returns 
+  ----------
+  response : flask.wrappers.Response
+    A response object containing JSON of current weather data (temperature, summary, etc)
+    <Response 489 bytes [200 OK]>
   """
   location = request.args.get("location")
   response = jsonify(fetch_currently(location))
@@ -44,11 +57,18 @@ def get_currently():
 @app.route('/hourly/', methods=['GET'])
 def get_hourly():
   """
-  Get hourly weather forecast of particular location
-  :param coord: longitude and latitude coordinates of location
-  :type coord: string 
-  :return A response object containing JSON of hourly weather data (temperature, summary, etc)
-  :rtype flask.wrappers.Response, ex. <Response 1489 bytes [200 OK]>
+  Return hourly weather forecast of coordinates
+  
+  Parameters
+  ----------
+  coord : string
+    The longitude and latitude coordinates of location
+
+  Returns 
+  ----------
+  response : flask.wrappers.Response
+    A response object containing JSON of hourly weather data (temperature, summary, etc)
+    <Response 1489 bytes [200 OK]>
   """
   coord = request.args.get("coord").split(",")
   response = jsonify(fetch_hourly(BUCKET, coord))

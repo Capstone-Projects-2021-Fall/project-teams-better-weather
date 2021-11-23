@@ -5,7 +5,7 @@ import Home from "./pages/";
 import Settings from "./pages/settings";
 import About from "./pages/about";
 import Login from "./pages/signin";
-import Signup from "./pages/signup";
+import SignUp from "./pages/signup";
 import ForgotPassword from "./components/ForgotPassword";
 import "./style/Weather.css";
 
@@ -18,7 +18,7 @@ export default function App() {
             <Route path="/" exact component={Home} />
             <Route path="/about" exact component={About} />
             <Route path="/settings" exact component={Settings} />
-            <Route path="/sign-up" exact component={Signup} />
+            <Route path="/sign-up" exact component={SignUp} />
             <Route path="/sign-in" exact component={Login} />
             <Route path="/forgot-password" component={ForgotPassword} />
           </Switch>

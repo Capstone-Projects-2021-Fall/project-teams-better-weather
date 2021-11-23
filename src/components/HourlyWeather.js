@@ -5,17 +5,20 @@ import "../style/Weather.css";
 /**
  * Function that renders a list of Hour components
  * @component
- * @params props
+ * @param {object} hourly - List of 12 hours of weather information (temperature, summary, etc)
  * @returns {JSX.Element} JSX render of Hourly Weather
  */
-export default function HourlyWeather(props) {
-  const { data } = props.weather.hourly;
+export default function HourlyWeather({ hourly }) {
+  const { data } = hourly;
   return (
     <div className="carousel-scroll">
       <h6> Hourly Forecast </h6>
       <div className="scrollHours">
         {data.map((d) => (
-          <Hour key={d.time} data={d} />
+          <Hour 
+            key={d.time} 
+            data={d} 
+          />
         ))}
       </div>
     </div>

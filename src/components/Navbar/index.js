@@ -6,8 +6,7 @@ import Menu from "../Menu";
 import LoginLinks from "../LoginLinks";
 import { Nav, NavLink, NavMenu } from "./NavbarElements";
 
-const Navbar = (props) => {
-  const { user, onLogout } = props;
+const Navbar = ({ user, onLogout }) => {
 
   const [error, setError] = useState();
   const { currentUser, logout } = useAuth();

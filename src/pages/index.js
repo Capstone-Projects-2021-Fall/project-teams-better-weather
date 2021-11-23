@@ -114,8 +114,14 @@ export default function Home() {
             location={location}
             onLocationSubmit={handleLocationSubmit}
           />
-          <CurrentWeather weather={weather} />
-          <HourlyWeather weather={hourly} />
+          <CurrentWeather 
+            temperature={weather.current?.temp}
+            misc={weather.current?.weather[0]}
+            address={weather.address}
+          />
+          <HourlyWeather 
+            hourly={hourly.hourly}
+          />
         </div>
       </div>
     </>

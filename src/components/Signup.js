@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
-import Navbar from "./Navbar";
 import firebase from "firebase/compat/app";
 import { ref, set } from "firebase/database";
 import { db } from "./Firebase";
@@ -50,9 +49,6 @@ export default function Signup() {
 
   return (
     <>
-      <div className="pages-bkg">
-        <Navbar />
-      </div>
       <Card className="d-flex align-items-center justify-content-center">
         <Card.Body>
           <h2 className="text-center mb-4">Sign Up</h2>

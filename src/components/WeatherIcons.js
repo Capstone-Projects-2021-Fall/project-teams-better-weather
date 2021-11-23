@@ -15,12 +15,10 @@ import fogN from "../icons/14.png";
 /**
  * Function that renders the weather icon
  * @component
- * @params props
+ * @param {string} icon - Name of icon
  * @returns {JSX.Element} JSX render of weather icon image
  */
-export default function WeatherIcons(props) {
-  const { icons } = props;
-
+export default function WeatherIcons({ icon }) {
   function setWeatherIcon(type) {
     switch (type) {
       case "01d":
@@ -60,7 +58,7 @@ export default function WeatherIcons(props) {
 
   return (
     <div>
-      <img src={setWeatherIcon(icons.icon)} height={181} width={230} alt="" />
+      <img src={setWeatherIcon(icon)} height={181} width={230} alt="" />
     </div>
   );
 }

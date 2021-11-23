@@ -11,11 +11,11 @@ import "../style/Menu.css";
 /**
  * Function that renders the sidebar Menu
  * @component
- * @params props
+ * @param {bool} user - Boolean of if a user is signed in
+ * @param {function} onLogout - Handles user logout
  * @returns {JSX.Element} JSX render of Menu
  */
-export default function Menu(props) {
-  const { user, onLogout } = props;
+export default function Menu({ user, onLogout }) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);
 

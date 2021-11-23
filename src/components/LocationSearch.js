@@ -7,10 +7,11 @@ import { set, ref } from "firebase/database";
 /**
  * Function that renders search bar for location
  * @component
- * @params props
+ * @param {string} location - User searched location
+ * @param {function} onLocationSubmit - Handles user's location submit
  * @returns {JSX.Element} JSX render of Location Search Bar
  */
-export default function LocationSearch(props) {
+export default function LocationSearch({ location, onLocationSubmit }) {
   const [userInput, setUserInput] = useState("");
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
 
@@ -22,7 +23,6 @@ export default function LocationSearch(props) {
     }
   });
 
-  // Function to save last location
   async function lastLocation(location) {
     var user = firebase.auth().currentUser;
     const locRef = ref(db, "/users/" + user.uid + "/LastLocation");
@@ -35,7 +35,7 @@ export default function LocationSearch(props) {
 
   function handleSubmit(e) {
     if (e.key === "Enter") {
-      props.onLocationSubmit(userInput);
+      onLocationSubmit(userInput);
       if (isUserSignedIn) {
         lastLocation(userInput);
       }

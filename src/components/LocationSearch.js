@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import "../style/Weather.css"; 
 import firebase from "firebase/compat/app";
-import { db } from "./Firebase.js";
+import { db } from "./Firebase";
 import { set, ref } from "firebase/database";
 
+/**
+ * Function that renders search bar for location
+ * @component
+ * @params props
+ * @returns {JSX.Element} JSX render of Location Search Bar
+ */
 export default function LocationSearch(props) {
   const [userInput, setUserInput] = useState("");
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);

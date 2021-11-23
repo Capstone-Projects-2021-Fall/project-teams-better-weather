@@ -1,4 +1,9 @@
-export default function CurrentDate(time) {
+/**
+ * Function for displaying the current date
+ * @component
+ * @returns {JSX.Element} JSX render of CurrentDate
+ */
+export default function CurrentDate() {
   var currDate = new Date();
   var days = [
     "Sunday",

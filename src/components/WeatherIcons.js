@@ -12,6 +12,12 @@ import snow from "../icons/23.png";
 import fogD from "../icons/4.png";
 import fogN from "../icons/14.png";
 
+/**
+ * Function that renders the weather icon
+ * @component
+ * @params props
+ * @returns {JSX.Element} JSX render of weather icon image
+ */
 export default function WeatherIcons(props) {
   const { icons } = props;
 

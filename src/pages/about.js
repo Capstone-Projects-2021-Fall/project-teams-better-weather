@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext.js";
+import { useAuth } from "../contexts/AuthContext";
 import firebase from "firebase/compat/app";
 import Navbar from "../components/Navbar";
 

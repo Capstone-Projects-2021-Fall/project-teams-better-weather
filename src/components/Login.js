@@ -4,6 +4,12 @@ import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
 import Navbar from "./Navbar";
 
+/**
+ * Function that renders login page
+ * @component
+ * @params props
+ * @returns {JSX.Element} JSX render of Login page
+ */
 export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();

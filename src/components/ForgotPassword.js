@@ -3,6 +3,11 @@ import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link } from "react-router-dom";
 
+/**
+ * Function for displaying the forgot password page
+ * @component
+ * @returns {JSX.Element} JSX render of ForgotPassword 
+ */
 export default function ForgotPassword() {
   const emailRef = useRef();
   const { resetPassword } = useAuth();

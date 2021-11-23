@@ -4,10 +4,16 @@ import * as AiIcons from "react-icons/ai";
 import * as FaIcons from "react-icons/fa";
 import { IconContext } from "react-icons";
 import { SideBarData } from "./SidebarData";
+import { NavLink, NavBtnLink } from "./Navbar/NavbarElements";
 import "../style/Menu.css";
 
-import { NavLink, NavBtnLink } from "./Navbar/NavbarElements.js";
 
+/**
+ * Function that renders the sidebar Menu
+ * @component
+ * @params props
+ * @returns {JSX.Element} JSX render of Menu
+ */
 export default function Menu(props) {
   const [sidebar, setSidebar] = useState(false);
   const showSidebar = () => setSidebar(!sidebar);

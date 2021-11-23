@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext.js";
+import { useAuth } from "../contexts/AuthContext";
 import firebase from "firebase/compat/app";
 import LocationSearch from "../components/LocationSearch";
-import CurrentWeather from "../components/CurrentWeather.js";
+import CurrentWeather from "../components/CurrentWeather";
 import HourlyWeather from "../components/HourlyWeather";
 import Navbar from "../components/Navbar";
 import "../style/Weather.css";
-import { db } from "../components/Firebase.js";
+import { db } from "../components/Firebase";
 import { ref, onValue } from "firebase/database";
 
 export default function Home() {

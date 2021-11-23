@@ -1,8 +1,14 @@
 import React from "react";
-import CurrentDate from "./CurrentDate.js";
-import WeatherIcons from "./WeatherIcons.js";
+import CurrentDate from "./CurrentDate";
+import WeatherIcons from "./WeatherIcons";
 import "../style/Weather.css";
 
+/**
+ * Function for displaying the current weather
+ * @component
+ * @params props
+ * @returns {JSX.Element} JSX render of CurrentWeather
+ */
 export default function CurrentWeather(props) {
   return (
     <div>

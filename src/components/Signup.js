@@ -9,6 +9,11 @@ import firebase from "firebase/compat/app";
 import { ref, set } from "firebase/database";
 import { db } from "./Firebase";
 
+/**
+ * Function that renders the sign up page
+ * @component
+ * @returns {JSX.Element} JSX render of the Signup page
+ */
 export default function Signup() {
   const emailRef = useRef();
   const passwordRef = useRef();

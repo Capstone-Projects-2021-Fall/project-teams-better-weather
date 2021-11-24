@@ -13,7 +13,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../../api/'))
-#sys.path.insert(0, os.path.abspath('../../prediction/api/'))
+sys.path.insert(0, os.path.abspath('../../prediction/api/'))
 
 
 # -- Project information -----------------------------------------------------

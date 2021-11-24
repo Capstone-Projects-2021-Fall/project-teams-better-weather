@@ -10,7 +10,8 @@ from gen_pred import get_historical, process
 from dotenv import load_dotenv 
 load_dotenv()
 
-model = keras.models.load_model("../weather.model")
+this_dir = os.path.dirname(__file__)
+model = keras.models.load_model(os.path.join(this_dir, "model"))
 print("**** MODEL LOADED ****")
 
 def upload_data(bucket, coord):

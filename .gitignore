@@ -6,6 +6,7 @@ notes
 .env
 /docs
 .cache
+build/
 
 # dependencies
 /node_modules

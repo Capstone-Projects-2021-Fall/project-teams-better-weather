@@ -45,6 +45,7 @@ def get_currently():
   ----------
   response : flask.wrappers.Response
     A response object containing JSON of current weather data (temperature, summary, etc)
+
     <Response 489 bytes [200 OK]>
   """
   location = request.args.get("location")
@@ -68,6 +69,7 @@ def get_hourly():
   ----------
   response : flask.wrappers.Response
     A response object containing JSON of hourly weather data (temperature, summary, etc)
+
     <Response 1489 bytes [200 OK]>
   """
   coord = request.args.get("coord").split(",")

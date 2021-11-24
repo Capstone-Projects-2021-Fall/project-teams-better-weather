@@ -19,8 +19,8 @@ def fetch_hourly(bucket, coord):
 
   Returns 
   ---------
-    hourly : json
-      A json list of 12 hours of weather data of coord
+  hourly : json
+    A json list of 12 hours of weather data of coord
   """
   client = boto3.client('s3')  
   key = f"{coord[0]},{coord[1]}.json"

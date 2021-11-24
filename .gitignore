@@ -6,7 +6,7 @@ notes
 .env
 .cache
 /jsdocs
-build/
+_build
 
 # dependencies
 /node_modules

@@ -64,11 +64,20 @@ export default function Home() {
       });
   }, [coord]);
 
+  /**
+   * Helper function to set location when user submits
+   * @function
+   * @param {string} location
+   */
   function handleLocationSubmit(location) {
     setLocation(location);
     console.log("Submitted location: ", location);
   }
 
+  /**
+   * Helper function to set the background color depending on time of day
+   * @function
+   */
   function background() {
     // this will be a component some day
     const str = new Date().toLocaleTimeString("en-GB", {
@@ -85,6 +94,10 @@ export default function Home() {
     }
   }
 
+  /**
+   * Helper function to handle user logouts
+   * @function
+   */
   async function handleLogout() {
     setError("");
     console.log(error, currentUser); // for now
@@ -96,6 +109,10 @@ export default function Home() {
     }
   }
 
+  /**
+   * Helper function to get user's most recent searched location from Firebase
+   * @function
+   */
   function getLastLocation() {
     var user = firebase.auth().currentUser;
     var uid = user.uid;

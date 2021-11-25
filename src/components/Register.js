@@ -7,11 +7,11 @@ import { ref, set } from "firebase/database";
 import { db } from "./Firebase";
 
 /**
- * Function that renders the sign up page
+ * Function that renders the sign up (register) page 
  * @component
- * @returns {JSX.Element} JSX render of the Signup page
+ * @returns {JSX.Element} JSX render of the Register page
  */
-export default function Signup() {
+export default function Register() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();

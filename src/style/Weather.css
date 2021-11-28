@@ -50,7 +50,7 @@ body {
 }
 
 .search-box {
-  width: 60%;
+  width: 90%; /* Mobile device size */
   margin: 0 auto;
   padding: 10px;
 }
@@ -83,7 +83,7 @@ body {
 
 .date {
   color: white;
-  font-size: 23px;
+  font-size: 15px; /* Mobile device size */
   font-weight: 300;
   font-style: italic;
   text-align: center;
@@ -94,6 +94,8 @@ body {
   text-align: center;
   font-size: 90px; /* Mobile device size */
   font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 100px;
   /*color: white;*/
   background: linear-gradient(
     #ffffff,
@@ -111,7 +113,12 @@ body {
 
 div.weather-icon-box {
   text-align: center;
-  margin-top: -65px;
+  margin-top: -30px;
+}
+
+.icon-type {
+  height: 105px;
+  width: 130px;
 }
 
 .location-box {
@@ -160,7 +167,7 @@ div.weather-icon-box {
 .weatherHours {
   display: flex;
   justify-content: space-evenly;
-  gap: 30px;
+  gap: 60px;
 }
 
 .weather-box-hourly .weatherHours .hour-num,
@@ -169,19 +176,30 @@ div.weather-icon-box {
   margin: 1.5px 0;
 }
 
-.icon-type {
-  height: 181px;
-  width: 230px;
-}
-
 @media only screen and (min-width: 768px) {
   /* For tablets: */
+  .search-box {
+    width: 80%;
+  }
+  .date {
+    font-size: 18px;
+  }
+
   .currTemp {
     font-size: 100px;
   }
 
   .location-box .location {
     font-size: 25px;
+  }
+
+  div.weather-icon-box {
+    margin-top: -25px;
+  }
+
+  .icon-type {
+    height: 125px;
+    width: 150px;
   }
 
   .carousel-scroll {
@@ -198,11 +216,20 @@ div.weather-icon-box {
   .weather-box-hourly .weatherHours .temp-num,
   .weather-box-hourly .weatherHours .weather-sum {
     margin: 4px 0;
+    font-size: 20px;
   }
 }
 
 @media only screen and (min-width: 1025px) {
   /* For desktop: */
+  .search-box {
+    width: 60%;
+  }
+
+  .date {
+    font-size: 23px;
+  }
+
   .currTemp {
     font-size: 110px;
   }
@@ -211,20 +238,31 @@ div.weather-icon-box {
     font-size: 27px;
   }
 
+  div.weather-icon-box {
+    text-align: center;
+    margin-top: -25px;
+  }
+
+  .icon-type {
+    height: 140px;
+    width: 160px;
+  }
+
   .carousel-scroll {
-    width: 60%;
+    width: 65%;
   }
 
   .weatherHours {
     display: flex;
     justify-content: space-evenly;
-    gap: 60px;
+    gap: 90px;
   }
 
   .weather-box-hourly .weatherHours .hour-num,
   .weather-box-hourly .weatherHours .temp-num,
   .weather-box-hourly .weatherHours .weather-sum {
     margin: 12px 0;
+    font-size: 24px;
   }
 }
 

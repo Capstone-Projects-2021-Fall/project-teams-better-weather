@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext.js';
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
 import firebase from "firebase/compat/app";
-import Navbar from '../components/Navbar';
+import Navbar from "../components/Navbar";
 
-function About(){
-  const [error, setError] = useState()
-  const { currentUser, logout } = useAuth()
-  const history = useHistory()
+/**
+ * Function that renders the about page
+ * @component
+ * @returns {JSX.Element} JSX render of About page
+ */
+export default function About() {
+  const [error, setError] = useState();
+  const { currentUser, logout } = useAuth();
+  const history = useHistory();
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
@@ -15,28 +20,24 @@ function About(){
     } else {
       setIsUserSignedIn(false);
     }
-  })
+  });
 
   async function handleLogout() {
-    setError('')
+    setError("");
     console.log(error, currentUser); // for now
     try {
-      await logout()
-      history.push("/")
+      await logout();
+      history.push("/");
     } catch {
-      setError('Failed to log out')
+      setError("Failed to log out");
     }
   }
   return (
     <>
       <div className="pages-bkg">
-        <Navbar 
-            user={isUserSignedIn}
-            onLogout={handleLogout}/>
+        <Navbar user={isUserSignedIn} onLogout={handleLogout} />
       </div>
       <h1>About</h1>
     </>
-  )
+  );
 }
-
-export default About;

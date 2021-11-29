@@ -2,34 +2,52 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import firebase from "firebase/compat/app";
+import { ref, set } from "firebase/database";
+import { db } from "./Firebase";
 
 /**
- * Function that renders login page
+ * Function that renders the sign up (register) page 
  * @component
- * @returns {JSX.Element} JSX render of Login page
+ * @returns {JSX.Element} JSX render of the Register page
  */
-export default function Login() {
+export default function Register() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { login } = useAuth();
+  const passwordConfirmRef = useRef();
+  const { signup } = useAuth();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
+  // Adds user to location database (realtime Firebase)
+  function addUserDB(email, password) {
+    var user = firebase.auth().currentUser;
+    set(ref(db, "/users/" + user.uid), {
+      Email: email,
+      Password: password,
+      LastLocation: "New York",
+    });
+  }
+
   /**
-   * Helper function to handle user submit on login
+   * Helper function to handle user submit on signup
    * @function
    * @param {event} e
    */
   async function handleSubmit(e) {
     e.preventDefault();
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setError("Passwords do not match");
+    }
     try {
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
+      await signup(emailRef.current.value, passwordRef.current.value);
+      addUserDB(emailRef.current.value, passwordRef.current.value);
       history.push("/");
     } catch (error) {
-      setError("Failed to log in");
+      setError("Failed to create an account");
     }
     setLoading(false);
   }
@@ -38,7 +56,7 @@ export default function Login() {
     <>
       <Card className="d-flex align-items-center justify-content-center">
         <Card.Body>
-          <h2 className="text-center mb-4">Log In</h2>
+          <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
@@ -49,17 +67,18 @@ export default function Login() {
               <Form.Label>Password</Form.Label>
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
+            <Form.Group id="password-confirm">
+              <Form.Label>Password Confirmation</Form.Label>
+              <Form.Control type="password" ref={passwordConfirmRef} required />
+            </Form.Group>
             <Button disabled={loading} className="w-100" type="submit">
-              Log In
+              Sign Up
             </Button>
           </Form>
-          <div className="w-100 text-center mt-3">
-            <Link to="/forgot-password">Forgot Password?</Link>
-          </div>
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        Need an account? <Link to="/sign-up">Sign Up</Link>
+        Already have an account? <Link to="/sign-in">Log In</Link>
         <br></br>
         <Link to="/">Go back to main page</Link>
       </div>

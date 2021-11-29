@@ -14,9 +14,6 @@ Modern weather reports are made every morning by sending up a weather balloon in
   - Navigation bar is integrated with application's background color.
   - Login functionality is integrated into the NavBar.
 
-
-
-
 ## Set up environment
 ```
 # Create virtual environment

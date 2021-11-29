@@ -12,7 +12,7 @@ export default function HourlyWeather({ hourly }) {
   const { data } = hourly;
   return (
     <div className="carousel-scroll">
-      <h6> Hourly Forecast </h6>
+      <h3 className="hourly-title"> Hourly Forecast </h3>
       <div className="scrollHours">
         {data.map((d) => (
           <Hour 

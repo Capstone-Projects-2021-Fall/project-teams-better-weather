@@ -10,11 +10,12 @@ import "../style/Weather.css";
 export default function Hour({ data }) {
   return (
     <div className="weather-box-hourly">
-      <div className="tempHours">
-        <div className="weatherHours">{data.time + 1} hour later</div>
-        {Math.round(data.temperature)}°F
-        <div className="weatherHours">{data.summary}</div>
+      <div className="weatherHours">
+        <div className="hour-num">{data.time + 1} hour later</div>
+        <div className="temp-num">{Math.round(data.temperature)}°F</div>
+        <div className="weather-sum">{data.summary}</div>
       </div>
+      <hr />
     </div>
   );
 }

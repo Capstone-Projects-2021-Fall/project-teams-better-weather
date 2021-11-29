@@ -63,7 +63,7 @@ export default function WeatherIcons({ icon }) {
 
   return (
     <div>
-      <img src={setWeatherIcon(icon)} height={181} width={230} alt="" />
-    </div>
+      <img src={setWeatherIcon(icon)} className="icon-type" alt=''/>
+    </div>   
   );
 }

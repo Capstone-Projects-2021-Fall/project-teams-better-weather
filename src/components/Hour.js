@@ -4,15 +4,12 @@ import '../style/Weather.css';
 function Hour(props) {
   return (
     <div className="weather-box-hourly" >              
-      <div className="tempHours" >
-        <div className="weatherHours">
-          {props.data.time+1} hour later
-        </div>                  
-        {Math.round(props.data.temperature)}°F
-        <div className="weatherHours">
-          {props.data.summary}
-        </div>                 
-      </div>
+      <div className="weatherHours">
+        <div className="hour-num">Hour {props.data.time+1}</div>
+        <div className="temp-num">{Math.round(props.data.temperature)}°F</div>
+        <div className="weather-sum">{props.data.summary}</div>
+      </div>  
+      <hr />              
     </div>
   );
 }

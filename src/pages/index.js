@@ -5,6 +5,7 @@ import firebase from "firebase/compat/app";
 import LocationSearch from "../components/LocationSearch";
 import CurrentWeather from "../components/CurrentWeather";
 import HourlyWeather from "../components/HourlyWeather";
+import AuxiliaryWeather from "../components/Auxiliary";
 import Navbar from "../components/Navbar";
 import "../style/Weather.css";
 import { db } from "../components/Firebase";
@@ -126,6 +127,7 @@ export default function Home() {
       }
     );
   }
+console.log(weather.current.windGust)
 
   return (
     <>
@@ -143,6 +145,12 @@ export default function Home() {
           />
           <HourlyWeather 
             hourly={hourly.hourly}
+          />
+          <AuxiliaryWeather
+            humidity = {weather.current?.humidity}
+            windGust = {weather.current?.wind_gust}
+            windSpeed = {weather.current?.wind_speed}
+            pressure = {weather.current?.pressure}
           />
         </div>
       </div>

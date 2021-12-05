@@ -14,5 +14,11 @@ jobs:
         run: | 
           yarn install
           yarn build
-          echo ${{ secrets.KEY }} > private.key
-          scp -i "private.key" -r build/* ${{ secrets.USER }}@${{ secrets.HOST }}:/var/www/bw/build
+      - name: copy build via ssh key
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          source: "build/*"
+          target: "/var/www/bw/build"

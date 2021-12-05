@@ -1,29 +1,37 @@
-import React from 'react';
-import CurrentDate from './CurrentDate.js';
-import WeatherIcons from './WeatherIcons.js';
-import '../style/Weather.css';
+import React from "react";
+import CurrentDate from "./CurrentDate";
+import WeatherIcons from "./WeatherIcons";
+import "../style/Weather.css";
 
-function CurrentWeather(props) {
+/**
+ * Function for displaying the current weather
+ * @component
+ * @param {number} temperature - Current weather temperature 
+ * @param {object} misc - Extra information about current weather
+ * @param {string} address - Current location
+ * @returns {JSX.Element} JSX render of CurrentWeather
+ */
+export default function CurrentWeather({ temperature, misc, address }) {
   return (
     <div>
-      {(typeof props.weather.current != "undefined") ? (
+      {typeof temperature != "undefined" ? (
         <div>
           <div className="date">
             <CurrentDate />
-          </div> 
+          </div>
           <div className="currTemp">
-            {Math.round((props.weather.current.temp) * (9/5) + 32) }°F
+            {Math.round(temperature * (9 / 5) + 32)}°F
           </div>
           <div className="weather-icon-box">
-            <WeatherIcons icons={props.weather.current?.weather[0]} />
+            <WeatherIcons icon={misc.icon} />
           </div>
           <div className="location-box">
-            <div className="location">{props.weather.address}</div>
+            <div className="location">{address}</div>
           </div>
         </div>
-      ) : ('')}
+      ) : (
+        ""
+      )}
     </div>
   );
 }
-
-export default CurrentWeather;

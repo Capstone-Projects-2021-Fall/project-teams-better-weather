@@ -1,15 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
-import Home from './pages/';
-import Settings from './pages/settings';
-import About from './pages/about';
-import Login from "./components/Login"
-import Signup from "./components/Signup";
-import ForgotPassword from './components/ForgotPassword'
-import './style/Weather.css';
+import Home from "./pages/";
+import Settings from "./pages/settings";
+import About from "./pages/about";
+import Login from "./pages/signin";
+import SignUp from "./pages/signup";
+import ForgotPassword from "./components/ForgotPassword";
+import "./style/Weather.css";
 
-function App() {
+export default function App() {
   return (
     <div>
       <Router>
@@ -18,7 +18,7 @@ function App() {
             <Route path="/" exact component={Home} />
             <Route path="/about" exact component={About} />
             <Route path="/settings" exact component={Settings} />
-            <Route path="/sign-up" exact component={Signup} />
+            <Route path="/sign-up" exact component={SignUp} />
             <Route path="/sign-in" exact component={Login} />
             <Route path="/forgot-password" component={ForgotPassword} />
           </Switch>
@@ -27,5 +27,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

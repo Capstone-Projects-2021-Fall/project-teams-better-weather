@@ -6,6 +6,8 @@ import Menu from "../Menu";
 import LoginLinks from "../LoginLinks";
 import { Nav, NavLink, NavMenu } from "./NavbarElements";
 
+//The full top navbar 
+
 const Navbar = ({ user, onLogout }) => {
 
   const [error, setError] = useState();
@@ -38,7 +40,6 @@ const Navbar = ({ user, onLogout }) => {
         <NavLink to="/">
           <h1>Better Weather</h1>
         </NavLink>
-        <Menu user={isUserSignedIn} onLogout={handleLogout} />
         <NavMenu>
           <NavLink to="/about" activeStyle>
             About
@@ -52,6 +53,7 @@ const Navbar = ({ user, onLogout }) => {
           />
         </NavMenu>
       </Nav>
+      <Menu classname='bottom-navbar' user={isUserSignedIn} onLogout={handleLogout} />
     </>
   );
 };

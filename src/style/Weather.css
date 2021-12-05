@@ -176,7 +176,7 @@ div.weather-icon-box {
   margin: 1.5px 0;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 767px) {
   /* For tablets: */
   .search-box {
     width: 80%;

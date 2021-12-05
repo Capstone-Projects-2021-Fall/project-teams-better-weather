@@ -127,7 +127,6 @@ export default function Home() {
       }
     );
   }
-console.log(weather.current.windGust)
 
   return (
     <>
@@ -148,7 +147,6 @@ console.log(weather.current.windGust)
           />
           <AuxiliaryWeather
             humidity = {weather.current?.humidity}
-            windGust = {weather.current?.wind_gust}
             windSpeed = {weather.current?.wind_speed}
             pressure = {weather.current?.pressure}
           />

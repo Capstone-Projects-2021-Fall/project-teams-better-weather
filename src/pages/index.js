@@ -5,7 +5,7 @@ import firebase from "firebase/compat/app";
 import LocationSearch from "../components/LocationSearch";
 import CurrentWeather from "../components/CurrentWeather";
 import HourlyWeather from "../components/HourlyWeather";
-import AuxiliaryWeather from "../components/Auxiliary";
+import AuxiliaryWeather from "../components/AuxiliaryWeather";
 import Navbar from "../components/Navbar";
 import "../style/Weather.css";
 import { db } from "../components/Firebase";

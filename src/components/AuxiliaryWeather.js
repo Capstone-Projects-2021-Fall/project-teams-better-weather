@@ -11,7 +11,6 @@ import "../style/Weather.css";
  * @returns {JSX.Element} JSX render of AuxiliaryWeather
  */
 export default function AuxiliaryWeather({ humidity, windGust, windSpeed, pressure }) {
-  console.log("yo", typeof humidity);
   return (
     <div className="carousel-scroll">
       <h3 className="hourly-title">Auxiliary Weather Conditions</h3>

@@ -1,22 +1,23 @@
 import React from "react";
-
 import "../style/Auxiliary.css";
+import "../style/Weather.css";
 
 /**
- * Function that renders a list of Hour components
+ * Function for displaying auxiliary attribute
  * @component
- * @param {object} hourly - List of 12 hours of weather information (temperature, summary, etc)
- * @returns {JSX.Element} JSX render of Hourly Weather
+ * @param {number} attribute
+ * @param {string} unit
+ * @param {number} value
+ * @returns {JSX.Element} JSX render of Auxiliary
  */
- export default function AuxiliaryWeather({humidity, windSpeed, pressure}) {
-    return (
-      <>
-        <h3 className="aux-title">Auxiliary Weather Conditions</h3>
-        <div className="auxOverview">
-          <div className='aux-box'> Humidity: {humidity}%</div>
-            <div className='aux-box'> Wind Speed: {windSpeed}</div>
-            <div className='aux-box'> Pressure: {pressure} </div>
-        </div>
-      </>
-    );
-  }
+export default function Auxiliary({ attribute, unit, value }) {
+  return (
+    <>
+      <div className="aux-box">
+        <div className="weather-sum">{attribute}</div>
+        <div className="temp-num">{value}{unit}</div>
+      </div>
+      <hr />
+    </>
+  );
+}

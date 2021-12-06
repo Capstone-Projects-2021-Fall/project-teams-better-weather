@@ -10,6 +10,7 @@ import "../style/Weather.css";
  */
 export default function HourlyWeather({ hourly }) {
   const { data } = hourly;
+  console.log(data);
   return (
     <div className="carousel-scroll">
       <h3 className="hourly-title"> Hourly Forecast </h3>

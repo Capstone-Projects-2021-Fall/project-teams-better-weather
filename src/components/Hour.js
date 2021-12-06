@@ -7,11 +7,13 @@ import "../style/Weather.css";
  * @param {object} data - Weather data of particular hour (time, temperature, summary)
  * @returns {JSX.Element} JSX render of Hour
  */
-export default function Hour({ data }) {
+export default function Hour({ data, time}) {
   return (
     <div className="weather-box-hourly">
       <div className="weatherHours">
-        <div className="hour-num">{data.time + 1} hour later</div>
+        <div className="hour-num">
+          {time + 1}:00
+        </div>
         <div className="temp-num">{Math.round(data.temperature)}°F</div>
         <div className="weather-sum">{data.summary}</div>
       </div>

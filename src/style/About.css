@@ -19,14 +19,16 @@ body {
   }
   
   .card {
+    text-align: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 8px;
+    color: black;
   }
   
   .about-section {
     padding: 50px;
     text-align: center;
-    background-color: black;
+    background-color: transparent;
     color: white;
   }
   
@@ -35,6 +37,7 @@ body {
   }
   
   .container::after, .row::after {
+    background-color: transparent;
     content: "";
     clear: both;
     display: table;
@@ -45,15 +48,14 @@ body {
   }
   
   .button {
-    border: none;
     outline: 0;
     display: inline-block;
     padding: 8px;
     color: white;
-    background-color: #000;
+    background-color: #256ce1;
     text-align: center;
     cursor: pointer;
-    width: 100%;
+    width: 20%;
   }
   
   .button:hover {

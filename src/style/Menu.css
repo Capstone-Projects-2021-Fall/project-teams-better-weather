@@ -137,6 +137,32 @@ span {
   margin-left: 16px;
 }
 
+/*.bottom-navbar{
+  background-color: #09196150;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: -2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 20px 20px 0 0;
+
+  display: table;
+  margin: 0 auto;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 99; /* so the navbar is on top of everything 
+}
+
+ul.bottom-navbar{
+  min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+}
+
+ul.nav-menu-items li{
+  display: inline;
+}*/
+
 /*Pages*/
 .pages-bkg {
   background-color: #ada1d2;

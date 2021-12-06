@@ -6,6 +6,8 @@ import Menu from "../Menu";
 import LoginLinks from "../LoginLinks";
 import { Nav, NavLink, NavMenu } from "./NavbarElements";
 
+//The full top navbar 
+
 const Navbar = ({ user, onLogout }) => {
 
   const [error, setError] = useState();
@@ -42,9 +44,6 @@ const Navbar = ({ user, onLogout }) => {
         <NavMenu>
           <NavLink to="/about" activeStyle>
             About
-          </NavLink>
-          <NavLink to="/settings" activeStyle>
-            Settings
           </NavLink>
           <LoginLinks
             user={user}

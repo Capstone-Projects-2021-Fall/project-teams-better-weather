@@ -54,3 +54,11 @@ export default function Menu({ user, onLogout }) {
     </>
   );
 }
+
+/* KEEP UNTIL LATER
+        <div className="navbar">
+          <Link to="#" className="menu-bars">
+            <FaIcons.FaBars onClick={showSidebar} />
+          </Link>
+        </div>
+*/

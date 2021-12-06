@@ -2,12 +2,8 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import firebase from "firebase/compat/app";
-
-import Navbar from '../components/Navbar';
-import '../style/About.css';
-
-
-
+import Navbar from "../components/Navbar";
+import "../style/About.css";
 
 /**
  * Function that renders the about page
@@ -37,85 +33,44 @@ export default function About() {
       setError("Failed to log out");
     }
   }
+
   return (
     <>
-      <div className="pages-bkg">
-        <Navbar user={isUserSignedIn} onLogout={handleLogout} />
+      <div className={"night"}>
+        <div className="main">
+          <Navbar user={isUserSignedIn} onLogout={handleLogout} />
+          <div class="about-section">
+            <h1><u>About Us</u></h1>
+            <p>
+              Better Weather aims to change the weather prediction process. The
+              goal of Better Weather is to be able to predict short term weather
+              with as good or better accuracy than the current numerical models
+              that are widely used. With years of historical data received from
+              the National Oceanic and Atmospheric Administration we have
+              created a Machine Learning algorithm that hopes to replace
+              numerical models.
+            </p>
+          </div>
+          <p style={{ textAlign: "center" }}>
+            <a
+              href=" https://github.com/Capstone-Projects-2021-Fall/project-teams-better-weather"
+              class="button"
+            >
+              Github
+            </a>
+          </p>
+          <div class="about-section">
+            <h1><u>Our Team</u></h1>
+            <div class="container">
+              <h3>Gannon Traynor</h3>
+              <h3>Eriksiano Kapaj</h3>
+              <h3>David Cho</h3>
+              <h3>Jiayi Yi</h3>
+              <h3>William Morris</h3>
+            </div>
+          </div>
+        </div>
       </div>
-     
-      <div class="about-section">
-  <h1>About Us Page</h1>
-  <p>Some text about who we are and what we do.</p>
-  <p>Resize the browser window to see that this page is responsive by the way.</p>
-</div>
-
-<h2 style={{textAlign:'center'}}>Our Team</h2>
-<div class="row">
-  <div class="column">
-    <div class="card">
-      
-      <div class="container">
-        <h2>Jane Doe</h2>
-        <p class="title">CEO & Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>jane@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-   
-      <div class="container">
-        <h2>Mike Ross</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>mike@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      
-      <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>john@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      
-      <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>john@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card">
-      
-      <div class="container">
-        <h2>John Doe</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>john@example.com</p>
-        <p><button class="button">Contact</button></p>
-      </div>
-    </div>
-  </div>
-</div>
     </>
   );
 }

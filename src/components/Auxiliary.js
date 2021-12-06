@@ -1,4 +1,5 @@
 import React from "react";
+import "../style/Auxiliary.css";
 import "../style/Weather.css";
 
 /**
@@ -11,12 +12,12 @@ import "../style/Weather.css";
  */
 export default function Auxiliary({ attribute, unit, value }) {
   return (
-    <div className="weather-box-hourly">
-      <div className="weatherHours">
+    <>
+      <div className="aux-box">
         <div className="weather-sum">{attribute}</div>
         <div className="temp-num">{value}{unit}</div>
       </div>
       <hr />
-    </div>
+    </>
   );
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import Auxiliary from "./Auxiliary";
 import "../style/Weather.css";
 
 /**
@@ -16,10 +17,10 @@ export default function AuxiliaryWeather({ humidity, windGust, windSpeed, pressu
       <h3 className="hourly-title">Auxiliary Weather Conditions</h3>
       <div className="scrollHours">
         <div>
-          <div> Humidity: {humidity} </div>
-          <div> Wind Gust: {windGust} </div>
-          <div> Wind Speed: {windSpeed} </div>
-          <div> Pressure: {pressure} </div>
+          <Auxiliary attribute="Humidity" value={humidity} />
+          <Auxiliary attribute="Wind Gust" value={windGust} />
+          <Auxiliary attribute="Wind Speed" value={windSpeed} />
+          <Auxiliary attribute="Pressure" value={pressure} />
         </div>
       </div>
     </div>

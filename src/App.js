@@ -7,6 +7,7 @@ import About from './pages/about';
 import Login from "./components/Login"
 import Signup from "./components/Signup";
 import ForgotPassword from './components/ForgotPassword'
+import AddLocation from './components/AddLocation'
 import './style/Weather.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/sign-up" exact component={Signup} />
             <Route path="/sign-in" exact component={Login} />
             <Route path="/forgot-password" component={ForgotPassword} />
+            <Route path="/addlocation" component={AddLocation} />
           </Switch>
         </AuthProvider>
       </Router>

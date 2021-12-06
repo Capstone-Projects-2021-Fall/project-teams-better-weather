@@ -16,6 +16,9 @@ const Navbar = (props) => {
       <NavLink to="/" onClick={onLogout}>
         Sign out
       </NavLink>
+      <NavLink to="../AddLocation">
+        Add Location
+      </NavLink>
     </div>
   } else {
     LoginLinks = <div className="LoginLinks">

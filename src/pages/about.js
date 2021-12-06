@@ -52,7 +52,7 @@ export default function About() {
           <div class="card">
             <div class="container">
               <h3>Gannon Traynor</h3>
-              <h3>Eriksiano</h3>
+              <h3>Eriksiano Kapaj</h3>
               <h3>David Cho</h3>
               <h3>Jiayi Yi</h3>
               <h3>William Morris</h3>

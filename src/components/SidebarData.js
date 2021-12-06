@@ -4,19 +4,13 @@ import * as IoIcons from "react-icons/io";
 
 export const SideBarData = [
   {
-    title: "",
-    path: "/",
-    icon: <AiIcons.AiFillHome />,
-    cName: "nav-text",
-  },
-  {
-    title: "",
+    title: "About",
     path: "/about",
     icon: <AiIcons.AiFillInfoCircle />,
     cName: "nav-text",
   },
   {
-    title: "",
+    title: "Settings",
     path: "/settings",
     icon: <IoIcons.IoMdSettings />,
     cName: "nav-text",

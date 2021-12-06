@@ -1,3 +1,23 @@
+/*Whole section where hamburger menu is at*/
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5px;
+}
+
+/*Hamburger menu*/
+.menu-bars {
+  margin-right: 1rem;
+  font-size: 2rem;
+
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
 /*The pull out menu*/
 .nav-menu {
   /*background-color: #ffffff10;
@@ -28,14 +48,18 @@
 }
 
 @media only screen and (min-width: 769px) {
-  /* For desktop*/
-  .bottom-navbar {
+  /* For desktop: */
+  .menu-bars,
+  .nav-menu {
     display: none;
   }
 }
 
-/*
 .nav-text {
+  justify-content: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 8px 0px 8px 16px;
   list-style: none;
   height: 60px;
 }
@@ -44,16 +68,18 @@
   text-decoration: none;
   color: whitesmoke;
   font-size: 18px;
+  width: 95%;
   height: 100%;
-  display: inline;
+  display: flex;
   align-items: center;
   padding: 0 16px;
   border-radius: 4px;
 }
 
 .nav-text a:hover {
-  color: black;
-}*/
+  background-color: rgba(255, 255, 255, 0.2);
+  color: whitesmoke;
+}
 
 .sign-in-btn {
   justify-content: flex;
@@ -94,6 +120,10 @@
   margin-top: 10px;
 }
 
+.nav-menu-items {
+  width: 100%;
+}
+
 .navbar-toggle {
   background-color: none;
   width: 100%;
@@ -107,7 +137,7 @@ span {
   margin-left: 16px;
 }
 
-.bottom-navbar{
+/*.bottom-navbar{
   background-color: #09196150;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -120,7 +150,7 @@ span {
   position: fixed;
   bottom: 0;
   width: 100%;
-  z-index: 99; /* so the navbar is on top of everything */
+  z-index: 99; /* so the navbar is on top of everything 
 }
 
 ul.bottom-navbar{
@@ -131,7 +161,7 @@ ul.bottom-navbar{
 
 ul.nav-menu-items li{
   display: inline;
-}
+}*/
 
 /*Pages*/
 .pages-bkg {

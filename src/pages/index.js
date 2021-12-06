@@ -128,6 +128,13 @@ export default function Home() {
     );
   }
 
+  let timeRead = new Date().toLocaleTimeString("en-GB", {
+      timeZone: weather.timezone,
+    });
+
+  let intTime = parseInt(timeRead.substring(0, 2));
+  //console.log("Weather info", parseInt(timeRead.substring(0, 2)));
+
   return (
     <>
       <div className={background()}>
@@ -144,6 +151,7 @@ export default function Home() {
           />
           <HourlyWeather 
             hourly={hourly.hourly}
+            timeFrame={intTime}
           />
           <AuxiliaryWeather
             humidity={weather.current?.humidity}

@@ -162,7 +162,6 @@ div.weather-icon-box {
 .weatherHours {
   display: flex;
   justify-content: space-evenly;
-  gap: 60px;
 }
 
 .weather-box-hourly .weatherHours .hour-num,

@@ -7,15 +7,11 @@ import { ref, set, push, onValue } from "firebase/database";
 import "../style/Weather.css";
 
 export default function AddLocation() {
-  const [savedLocations, setSavedLocations] = useState({
-    data: [1, 1],
-  });
+  const [savedLocations, setSavedLocations] = useState([]);
   const [userInput, setUserInput] = useState("");
-  /*
-  var locations = {
+  var saved_locations = {
     data: [],
   };
-  */
 
   function handleInputChange(e) {
     setUserInput(e.target.value);
@@ -27,25 +23,17 @@ export default function AddLocation() {
     }
   }
 
-  /*
-  useEffect(() => {
-    console.log("save this", locations);
-    setSavedLocations(locations);
-    console.log("internal", savedLocations);
-  }, [locations]);
-  */
-
-  // This works
   function addLocation(location) {
     var user = firebase.auth().currentUser;
     const listRef = ref(db, "/users/" + user.uid + "/Locations");
     const newListRef = push(listRef);
     set(newListRef, location);
 
-    console.log("add location success");
     const locations = getLocations()
-    console.log("in the coop", locations.data);
-    setSavedLocations(locations.data);
+    saved_locations = locations;
+    console.log("bootleg", saved_locations);
+    //console.log("in the coop", locations.data);
+    setSavedLocations(saved_locations.data);
     console.log("save pls", savedLocations);
   }
 
@@ -78,42 +66,27 @@ export default function AddLocation() {
       }
     );
     return locations;
-
-    /*
-    return (
-      <div>
-        <p>hello</p>
-        {locations.map((loc) => (
-          <p>{loc}</p>
-        ))}
-      </div>
-    );
-    */
   }
-
-  /*
-  function display() {
-    return (
-      {locations.map((d) => (
-        <p>{d}<p>
-      ))}
-    );
-  }
-  */
-
-
 
   return (
     <>
       <div className="main">
-        <input
-          type="text"
-          className="search-bar"
-          placeholder="Search location"
-          value={userInput}
-          onChange={handleInputChange} 
-          onKeyPress={handleSubmit}
-        />
+        <div className="search-box">
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="Search location to save"
+            value={userInput}
+            onChange={handleInputChange} 
+            onKeyPress={handleSubmit}
+          />
+        </div>
+        
+        {console.log(saved_locations.data)}
+        {saved_locations.data.map((d) => (
+          <p>hello {d}</p>
+        ))}
+
         <div className="w-100 text-center mt-2">
           <br></br>
           <Link to="/">Go back to main page</Link>

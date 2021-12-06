@@ -2,13 +2,16 @@ import React from "react";
 import "../style/Weather.css";
 
 /**
- * Function that renders a list of Hour components
+ * Function that renders a list of auxiliary attributes of current weather
  * @component
- * @param {object} hourly - List of 12 hours of weather information (temperature, summary, etc)
- * @returns {JSX.Element} JSX render of Hourly Weather
+ * @param {number} humidity 
+ * @param {number} windGust 
+ * @param {number} windSpeed 
+ * @param {number} pressure 
+ * @returns {JSX.Element} JSX render of AuxiliaryWeather
  */
 export default function AuxiliaryWeather({ humidity, windGust, windSpeed, pressure }) {
-  console.log("windGust", windGust);
+  console.log("yo", typeof humidity);
   return (
     <div className="carousel-scroll">
       <h3 className="hourly-title">Auxiliary Weather Conditions</h3>

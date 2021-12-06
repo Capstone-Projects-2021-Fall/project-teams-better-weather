@@ -7,6 +7,9 @@ export default function LoginLinks(props) {
   if (user) {
     LoginLinks = (
       <div className="LoginLinks">
+        <NavLink className="sign-up" to="/add-location" activeStyle>
+          Add Location 
+        </NavLink>
         <NavBtnLink to="/" onClick={onLogout}>
           Sign out
         </NavBtnLink>

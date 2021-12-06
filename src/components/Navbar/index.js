@@ -45,9 +45,6 @@ const Navbar = ({ user, onLogout }) => {
           <NavLink to="/settings" activeStyle>
             Settings
           </NavLink>
-          <NavLink to="/add-location" activeStyle>
-            Add Location 
-          </NavLink>
           <LoginLinks
             user={user}
             onLogout={onLogout}

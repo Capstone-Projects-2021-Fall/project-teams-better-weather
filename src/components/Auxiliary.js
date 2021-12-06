@@ -2,10 +2,12 @@ import React from "react";
 import "../style/Weather.css";
 
 /**
- * Function for displaying weather information at a particular hour
+ * Function for displaying auxiliary attribute
  * @component
- * @param {object} data - Weather data of particular hour (time, temperature, summary)
- * @returns {JSX.Element} JSX render of Hour
+ * @param {number} attribute
+ * @param {string} unit
+ * @param {number} value
+ * @returns {JSX.Element} JSX render of Auxiliary
  */
 export default function Auxiliary({ attribute, unit, value }) {
   return (

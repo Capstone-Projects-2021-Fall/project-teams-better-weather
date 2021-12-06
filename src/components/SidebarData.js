@@ -9,12 +9,6 @@ export const SideBarData = [
     icon: <AiIcons.AiFillInfoCircle />,
     cName: "nav-text",
   },
-  {
-    title: "Settings",
-    path: "/settings",
-    icon: <IoIcons.IoMdSettings />,
-    cName: "nav-text",
-  },
 ];
 
 /**

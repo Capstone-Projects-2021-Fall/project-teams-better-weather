@@ -33,23 +33,34 @@ export default function About() {
       setError("Failed to log out");
     }
   }
+
   return (
     <>
-      <div className="pages-bkg">
-        <Navbar user={isUserSignedIn} onLogout={handleLogout} />
-      </div>
-
-      <div class="about-section">
-        <h1>About Us </h1>
-        <p>The Better Weather web application aims to change the weather prediction process. The goal of Better Weather is to be able to predict short term weather with as good or better accuracy than the current numerical models that are widely used. With years of historical data received from the National Oceanic and Atmospheric Administration we have created a Machine Learning algorithm that hopes to replace meteorologists.</p> 
-      </div>
-      <p>
-        <a href=" https://github.com/Capstone-Projects-2021-Fall/project-teams-better-weather" class="button">Github</a>
-      </p>
-      <h2 style={{ textAlign: "center" }}>Our Team</h2>
-      <div class="row">
-        <div class="column">
-          <div class="card">
+      <div className={"night"}>
+        <div className="main">
+          <Navbar user={isUserSignedIn} onLogout={handleLogout} />
+          <div class="about-section">
+            <h1><u>About Us</u></h1>
+            <p>
+              Better Weather aims to change the weather prediction process. The
+              goal of Better Weather is to be able to predict short term weather
+              with as good or better accuracy than the current numerical models
+              that are widely used. With years of historical data received from
+              the National Oceanic and Atmospheric Administration we have
+              created a Machine Learning algorithm that hopes to replace
+              numerical models.
+            </p>
+          </div>
+          <p style={{ textAlign: "center" }}>
+            <a
+              href=" https://github.com/Capstone-Projects-2021-Fall/project-teams-better-weather"
+              class="button"
+            >
+              Github
+            </a>
+          </p>
+          <div class="about-section">
+            <h1><u>Our Team</u></h1>
             <div class="container">
               <h3>Gannon Traynor</h3>
               <h3>Eriksiano Kapaj</h3>

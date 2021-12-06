@@ -8,7 +8,7 @@ import { ref, set, push, onValue } from "firebase/database";
 export default function AddLocation() {
   const addLocRef = useRef();
 
-  //This works
+  // This works
   function addLocation(location) {
     location.preventDefault();
     var user = firebase.auth().currentUser;
@@ -18,8 +18,8 @@ export default function AddLocation() {
     window.location.reload();
   }
 
-  //code to get locations in array, but does not display properly :(
-  //chould be in own component
+  // code to get locations in array, but does not display properly :(
+  // should be in own component
   function display() {
     var user = firebase.auth().currentUser;
     var uid = user.uid;

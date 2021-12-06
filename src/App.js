@@ -22,7 +22,7 @@ export default function App() {
             <Route path="/sign-up" exact component={SignUp} />
             <Route path="/sign-in" exact component={Login} />
             <Route path="/forgot-password" component={ForgotPassword} />
-            <Route path="/addlocation" component={AddLocation} />
+            <Route path="/add-location" component={AddLocation} />
           </Switch>
         </AuthProvider>
       </Router>

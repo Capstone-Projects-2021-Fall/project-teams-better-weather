@@ -33,11 +33,12 @@ export default function Menu({ user, onLogout }) {
                 </li>
               );
             })}
-            <LoginLinks
+            
+          </ul>
+          <LoginLinks
               user={user} 
               onLogout={onLogout}
             />
-          </ul>
       </IconContext.Provider>
     </div>
   );

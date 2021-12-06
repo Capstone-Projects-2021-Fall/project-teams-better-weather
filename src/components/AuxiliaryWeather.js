@@ -17,10 +17,10 @@ export default function AuxiliaryWeather({ humidity, windGust, windSpeed, pressu
       <h3 className="hourly-title">Auxiliary Weather Conditions</h3>
       <div className="scrollHours">
         <div>
-          <Auxiliary attribute="Humidity" value={humidity} />
-          <Auxiliary attribute="Wind Gust" value={windGust} />
-          <Auxiliary attribute="Wind Speed" value={windSpeed} />
-          <Auxiliary attribute="Pressure" value={pressure} />
+          <Auxiliary attribute="Humidity" unit="%" value={humidity} />
+          <Auxiliary attribute="Wind Gust" unit="m/s" value={windGust} />
+          <Auxiliary attribute="Wind Speed" unit="m/s" value={windSpeed} />
+          <Auxiliary attribute="Pressure" unit="hPa" value={pressure} />
         </div>
       </div>
     </div>

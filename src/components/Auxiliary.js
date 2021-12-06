@@ -11,7 +11,7 @@ import "../style/Auxiliary.css";
  export default function AuxiliaryWeather({humidity, windSpeed, pressure}) {
     return (
       <>
-        <h3 className="hourly-title">Auxiliary Weather Conditions</h3>
+        <h3 className="aux-title">Auxiliary Weather Conditions</h3>
         <div className="auxOverview">
           <div className='aux-box'> Humidity: {humidity}%</div>
             <div className='aux-box'> Wind Speed: {windSpeed}</div>

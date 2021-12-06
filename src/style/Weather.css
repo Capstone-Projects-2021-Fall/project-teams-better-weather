@@ -137,7 +137,7 @@ div.weather-icon-box {
   /*The numHours and weather deets*/
   color: white;
   font-size: 15px;
-  font-weight: 70;
+  font-weight: 500;
   text-shadow: 1.5px 1.5px rgba(25, 25, 70, 0.8);
 }
 
@@ -151,17 +151,14 @@ div.weather-icon-box {
 
   color: white;
   box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+
+  width: 90%; /* For mobile phones: */
 }
 
 .carousel-scroll .hourly-title {
   text-align: center;
   margin-bottom: 25px;
   text-decoration: underline;
-}
-
-/* For mobile phones: */
-.carousel-scroll {
-  width: 90%;
 }
 
 .weatherHours {

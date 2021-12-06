@@ -6,7 +6,7 @@ h3.aux-title {
 }
 
 div.auxOverview{
-    /*The outer box of the Auxiliary stuff*/
+  /*The outer box of the Auxiliary stuff*/
   margin: 0 auto;
   margin-bottom: 40px;
   width: 50%;
@@ -24,9 +24,12 @@ div.aux-box{
     padding: 30px 20px;
  
     color: white;
+    font-size: 15px;
+    font-weight: 500;
+    text-shadow: 1.5px 1.5px rgba(25, 25, 70, 0.8);
     box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
 
-    flex-grow: 2;
+    flex-grow: 2;   
 }
 
 

@@ -134,6 +134,7 @@ export default function Home() {
 
   let intTime = parseInt(timeRead.substring(0, 2));
   //console.log("Weather info", parseInt(timeRead.substring(0, 2)));
+  console.log(weather.current.wind_gust)
 
   return (
     <>
@@ -156,6 +157,7 @@ export default function Home() {
           <AuxiliaryWeather
             humidity = {weather.current?.humidity}
             windSpeed = {weather.current?.wind_speed}
+            windGust = {weather.current?.wind_gust}
             pressure = {weather.current?.pressure}
           />
         </div>

@@ -1,43 +1,101 @@
 import os
 import json
-import random
 import requests
 import boto3
 from botocore.exceptions import ClientError
+from dotenv import load_dotenv
+load_dotenv()
 
-def fetch_data(bucket, coord):
+def fetch_hourly(bucket, coord):
   """
   Fetch hourly weather data from S3
+
+  Parameters
+  ---------
+  bucket : string
+    The name of the S3 bucket
+  coord : tuple
+    A tuple of longitude and latitude (lon, lat)
+
+  Returns 
+  ---------
+  hourly : json
+    A json list of 12 hours of weather data of coord
   """
   client = boto3.client('s3')  
   key = f"{coord[0]},{coord[1]}.json"
   if check_exists(client, bucket, key):
     response = client.get_object(Bucket=bucket, Key=key)
   else:
-    upload_data(bucket, coord) 
+    resp = call_prediction(coord)
+    if resp.status_code != 200: 
+      return None # there should be error msg 
     response = client.get_object(Bucket=bucket, Key=key)
   ret = response["Body"].read().decode()
   return json.loads(ret)
 
 def check_exists(client, bucket, key):
+  """
+  Returns if key exists in bucket
+
+  Parameters
+  ---------
+  client : s3.client
+    boto3 s3 client class
+  bucket : string
+    The name of the S3 bucket
+  key : string
+    The name of the key (filename)
+
+  Returns
+  ---------
+  exists : boolean 
+    A boolean of if the key exists in given bucket
+  """
   try: 
     client.head_object(Bucket=bucket, Key=key)
   except ClientError as e:
     return int(e.response['Error']['Code']) != 404
   return True
 
-def upload_data(bucket, coord):
+def call_prediction(coord):
   """
-  Upload prediction from model to S3
+  Call model to make a prediction
+  
+  Parameters
+  ---------
+  coord : tuple
+    A tuple of longitude and latitude (lon, lat)
+
+  Returns 
+  ---------
+  r : Response object
+    A response from the prediction server. 
+
+    Status code: 200 for success. 503 for failure.
   """
-  client = boto3.client('s3')  
-  key = f"{coord[0]},{coord[1]}.json"
-  out = get_prediction(coord)
-  client.put_object(Body=out, Bucket=bucket, Key=key)
+  lon, lat = coord
+  url = f"https://pred.betterweather.xyz/preds/?coord={lon},{lat}"
+  r = requests.get(url)
+  return r
 
 def geocode(location):
   """
   Convert user location search into geographic coordinates
+
+  Parameters
+  ---------
+  location : string 
+    the name of location
+
+  Returns
+  ---------
+  coord : tuple 
+    A tuple of coordinates (lon, lat)
+  address : string
+    The name of the location 
+  None
+    If no results, then None
   """
   url = "https://maps.googleapis.com/maps/api/geocode/json"
   api_key = os.environ["GOOGLE_API_KEY"]
@@ -47,14 +105,24 @@ def geocode(location):
     results = r.json()["results"][0]
     coord = results["geometry"]["location"]
     address = results["formatted_address"]
-    return coord["lng"], coord["lat"], address
+    return (coord["lng"], coord["lat"]), address
   return None, None, None
 
 def fetch_currently(location):
   """
   Fetch current weather data from Open Weather API 
+
+  Parameters
+  ---------
+  location : string 
+    The name of location
+
+  Returns
+  ---------
+  ret : json
+    A json of current weather data (temperature, summary, etc)
   """
-  lon, lat, address = geocode(location) 
+  (lon, lat), address = geocode(location) 
   url = "https://api.openweathermap.org/data/2.5/onecall"
   api_key = os.environ["OWM_API_KEY"]
   params = {"lat": f"{lat}", "lon": f"{lon}", "exclude": "hourly,minutely,daily,alerts", "units": "metric", "appid": f"{api_key}"}
@@ -69,9 +137,21 @@ def fetch_currently(location):
 
 def fetch_forecast(bucket, location):
   """
-  In progress..
+  Fetch current and hourly weather data (unified call).
+
+  Parameters
+  ---------
+  bucket : string
+    The name of the S3 bucket
+  location : string 
+    The name of location
+
+  Returns 
+  ---------
+  data : json
+    A json of current and hourly weather data (temperature, summary, etc)
   """
-  lon, lat = geocode(location) 
+  (lon, lat), address = geocode(location) 
   url = "https://api.openweathermap.org/data/2.5/onecall"
   api_key = os.environ["OWM_API_KEY"]
   params = {"lat": f"{lat}", "lon": f"{lon}", "exclude": "hourly,minutely,daily,alerts", "appid": f"{api_key}"}
@@ -83,26 +163,3 @@ def fetch_forecast(bucket, location):
   print(data)
   #print(r.json()["current"])
   return data
-
-def get_prediction(coord):
-  """
-  Randomly generated predictions for now
-  """
-  data = {}    
-  data["lon"], data["lat"] = coord
-  summaries = ["cloudy", "mostly cloudy", "partly cloudy", "clear", "rain", "humid"]
-  data["hourly"] = {}
-  hours = []
-  for i in range(12):
-    x = {}
-    x["time"] = i 
-    x["summary"] = summaries[random.randint(0, len(summaries)-1)]
-    x["precipIntensity"] = round(random.uniform(0, 1), 2)
-    x["precipProbability"] = round(random.uniform(0, 1), 2)
-    x["temperature"] = round(random.uniform(0, 100), 2)
-    x["humidity"] = round(random.uniform(0, 1), 2)
-    hours.append(x)
-  data["hourly"]["data"] = hours
-  return json.dumps(data) 
-
-

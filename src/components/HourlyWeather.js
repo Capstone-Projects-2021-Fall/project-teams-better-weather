@@ -1,17 +1,26 @@
-import React from 'react';
-import Hour from './Hour.js';
-import '../style/Weather.css';
+import React from "react";
+import Hour from "./Hour";
+import "../style/Weather.css";
 
-function HourlyWeather(props) {
-  const data = props.weather["hourly"]["data"];
+/**
+ * Function that renders a list of Hour components
+ * @component
+ * @param {object} hourly - List of 12 hours of weather information (temperature, summary, etc)
+ * @returns {JSX.Element} JSX render of Hourly Weather
+ */
+export default function HourlyWeather({ hourly }) {
+  const { data } = hourly;
   return (
     <div className="carousel-scroll">
+      <h3 className="hourly-title"> Hourly Forecast </h3>
       <div className="scrollHours">
-        {data.map((d) => <Hour key={d.temperature} data={d} />)}
+        {data.map((d) => (
+          <Hour 
+            key={d.time} 
+            data={d} 
+          />
+        ))}
       </div>
     </div>
-      
   );
 }
-
-export default HourlyWeather;

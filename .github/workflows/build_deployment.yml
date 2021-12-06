@@ -14,11 +14,11 @@ jobs:
         run: | 
           yarn install
           yarn build
-      - name: deploy-via-scp 
-        uses: horochx/deploy-via-scp@1.1.0
+      - name: copy build via ssh key
+        uses: appleboy/scp-action@master
         with:
-          local: build/*
-          remote: /var/www/bw/build
           host: ${{ secrets.HOST }}
-          user: ${{ secrets.USER }} 
+          username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
+          source: "build/*"
+          target: "/var/www/bw/build"

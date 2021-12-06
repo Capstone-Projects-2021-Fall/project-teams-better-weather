@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { Form, Button } from 'react-bootstrap'
 import { Link } from "react-router-dom"
 import firebase from 'firebase/compat/app'
-import {db} from './Firebase'
+import { db } from './Firebase'
 import { ref, set, push, onValue} from "firebase/database"
 
 export default function AddLocation(){

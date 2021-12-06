@@ -4,6 +4,10 @@ notes
 *.swp
 *.swo
 .env
+.cache
+/jsdocs
+_build
+.ipynb_checkpoints
 
 # dependencies
 /node_modules

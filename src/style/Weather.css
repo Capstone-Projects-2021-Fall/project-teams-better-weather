@@ -5,6 +5,7 @@
 }
 
 body {
+  overflow: overlay;
   font-family: "Roboto Mono", monospace;
 }
 
@@ -47,8 +48,9 @@ body {
 }
 
 .search-box {
-  width: 60%;
+  width: 90%; /* Mobile device size */
   margin: 0 auto;
+  padding: 10px;
 }
 
 .search-box .search-bar {
@@ -79,7 +81,7 @@ body {
 
 .date {
   color: white;
-  font-size: 23px;
+  font-size: 15px; /* Mobile device size */
   font-weight: 300;
   font-style: italic;
   text-align: center;
@@ -88,8 +90,10 @@ body {
 
 .currTemp {
   text-align: center;
-  font-size: 130px;
+  font-size: 90px; /* Mobile device size */
   font-weight: 900;
+  letter-spacing: -3px;
+  line-height: 100px;
   /*color: white;*/
   background: linear-gradient(
     #ffffff,
@@ -107,12 +111,12 @@ body {
 
 div.weather-icon-box {
   text-align: center;
-  margin-top: -75px;
+  margin-top: -30px;
 }
 
-img.icons {
-  display: block;
-  margin: 0 auto;
+.icon-type {
+  height: 105px;
+  width: 130px;
 }
 
 .location-box {
@@ -121,51 +125,18 @@ img.icons {
 
 .location-box .location {
   color: white;
-  font-size: 35px;
+  font-size: 20px; /*size on mobile device*/
   font-weight: 500;
   text-align: center;
-  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+  text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
 }
 
-.scrollHours {
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-}
-
-.scrollHours::-webkit-scrollbar {
-  display: none;
-}
-
-.weather-box-hourly {
-  display: inline-block;
-  margin: 5px;
-}
-
-.weather-box-hourly .tempHours {
-  /*Each of the hour temp boxes*/
-  margin: 10px auto;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-
-  padding: 15px 10px;
-
-  color: white;
-  font-size: 33px;
-  font-weight: 90;
-
-  text-shadow: 2px 3px rgba(50, 50, 70, 0.5);
-  text-align: center;
-  box-shadow: 3px 4px rgba(0, 0, 0, 0.2);
-}
-
-.tempHours .weatherHours {
+.weather-box-hourly .weatherHours {
   /*The numHours and weather deets*/
-  text-align: center;
   color: white;
   font-size: 15px;
   font-weight: 70;
-  text-shadow: 1.5px 1.5px rgba(50, 50, 70, 0.8);
+  text-shadow: 1.5px 1.5px rgba(25, 25, 70, 0.8);
 }
 
 .carousel-scroll {
@@ -176,26 +147,120 @@ img.icons {
 
   padding: 10px 15px;
 
-  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
-  text-align: center;
+  color: white;
   box-shadow: 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-scroll .hourly-title {
+  text-align: center;
+  margin-bottom: 25px;
+  text-decoration: underline;
 }
 
 /* For mobile phones: */
 .carousel-scroll {
-  width: 93%;
+  width: 90%;
 }
 
-@media only screen and (min-width: 600px) {
+.weatherHours {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 60px;
+}
+
+.weather-box-hourly .weatherHours .hour-num,
+.weather-box-hourly .weatherHours .temp-num,
+.weather-box-hourly .weatherHours .weather-sum {
+  margin: 1.5px 0;
+}
+
+@media only screen and (min-width: 768px) {
   /* For tablets: */
+  .search-box {
+    width: 80%;
+  }
+  .date {
+    font-size: 18px;
+  }
+
+  .currTemp {
+    font-size: 100px;
+  }
+
+  .location-box .location {
+    font-size: 25px;
+  }
+
+  div.weather-icon-box {
+    margin-top: -25px;
+  }
+
+  .icon-type {
+    height: 125px;
+    width: 150px;
+  }
+
   .carousel-scroll {
-    width: 88%;
+    width: 75%;
+  }
+
+  .weatherHours {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 28px;
+  }
+
+  .weather-box-hourly .weatherHours .hour-num,
+  .weather-box-hourly .weatherHours .temp-num,
+  .weather-box-hourly .weatherHours .weather-sum {
+    margin: 4px 0;
+    font-size: 20px;
   }
 }
-@media only screen and (min-width: 768px) {
+
+@media only screen and (min-width: 1025px) {
   /* For desktop: */
-  .carousel-scroll {
+  .search-box {
     width: 60%;
+  }
+
+  .date {
+    font-size: 23px;
+  }
+
+  .currTemp {
+    font-size: 110px;
+  }
+
+  .location-box .location {
+    font-size: 27px;
+  }
+
+  div.weather-icon-box {
+    text-align: center;
+    margin-top: -25px;
+  }
+
+  .icon-type {
+    height: 140px;
+    width: 160px;
+  }
+
+  .carousel-scroll {
+    width: 65%;
+  }
+
+  .weatherHours {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 90px;
+  }
+
+  .weather-box-hourly .weatherHours .hour-num,
+  .weather-box-hourly .weatherHours .temp-num,
+  .weather-box-hourly .weatherHours .weather-sum {
+    margin: 12px 0;
+    font-size: 24px;
   }
 }
 
@@ -210,7 +275,6 @@ img.icons {
   font-size: 3rem;
 }
 
-.LoginLinks{
-  display:flex;
+.LoginLinks {
+  display: flex;
 }
-

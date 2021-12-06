@@ -1,23 +1,31 @@
-import React from 'react';
-import sun from '../icons/26.png';
-import clearNight from '../icons/10.png';
-import fewCloudsD from '../icons/27.png';
-import fewCloudsN from '../icons/15.png';
-import cloud from '../icons/35.png';
-import showerRain from '../icons/7.png';
-import rainD from '../icons/8.png';
-import rainN from '../icons/1.png';
-import thunderstorm from '../icons/12.png';
-import snow from '../icons/23.png';
-import fogD from '../icons/4.png';
-import fogN from '../icons/14.png';
+import React from "react";
+import sun from "../icons/26.png";
+import clearNight from "../icons/10.png";
+import fewCloudsD from "../icons/27.png";
+import fewCloudsN from "../icons/15.png";
+import cloud from "../icons/35.png";
+import showerRain from "../icons/7.png";
+import rainD from "../icons/8.png";
+import rainN from "../icons/1.png";
+import thunderstorm from "../icons/12.png";
+import snow from "../icons/23.png";
+import fogD from "../icons/4.png";
+import fogN from "../icons/14.png";
 
-
-function WeatherIcons(props){
-  const {icons} = props;
-
-  function setWeatherIcon(type){
-    switch(type){
+/**
+ * Function that renders the weather icon
+ * @component
+ * @param {string} icon - Name of icon
+ * @returns {JSX.Element} JSX render of weather icon image
+ */
+export default function WeatherIcons({ icon }) {
+  /**
+   * Helper function to set icon image
+   * @function
+   * @param {string} type - Name of icon
+   */
+  function setWeatherIcon(type) {
+    switch (type) {
       case "01d":
         return sun;
       case "01n":
@@ -52,12 +60,10 @@ function WeatherIcons(props){
         return null;
     }
   }
- 
-  return(
+
+  return (
     <div>
-      <img src={setWeatherIcon(icons.icon)} height={181} width={230} alt=''/>
+      <img src={setWeatherIcon(icon)} className="icon-type" alt=''/>
     </div>   
   );
 }
-
-export default WeatherIcons;

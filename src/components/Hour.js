@@ -11,9 +11,7 @@ export default function Hour({ data, time}) {
   return (
     <div className="weather-box-hourly">
       <div className="weatherHours">
-        <div className="hour-num">
-          {time + 1}:00
-        </div>
+        <div className="hour-num">{time + 1}:00</div>
         <div className="temp-num">{Math.round(data.temperature)}°F</div>
         <div className="weather-sum">{data.summary}</div>
       </div>
@@ -21,9 +19,3 @@ export default function Hour({ data, time}) {
     </div>
   );
 }
-
-/* to be implemented later
-<div className="hourlyIcons">
-  <WeatherIcons icons={props.data.summary} />
-</div> 
-*/

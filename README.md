@@ -7,8 +7,8 @@ Better Weather aims to improve on the weather prediction process. The goal of Be
 ### New Features
 * Docstrings for React and Flask API 
   * Auto-generate API reference with JSDoc and Sphinx, respectively
-* Jupyter notebook clean up for readablility
-* Auxilary attributes (humidity, wind speed, etc) for current weather
+* Jupyter notebook clean up for readability 
+* Auxiliary attributes (humidity, wind speed, etc) for current weather
 * About page
 * UI Improvements:
   * Vertical scroll for hourly weather
@@ -18,7 +18,7 @@ Better Weather aims to improve on the weather prediction process. The goal of Be
 ### Known bugs
   * Redundant Firebase authentication in many components
   * Timestamp formatting issues
-  * Empty wind gust auxilary attribute sometimes
+  * Empty wind gust auxiliary attribute sometimes
   * Font sync issue between `yarn start` and `build`
   * Github action `build_deployment` deploys a white page, `scp -r` works locally though
 
@@ -49,7 +49,7 @@ deactivate
 cat api/deploy/bw-flask.service > /etc/systemd/system/bw-flask.service
 ./api/reload_flask.sh
 
-cat deploy/api_nginx /etc/nginx/sites-available/default
+cat api/deploy/api_nginx /etc/nginx/sites-available/default
 sudo systemctl reload nginx
 ```
 ### Prediction Server API 
@@ -57,7 +57,7 @@ sudo systemctl reload nginx
 cat api/deploy/bw-pred.service > /etc/systemd/system/bw-pred.service
 ./prediction/api/reload.sh
 
-cat deploy/predapi_nginx /etc/nginx/sites-available/default
+cat api/deploy/predapi_nginx /etc/nginx/sites-available/default
 sudo systemctl reload nginx
 
 crontab -e

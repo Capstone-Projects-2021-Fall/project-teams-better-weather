@@ -16,9 +16,10 @@ Better Weather aims to improve on the weather prediction process. The goal of Be
   * Hourly timestamps
 
 ### Known bugs
-  * Redundant Firebase authenication in many components
+  * Redundant Firebase authentication in many components
   * Timestamp formatting issues
   * Empty wind gust auxilary attribute sometimes
+  * Font sync issue between `yarn start` and `build`
   * Github action `build_deployment` deploys a white page, `scp -r` works locally though
 
 Find previous release notes in [releases tab](https://github.com/Capstone-Projects-2021-Fall/project-teams-better-weather/releases).

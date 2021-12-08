@@ -14,6 +14,7 @@ The prediction algorithm will be created off of the following attributes:
 The weather temperature will be the main predicted outcome, but we will be predicting each attribute of the weather. 
 
 ## Data Sets
+NOAA ISD: https://www.ncei.noaa.gov/data/global-hourly/archive/isd/
 [Philadelphia](https://www.wunderground.com/history/daily/KPHL/date/2016-9-30) : 9/30/2016 - one day hourly   
 [Philadelphia](https://www.wunderground.com/history/daily/KPHL/date/2017-9-30) : 9/30/2017 - one day hourly  
 [Philadelphia](https://www.wunderground.com/history/daily/KPHL/date/2016-9-30) : 9/30/2018 - one day hourly   
@@ -25,4 +26,4 @@ Philadelphia, San Fransisco, Los Angeles, and Austin : 01/01/2010 - 12/31/2010 -
 *If money were no option, this is the best source of data available: [Metromatics](https://www.meteomatics.com/en/)*
 
 ## ConvLSTM
-https://www.sciencedirect.com/science/article/pii/S2666827020300074?via%3Dihub#fig6
+https://www.sciencedirect.com/science/article/pii/S2666827020300074

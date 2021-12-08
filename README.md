@@ -23,6 +23,7 @@ Better Weather aims to improve on the weather prediction process. The goal of Be
 ## Build and deploy
 ### React
 ```
+git clone https://github.com/Capstone-Projects-2021-Fall/project-teams-better-weather.git bw
 yarn run build 
 mv build/ /var/www/bw/
 
@@ -57,6 +58,14 @@ sudo systemctl reload nginx
 
 crontab -e
 01 * * * * /home/ubuntu/bw/prediction/api/venv/bin/python3 /home/ubuntu/bw/prediction/api/hourly_forecast.py
+```
+### Other
+```
+# AWS credentials
+vi ~/.aws/credentials
+
+# Firebase config
+vi .env.local
 ```
 
 ## Start development

@@ -3,8 +3,8 @@ Better Weather aims to improve on the weather prediction process. The goal of Be
 
 **We are live at** https://betterweather.xyz/
 
-# v0.4 Release Notes 
-## New Features
+## v0.4 Release Notes 
+### New Features
 * Docstrings for React and Flask API 
   * Auto-generate API reference with JSDoc and Sphinx, respectively
 * Jupyter notebook clean up for readablility
@@ -15,20 +15,22 @@ Better Weather aims to improve on the weather prediction process. The goal of Be
   * Scaling component sizes for mobile
   * Hourly timestamps
 
-## Known bugs
-  * bug
+### Known bugs
+  * Redundant Firebase authenication in many components
+  * Timestamp formatting issues
+  * Empty wind gust auxilary attribute sometimes
 
-# Build and deploy
-## React
+## Build and deploy
+### React
 ```
-npm run build 
+yarn run build 
 mv build/ /var/www/bw/
 
 cat api/deploy/react_nginx > /etc/nginx/sites-available/default
 sudo systemctl start nginx
 sudo systemctl reload nginx
 ```
-## BetterWeather API
+### BetterWeather API
 ```
 # Create virtual environment
 cd api 
@@ -45,7 +47,7 @@ cat api/deploy/bw-flask.service > /etc/systemd/system/bw-flask.service
 cat deploy/api_nginx /etc/nginx/sites-available/default
 sudo systemctl reload nginx
 ```
-## Prediction Server API 
+### Prediction Server API 
 ```
 cat api/deploy/bw-pred.service > /etc/systemd/system/bw-pred.service
 ./prediction/api/reload.sh
@@ -57,15 +59,11 @@ crontab -e
 01 * * * * /home/ubuntu/bw/prediction/api/venv/bin/python3 /home/ubuntu/bw/prediction/api/hourly_forecast.py
 ```
 
-# Development
-## Set up environment
+## Start development
 ```
 # Install node modules
 yarn install
-```
 
-## Start development
-```
 # Start react app
 yarn start
 ```

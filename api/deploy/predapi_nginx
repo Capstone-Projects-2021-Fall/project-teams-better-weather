@@ -1,0 +1,31 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+	server_name pred.betterweather.xyz;
+
+	if ($host = pred.betterweather.xyz) {
+		return 301 https://$host$request_uri;
+	} # managed by Certbot
+	return 404; # managed by Certbot
+}
+server {
+	listen [::]:443 ssl ipv6only=on; # managed by Certbot
+	listen 443 ssl; # managed by Certbot
+	server_name pred.betterweather.xyz;
+
+	ssl_certificate /etc/letsencrypt/live/pred.betterweather.xyz/fullchain.pem; # managed by Certbot
+	ssl_certificate_key /etc/letsencrypt/live/pred.betterweather.xyz/privkey.pem; # managed by Certbot
+	include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+	ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+	location / {
+		include proxy_params;
+		proxy_pass http://localhost:5000;
+		proxy_headers_hash_max_size 512;
+		proxy_headers_hash_bucket_size 128;
+		proxy_redirect off;
+		proxy_set_header Host $host; 
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	}
+}

@@ -20,6 +20,8 @@ Better Weather aims to improve on the weather prediction process. The goal of Be
   * Timestamp formatting issues
   * Empty wind gust auxilary attribute sometimes
 
+Find previous release notes in [releases tab](https://github.com/Capstone-Projects-2021-Fall/project-teams-better-weather/releases).
+
 ## Build and deploy
 ### React
 ```

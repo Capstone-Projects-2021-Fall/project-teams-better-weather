@@ -15,6 +15,7 @@ The weather temperature will be the main predicted outcome, but we will be predi
 
 ## Data Sets
 NOAA ISD: https://www.ncei.noaa.gov/data/global-hourly/archive/isd/
+
 [Philadelphia](https://www.wunderground.com/history/daily/KPHL/date/2016-9-30) : 9/30/2016 - one day hourly   
 [Philadelphia](https://www.wunderground.com/history/daily/KPHL/date/2017-9-30) : 9/30/2017 - one day hourly  
 [Philadelphia](https://www.wunderground.com/history/daily/KPHL/date/2016-9-30) : 9/30/2018 - one day hourly   

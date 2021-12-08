@@ -19,6 +19,7 @@ Better Weather aims to improve on the weather prediction process. The goal of Be
   * Redundant Firebase authenication in many components
   * Timestamp formatting issues
   * Empty wind gust auxilary attribute sometimes
+  * Github action `build_deployment` deploys a white page, `scp -r` works locally though
 
 Find previous release notes in [releases tab](https://github.com/Capstone-Projects-2021-Fall/project-teams-better-weather/releases).
 
